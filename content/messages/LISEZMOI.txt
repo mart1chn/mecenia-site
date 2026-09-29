@@ -1,0 +1,3 @@
+Ce dossier contient les messages reçus via les formulaires du site (contact et adhésion).
+Ils apparaissent dans la console /admin, collection « Messages reçus ».
+Attention : ce sont des données personnelles. Le dépôt GitHub doit rester PRIVÉ.

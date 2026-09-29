@@ -29,3 +29,30 @@ collections:
       - { label: "Image de couverture", name: "image", widget: "image", required: false, choose_url: false, hint: "Format paysage conseillé (16/9). Facultatif." }
       - { label: "Brouillon (non publié)", name: "draft", widget: "boolean", default: false, hint: "Cochez pour enregistrer sans publier sur le site." }
       - { label: "Contenu", name: "body", widget: "markdown" }
+
+  - name: messages
+    label: Messages reçus
+    label_singular: Message
+    folder: content/messages
+    create: false
+    delete: true
+    extension: md
+    format: frontmatter
+    summary: "{{status}} · {{title}} · {{date}}"
+    sortable_fields: ["date", "status", "title"]
+    view_filters:
+      - { label: "Nouveaux", field: "status", pattern: "nouveau" }
+      - { label: "Lus", field: "status", pattern: "lu" }
+      - { label: "Traités", field: "status", pattern: "traité" }
+    fields:
+      - { label: "Statut", name: "status", widget: "select", options: ["nouveau", "lu", "traité"], default: "nouveau" }
+      - { label: "Objet", name: "title", widget: "string" }
+      - { label: "Formulaire", name: "form", widget: "string", required: false }
+      - { label: "Reçu le", name: "date", widget: "string" }
+      - { label: "Nom", name: "name", widget: "string", required: false }
+      - { label: "E-mail", name: "email", widget: "string", required: false }
+      - { label: "Téléphone", name: "phone", widget: "string", required: false }
+      - { label: "Organisation", name: "organisation", widget: "string", required: false }
+      - { label: "Fonction", name: "role", widget: "string", required: false }
+      - { label: "Type ou sujet", name: "type", widget: "string", required: false }
+      - { label: "Message", name: "body", widget: "text", required: false }
