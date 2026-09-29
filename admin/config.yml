@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: mart1chn/mecenia-site
+  branch: main
+
+locale: fr
+site_url: https://www.mecenia.org
+display_url: https://www.mecenia.org
+logo_url: https://www.mecenia.org/assets/img/logo-mecenia.jpg
+
+media_folder: assets/img/blog
+public_folder: /assets/img/blog
+
+collections:
+  - name: blog
+    label: Articles du blog
+    label_singular: Article
+    folder: content/blog
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} ({{date}})"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Résumé", name: "description", widget: "text", hint: "1 à 2 phrases, affichées sur la liste des articles et dans Google (moins de 160 caractères)." }
+      - { label: "Image de couverture", name: "image", widget: "image", required: false, choose_url: false, hint: "Format paysage conseillé (16/9). Facultatif." }
+      - { label: "Brouillon (non publié)", name: "draft", widget: "boolean", default: false, hint: "Cochez pour enregistrer sans publier sur le site." }
+      - { label: "Contenu", name: "body", widget: "markdown" }
