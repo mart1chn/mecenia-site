@@ -22,7 +22,11 @@ details.plus-item .plus-inner{padding:0 4px 26px;color:var(--gray);animation:mec
 .bg-dark summary.plus-btn .ico::before,.bg-dark summary.plus-btn .ico::after,.bg-grad summary.plus-btn .ico::before,.bg-grad summary.plus-btn .ico::after{background:#D9A67F}
 .bg-dark details.plus-item[open] .ico,.bg-grad details.plus-item[open] .ico{background:#D9A67F}
 .bg-dark details.plus-item[open] .ico::before,.bg-dark details.plus-item[open] .ico::after,.bg-grad details.plus-item[open] .ico::before,.bg-grad details.plus-item[open] .ico::after{background:#2E2114}
+/* Contraste : texte clair pour les panneaux dépliés sur les fonds brun et dégradé. */
+.bg-dark details.plus-item .plus-inner,.bg-grad details.plus-item .plus-inner{color:#F5EFE6}
+.bg-dark details.plus-item .plus-inner strong,.bg-grad details.plus-item .plus-inner strong{color:#FFFFFF}
 </style>`;
+const JS = `<script id="mecenia-native-exclusive">(function(){document.querySelectorAll('details.plus-item').forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;var group=item.closest('[data-accordion]');if(!group)return;group.querySelectorAll('details.plus-item[open]').forEach(function(other){if(other!==item)other.open=false})})})})();</script>`;
 /* Markup attendu après scripts/enhance.js : plus-item > bouton + panneau > plus-inner. */
 const PANEL = /<div class="plus-item">\s*<button class="plus-btn" type="button" aria-expanded="false">([\s\S]*?)<\/button>\s*<div class="plus-panel"><div><div class="plus-inner">([\s\S]*?)<\/div><\/div><\/div><\/div>/g;
 let count = 0;
@@ -30,6 +34,7 @@ function processFile(file) {
   let h = fs.readFileSync(file, 'utf8'), before = h;
   h = h.replace(PANEL, (m, heading, body) => { count++; return '<details class="plus-item"><summary class="plus-btn">' + heading + '</summary><div class="plus-inner">' + body + '</div></details>'; });
   if (h.includes('<details class="plus-item">') && !h.includes('mecenia-native-accordion')) h = h.replace('</head>', CSS + '\n</head>');
+  if (h.includes('<details class="plus-item">') && !h.includes('mecenia-native-exclusive')) h = h.replace('</body>', JS + '\n</body>');
   if (h !== before) fs.writeFileSync(file, h);
 }
 function walk(dir) { for (const e of fs.readdirSync(dir, {withFileTypes:true})) { const p=path.join(dir,e.name); if(e.isDirectory()){if(e.name!=='admin')walk(p)} else if(e.name.endsWith('.html'))processFile(p); } }
