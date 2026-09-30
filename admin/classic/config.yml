@@ -3,41 +3,18 @@ backend:
   repo: mart1chn/mecenia-site
   branch: main
 
-app_title: Mecenia · Espace d’administration
-logo:
-  src: /assets/img/mecenia-icon.png
-  show_in_header: true
-
+locale: fr
 site_url: https://www.mecenia.org
 display_url: https://www.mecenia.org
+logo_url: https://www.mecenia.org/assets/img/logo-mecenia.jpg
 
-media_folder: /assets/img/blog
+media_folder: assets/img/blog
 public_folder: /assets/img/blog
-
-media_libraries:
-  default:
-    config:
-      slugify_filename: true
-      max_file_size: 26214400
-      transformations:
-        raster_image:
-          format: webp
-          quality: 85
-          width: 2000
-          height: 2000
-        svg:
-          optimize: true
-
-output:
-  omit_empty_optional_fields: true
-  yaml:
-    quote: double
 
 collections:
   - name: blog
     label: Articles du blog
     label_singular: Article
-    icon: article
     folder: content/blog
     create: true
     extension: md
@@ -49,14 +26,13 @@ collections:
       - { label: "Titre", name: "title", widget: "string" }
       - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Résumé", name: "description", widget: "text", hint: "1 à 2 phrases, affichées sur la liste des articles et dans Google (moins de 160 caractères)." }
-      - { label: "Image de couverture", name: "image", widget: "image", required: false, hint: "Format paysage conseillé (16/9). Facultatif. Les images sont automatiquement allégées (WebP)." }
+      - { label: "Image de couverture", name: "image", widget: "image", required: false, choose_url: false, hint: "Format paysage conseillé (16/9). Facultatif." }
       - { label: "Brouillon (non publié)", name: "draft", widget: "boolean", default: false, hint: "Cochez pour enregistrer sans publier sur le site." }
       - { label: "Contenu", name: "body", widget: "markdown" }
 
   - name: messages
     label: Messages reçus
     label_singular: Message
-    icon: mail
     folder: content/messages
     create: false
     delete: true

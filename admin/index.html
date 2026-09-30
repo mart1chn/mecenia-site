@@ -4,9 +4,42 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Administration du blog — Mecenia</title>
+<meta name="theme-color" content="#2E2114">
+<title>Mecenia · Espace d’administration</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+#mecenia-splash{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:linear-gradient(160deg,#2E2114,#4A3524);color:#FAF7F2;font-family:Inter,system-ui,sans-serif;transition:opacity .5s ease}
+#mecenia-splash img{width:84px;height:auto;filter:brightness(0) invert(1);opacity:.92}
+#mecenia-splash b{font-family:'Playfair Display',Georgia,serif;font-size:26px;letter-spacing:6px;font-weight:600}
+#mecenia-splash span{font-size:14px;opacity:.75;letter-spacing:.4px}
+#mecenia-splash i{width:34px;height:34px;border-radius:50%;border:3px solid rgba(250,247,242,.25);border-top-color:#D9A67F;animation:msp 1s linear infinite}
+@keyframes msp{to{transform:rotate(360deg)}}
+#mecenia-splash.out{opacity:0;pointer-events:none}
+</style>
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+<div id="mecenia-splash" role="status"><img src="/assets/img/mecenia-icon-hero.png" alt="" width="84" height="95"><b>MECENIA</b><i></i><span>Chargement de l’espace d’administration…</span></div>
+<script src="https://unpkg.com/@sveltia/cms@^0.105.0/dist/sveltia-cms.js"></script>
+<script>
+(function () {
+  var splash = document.getElementById('mecenia-splash');
+  function hide() {
+    if (!splash) return;
+    splash.classList.add('out');
+    setTimeout(function () { if (splash && splash.parentNode) splash.parentNode.removeChild(splash); splash = null; }, 600);
+  }
+  if (window.CMS && CMS.registerPreviewStyle) {
+    CMS.registerPreviewStyle("@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap');body{font-family:Inter,sans-serif;color:#2E2114;line-height:1.7}h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#2E2114;line-height:1.25}img{max-width:100%;height:auto}a{color:#9A5F37}blockquote{border-left:3px solid #B5754A;background:#F5EFE6;margin:0 0 1em;padding:12px 18px}", { raw: true });
+  }
+  var mo = new MutationObserver(function () {
+    for (var i = 0; i < document.body.children.length; i++) {
+      var n = document.body.children[i];
+      if (n !== splash && n.tagName !== 'SCRIPT' && n.tagName !== 'STYLE') { mo.disconnect(); setTimeout(hide, 500); return; }
+    }
+  });
+  mo.observe(document.body, { childList: true });
+  setTimeout(hide, 9000);
+})();
+</script>
 </body>
 </html>
