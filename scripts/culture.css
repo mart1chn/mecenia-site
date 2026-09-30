@@ -1,0 +1,18 @@
+/* Menus déroulants « + » et images d'œuvres d'art */
+.plus-btn .pt{display:block;text-align:left}
+.plus-btn .pk{display:block;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--bronze);margin-bottom:4px}
+.plus-btn .ps{display:block;font-weight:400;font-size:14px;line-height:1.5;color:var(--gray);margin-top:4px}
+.bg-dark .plus-btn .pk,.bg-grad .plus-btn .pk{color:#D9A67F}
+.bg-dark .plus-btn .ps,.bg-grad .plus-btn .ps{color:#D8CFC0}
+.plus-inner p,.plus-inner li{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+.accordion .plus-item:first-child{border-top:1px solid var(--line)}
+.bg-dark .accordion .plus-item:first-child,.bg-grad .accordion .plus-item:first-child{border-top-color:rgba(255,255,255,.16)}
+.art-fig{margin:0}
+.art-fig img{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--beige)}
+.art-fig figcaption{margin-top:10px;font-size:12.5px;line-height:1.55;color:var(--gray)}
+.art-fig figcaption a{color:var(--caramel-dark);border-bottom:1px solid rgba(154,95,55,.35)}
+.art-portrait{max-width:380px;margin:0 auto}
+.art-trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;align-items:start}
+.art-trio .art-fig img{aspect-ratio:4/3;object-fit:cover}
+.art-band{padding:80px 0}
+@media (max-width:860px){.art-trio{grid-template-columns:minmax(0,1fr)}.art-band{padding:56px 0}}
