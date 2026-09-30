@@ -1,8 +1,8 @@
 ---
-title: Exemple d’article (brouillon)
-date: 2026-09-30
+title: "Exemple d’article (brouillon)"
+date: "2026-09-30"
 description: "Modèle d’article : modifiez-le, décochez « Brouillon » puis publiez-le."
-draft: true
+draft: false
 ---
 ## Comment fonctionne le blog
 
