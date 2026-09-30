@@ -26,12 +26,12 @@ details.plus-item .plus-inner{padding:0 4px 26px;color:var(--gray);animation:mec
 /* Markup attendu après scripts/enhance.js : plus-item > bouton + panneau > plus-inner. */
 const PANEL = /<div class="plus-item">\s*<button class="plus-btn" type="button" aria-expanded="false">([\s\S]*?)<\/button>\s*<div class="plus-panel"><div><div class="plus-inner">([\s\S]*?)<\/div><\/div><\/div><\/div>/g;
 let count = 0;
-function process(file) {
+function processFile(file) {
   let h = fs.readFileSync(file, 'utf8'), before = h;
   h = h.replace(PANEL, (m, heading, body) => { count++; return '<details class="plus-item"><summary class="plus-btn">' + heading + '</summary><div class="plus-inner">' + body + '</div></details>'; });
   if (h.includes('<details class="plus-item">') && !h.includes('mecenia-native-accordion')) h = h.replace('</head>', CSS + '\n</head>');
   if (h !== before) fs.writeFileSync(file, h);
 }
-function walk(dir) { for (const e of fs.readdirSync(dir, {withFileTypes:true})) { const p=path.join(dir,e.name); if(e.isDirectory()){if(e.name!=='admin')walk(p)} else if(e.name.endsWith('.html'))process(p); } }
+function walk(dir) { for (const e of fs.readdirSync(dir, {withFileTypes:true})) { const p=path.join(dir,e.name); if(e.isDirectory()){if(e.name!=='admin')walk(p)} else if(e.name.endsWith('.html'))processFile(p); } }
 if (fs.existsSync(OUT)) walk(OUT);
 console.log('Panneaux natifs : ' + count + ' menu(s) converti(s).');
