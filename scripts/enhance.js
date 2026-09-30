@@ -5,13 +5,11 @@ const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const ROOT = process.cwd(), OUT = path.join(ROOT, 'dist');
 const enc = encodeURIComponent;
 
-/* 1. Accessoires (feuille de style et script des menus déroulants) */
 try {
   fs.copyFileSync(path.join(ROOT, 'scripts', 'culture.css'), path.join(OUT, 'assets', 'culture.css'));
   fs.copyFileSync(path.join(ROOT, 'scripts', 'accordion.js'), path.join(OUT, 'assets', 'accordion.js'));
 } catch (e) { console.error('Enhance : fichiers annexes introuvables', e.message); process.exit(0); }
 
-/* 2. Images (Wikimedia Commons) */
 const ART = {
   monet: { f: 'Claude_Monet,_Impression,_soleil_levant,_1872.jpg', w: 1051, h: 808, lic: 'Domaine public', alt: 'Tableau de Claude Monet : un soleil orange se lève sur un port dans la brume bleutée', cap: 'Claude Monet, <i>Impression, soleil levant</i>, 1872. Musée Marmottan Monet, Paris.' },
   hokusai: { f: 'Great_Wave_off_Kanagawa2.jpg', w: 8242, h: 5640, lic: 'Domaine public', alt: 'Estampe de Hokusai : une immense vague se dresse devant le mont Fuji', cap: 'Katsushika Hokusai, <i>La Grande Vague au large de Kanagawa</i>, vers 1830. Estampe japonaise, Library of Congress.' },
