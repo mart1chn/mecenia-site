@@ -26,4 +26,4 @@ function walk(dir) {
   }
 }
 if (fs.existsSync(OUT)) walk(OUT);
-console.log('Objectif culturel : 5 % du PIB en 2040 (' + changes + ' fichier(s) mis à jour).
+console.log('Objectif culturel : 5 % du PIB en 2040 (' + changes + ' fichier(s) mis à jour.');
