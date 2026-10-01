@@ -1,0 +1,54 @@
+/* Blog : filtres, étiquettes et mise en page magazine */
+.blog-filters{max-width:980px;margin:0 auto 34px;display:grid;gap:14px}
+.bf-group{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.bf-label{flex:0 0 120px;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#9A5F37}
+.bf-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 16px 8px 10px;border-radius:999px;border:1px solid rgba(154,95,55,.45);background:#fff;color:#2E2114;font:500 14px/1.2 Inter,system-ui,sans-serif;cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease}
+.bf-pill::before{content:"";box-sizing:border-box;flex:0 0 16px;width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(154,95,55,.55);transition:background .25s ease,border-color .25s ease}
+.bf-pill:hover{border-color:#9A5F37;transform:translateY(-1px)}
+.bf-pill[aria-pressed="true"]{background:#9A5F37;border-color:#9A5F37;color:#fff}
+.bf-pill[aria-pressed="true"]::before{content:"\2713";display:flex;align-items:center;justify-content:center;font-size:10px;line-height:1;font-weight:700;background:#fff;color:#9A5F37;border-color:#fff}
+.bf-pill:focus-visible,.bf-reset:focus-visible{outline:2px solid #9A5F37;outline-offset:2px}
+.bf-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px;min-height:22px}
+.bf-reset{background:none;border:0;padding:0;color:#9A5F37;font:600 14px/1.2 Inter,system-ui,sans-serif;border-bottom:1px solid rgba(154,95,55,.45);cursor:pointer}
+.bf-status{margin:0;font-size:14px;color:var(--gray)}
+.bf-empty{text-align:center;color:var(--gray);margin:10px 0 0}
+.blog-card[hidden]{display:none!important}
+.cat-chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
+.cat{display:inline-block;padding:3px 10px;border-radius:999px;border:1px solid rgba(154,95,55,.45);font-size:12px;line-height:1.4;color:#7A4A28;background:transparent}
+.cat-kind{background:#9A5F37;border-color:#9A5F37;color:#fff}
+.hero .cat-chips{margin-top:16px}
+.hero .cat{border-color:rgba(245,239,230,.5);color:#F5EFE6}
+.hero .cat-kind{background:#D9A67F;border-color:#D9A67F;color:#2E2114}
+.container.post-wide{max-width:960px}
+.post-wide .post>p,.post-wide .post>h2,.post-wide .post>h3,.post-wide .post>ul,.post-wide .post>ol,.post-wide .post>blockquote{max-width:720px;margin-left:auto;margin-right:auto}
+.post .mag{margin:36px 0}
+.post .mag-text{max-width:720px;margin-left:auto;margin-right:auto}
+.post .mag-text>:first-child{margin-top:0}
+.post .mag-fig{margin:0}
+.post .mag-fig img{display:block;width:100%;height:auto;margin:0;border:1px solid var(--line)}
+.post .mag-fig figcaption{margin-top:8px;font-size:13px;line-height:1.5;color:var(--gray)}
+.post .mag-side{display:grid;grid-template-columns:var(--w,40%) minmax(0,1fr);gap:34px;align-items:start}
+.post .mag-side.right{grid-template-columns:minmax(0,1fr) var(--w,40%)}
+.post .mag-side.right .mag-fig{order:2}
+.post .mag-side .mag-text{max-width:none;margin:0}
+.post .mag-fig.crop img{aspect-ratio:3/4;object-fit:cover}
+.post .mag-fig.wide img{aspect-ratio:21/9;object-fit:cover}
+.post .mag-fig.land img{aspect-ratio:16/9;object-fit:cover}
+.post .mag-fig.square img{aspect-ratio:1/1;object-fit:cover}
+.post .mag-gallery{display:grid;gap:16px;align-items:start}
+.post .mag-gallery.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.post .mag-gallery.n3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.post .mag-gallery.n1{grid-template-columns:minmax(0,1fr)}
+.post .mag-quote{max-width:720px;margin:44px auto;padding:6px 0 6px 26px;border-left:3px solid var(--caramel,#B5754A)}
+.post .mag-quote p{margin:0;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:clamp(20px,2.4vw,26px);line-height:1.45;text-align:left}
+.post .mag-quote cite{display:block;margin-top:10px;font-style:normal;font-size:14px;color:var(--gray)}
+.post .mag-box{max-width:720px;margin:36px auto;padding:24px 28px;background:var(--beige);border:1px solid var(--line)}
+.post .mag-box h3{margin:0 0 10px;font-size:20px}
+.post .mag-box>:last-child{margin-bottom:0}
+@media(max-width:720px){
+  .bf-label{flex:0 0 100%}
+  .post .mag-side,.post .mag-side.right{grid-template-columns:minmax(0,1fr);gap:18px}
+  .post .mag-side .mag-fig,.post .mag-side.right .mag-fig{order:0;max-width:420px;margin:0 auto}
+  .post .mag-gallery.n3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:480px){.post .mag-gallery.n2,.post .mag-gallery.n3{grid-template-columns:minmax(0,1fr)}}

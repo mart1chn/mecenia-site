@@ -1,0 +1,18 @@
+themes:
+  - name: "Cinéma"
+  - name: "Peinture"
+  - name: "Sculpture"
+  - name: "Littérature"
+  - name: "Mode"
+  - name: "Musique"
+  - name: "Théâtre"
+  - name: "Architecture"
+  - name: "Patrimoine"
+  - name: "Photographie"
+types:
+  - name: "Actualité"
+  - name: "Événement"
+  - name: "Exposition"
+  - name: "Formation"
+  - name: "Analyse"
+  - name: "Entretien"
