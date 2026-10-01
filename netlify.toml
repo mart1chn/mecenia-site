@@ -1,10 +1,45 @@
 [build]
-  command = "node scripts/build-blog.js && node scripts/post-build.js && node scripts/enhance.js && node scripts/update-target.js && node scripts/finalize-site.js && node scripts/native-accordions.js && node scripts/refine-blog.js && node scripts/newsletter-prep.js && node scripts/finishing-touches.js && node scripts/diversity-art.js && node scripts/home-news.js && node scripts/blog-extras.js"
+  command = "node scripts/build-blog.js && node scripts/post-build.js && node scripts/enhance.js && node scripts/update-target.js && node scripts/finalize-site.js && node scripts/native-accordions.js && node scripts/refine-blog.js && node scripts/newsletter-prep.js && node scripts/finishing-touches.js && node scripts/diversity-art.js && node scripts/home-news.js && node scripts/blog-extras.js && node scripts/blog-shell.js"
   publish = "dist"
-  ignore = '[ -z "$CACHED_COMMIT_REF" ] || [ "$CACHED_COMMIT_REF" = "$COMMIT_REF" ] && exit 1; git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ":(exclude)content/messages"'
+  ignore = '[ -z "$CACHED_COMMIT_REF" ] || [ "$CACHED_COMMIT_REF" = "$COMMIT_REF" ] && exit 1; git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ":(exclude)content/messages" ":(exclude)content/blog" ":(exclude)content/settings" ":(exclude)assets/img/blog"'
 
 [build.environment]
   NODE_VERSION = "20"
 
 [functions]
   directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/assets/img/blog/*"
+  to = "/.netlify/functions/blog-image?path=:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/blog-latest"
+  to = "/.netlify/functions/blog?path=__latest"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/.netlify/functions/blog?path=/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/blog/"
+  to = "/.netlify/functions/blog?path=/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/.netlify/functions/blog?path=:splat"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/_blog-static/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
