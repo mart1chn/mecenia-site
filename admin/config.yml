@@ -35,8 +35,9 @@ output:
 
 collections:
   - name: blog
-    label: Articles du blog
+    label: Articles
     label_singular: Article
+    description: "Rédigez, mettez en page et publiez les articles du blog. Un article en brouillon reste invisible sur le site."
     icon: article
     folder: content/blog
     create: true
@@ -46,51 +47,49 @@ collections:
     summary: "{{title}} ({{date}})"
     sortable_fields: ["date", "title"]
     fields:
-      - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
-      - { label: "Résumé", name: "description", widget: "text", hint: "1 à 2 phrases, affichées sur la liste des articles, sur l’accueil et dans Google (moins de 160 caractères)." }
-      - { label: "Image de couverture", name: "image", widget: "image", required: false, hint: "Format paysage conseillé (16/9). Facultatif. Les images sont automatiquement allégées (WebP)." }
-      - { label: "Thématiques", name: "themes", widget: "relation", collection: "reglages", file: "categories", multiple: true, required: false, search_fields: ["themes.*.name"], display_fields: ["themes.*.name"], value_field: "themes.*.name", hint: "Cinéma, peinture, sculpture… Plusieurs choix possibles. La liste se gère dans « Réglages du blog »." }
-      - { label: "Type d’article", name: "kind", widget: "relation", collection: "reglages", file: "categories", required: false, search_fields: ["types.*.name"], display_fields: ["types.*.name"], value_field: "types.*.name", hint: "Actualité, événement, exposition, formation… Un seul choix. La liste se gère dans « Réglages du blog »." }
-      - { label: "Brouillon (non publié)", name: "draft", widget: "boolean", default: false, hint: "Cochez pour enregistrer sans publier sur le site." }
-      - { label: "Texte principal", name: "body", widget: "markdown", required: false, hint: "Facultatif si vous composez l’article avec les blocs de mise en page ci-dessous. Ce texte s’affiche en premier." }
-      - label: "Mise en page (blocs)"
+      - { label: "Titre de l’article", name: "title", widget: "string", hint: "Le grand titre affiché en haut de l’article." }
+      - { label: "Texte principal", name: "body", widget: "markdown", required: false, hint: "Écrivez ici comme dans un traitement de texte. Pour placer une image à côté du texte, une galerie ou une citation, utilisez la « Mise en page avancée » plus bas." }
+      - label: "Mise en page avancée (facultatif)"
         name: "blocks"
         widget: "list"
         required: false
+        collapsed: true
         label_singular: "bloc"
         typeKey: "type"
-        hint: "Composez l’article bloc par bloc, comme dans un magazine : texte, image sur le côté, image pleine largeur, galerie, citation, encadré. Les blocs se réordonnent par glisser-déposer."
+        hint: "Ajoutez des blocs à la suite du texte principal, comme dans un magazine. Glissez-déposez les blocs pour les réordonner."
         types:
-          - label: "Texte"
+          - label: "Paragraphe"
             name: "texte"
             widget: "object"
+            summary: "Paragraphe : {{fields.texte}}"
             fields:
               - { label: "Texte", name: "texte", widget: "markdown" }
-          - label: "Texte + image sur le côté"
+          - label: "Image à côté du texte"
             name: "texte_image"
             widget: "object"
+            summary: "Image à côté du texte : {{fields.legende}}"
             fields:
               - { label: "Image", name: "image", widget: "image" }
-              - { label: "Description de l’image (accessibilité)", name: "alt", widget: "string", required: false }
-              - { label: "Légende", name: "legende", widget: "string", required: false }
-              - { label: "Côté de l’image", name: "cote", widget: "select", default: "droite", options: [{ label: "À droite du texte", value: "droite" }, { label: "À gauche du texte", value: "gauche" }] }
-              - { label: "Largeur de l’image", name: "largeur", widget: "select", default: "moyenne", options: [{ label: "Étroite (30 %)", value: "etroite" }, { label: "Moyenne (40 %)", value: "moyenne" }, { label: "Large (50 %)", value: "large" }] }
-              - { label: "Cadrage", name: "cadrage", widget: "select", default: "portrait", options: [{ label: "Portrait vertical (3:4)", value: "portrait" }, { label: "Format d’origine", value: "original" }] }
               - { label: "Texte", name: "texte", widget: "markdown" }
-          - label: "Image pleine largeur"
+              - { label: "Côté de l’image", name: "cote", widget: "select", default: "droite", options: [{ label: "À droite du texte", value: "droite" }, { label: "À gauche du texte", value: "gauche" }] }
+              - { label: "Taille de l’image", name: "largeur", widget: "select", default: "moyenne", options: [{ label: "Petite", value: "etroite" }, { label: "Moyenne", value: "moyenne" }, { label: "Grande", value: "large" }] }
+              - { label: "Forme de l’image", name: "cadrage", widget: "select", default: "portrait", options: [{ label: "Portrait (vertical)", value: "portrait" }, { label: "Telle quelle", value: "original" }] }
+              - { label: "Légende", name: "legende", widget: "string", required: false, hint: "Petite phrase sous l’image (facultatif)." }
+              - { label: "Texte alternatif", name: "alt", widget: "string", required: false, hint: "Décrit l’image pour les personnes malvoyantes et Google (facultatif)." }
+          - label: "Image seule"
             name: "image"
             widget: "object"
+            summary: "Image seule : {{fields.legende}}"
             fields:
               - { label: "Image", name: "image", widget: "image" }
-              - { label: "Description de l’image (accessibilité)", name: "alt", widget: "string", required: false }
+              - { label: "Forme", name: "format", widget: "select", default: "original", options: [{ label: "Telle quelle", value: "original" }, { label: "Paysage", value: "paysage" }, { label: "Panoramique (très large)", value: "panoramique" }] }
               - { label: "Légende", name: "legende", widget: "string", required: false }
-              - { label: "Format", name: "format", widget: "select", default: "original", options: [{ label: "Format d’origine", value: "original" }, { label: "Paysage (16:9)", value: "paysage" }, { label: "Panoramique (21:9)", value: "panoramique" }] }
+              - { label: "Texte alternatif", name: "alt", widget: "string", required: false, hint: "Décrit l’image pour les personnes malvoyantes et Google (facultatif)." }
           - label: "Galerie (2 ou 3 images)"
             name: "galerie"
             widget: "object"
+            summary: "Galerie de photos"
             fields:
-              - { label: "Cadrage", name: "cadrage", widget: "select", default: "portrait", options: [{ label: "Portrait vertical (3:4)", value: "portrait" }, { label: "Paysage (16:9)", value: "paysage" }, { label: "Carré", value: "carre" }, { label: "Format d’origine", value: "original" }] }
               - label: "Images"
                 name: "images"
                 widget: "list"
@@ -99,24 +98,34 @@ collections:
                 label_singular: "image"
                 fields:
                   - { label: "Image", name: "image", widget: "image" }
-                  - { label: "Description de l’image (accessibilité)", name: "alt", widget: "string", required: false }
                   - { label: "Légende", name: "legende", widget: "string", required: false }
+                  - { label: "Texte alternatif", name: "alt", widget: "string", required: false }
+              - { label: "Forme des images", name: "cadrage", widget: "select", default: "portrait", options: [{ label: "Portrait (vertical)", value: "portrait" }, { label: "Paysage", value: "paysage" }, { label: "Carré", value: "carre" }, { label: "Telles quelles", value: "original" }] }
           - label: "Citation"
             name: "citation"
             widget: "object"
+            summary: "Citation : {{fields.texte}}"
             fields:
               - { label: "Citation", name: "texte", widget: "text" }
               - { label: "Auteur", name: "auteur", widget: "string", required: false }
           - label: "Encadré"
             name: "encadre"
             widget: "object"
+            summary: "Encadré : {{fields.titre}}"
             fields:
               - { label: "Titre", name: "titre", widget: "string", required: false }
               - { label: "Texte", name: "texte", widget: "markdown" }
+      - { label: "Extrait", name: "description", widget: "text", hint: "2 à 3 lignes qui donnent envie de lire. Affiché sur la liste des articles, sur l’accueil et dans Google." }
+      - { label: "Image mise en avant", name: "image", widget: "image", required: false, hint: "L’image de couverture, de préférence en format paysage. Elle est automatiquement allégée." }
+      - { label: "Thématiques", name: "themes", widget: "relation", collection: "reglages", file: "categories", multiple: true, required: false, search_fields: ["themes.*.name"], display_fields: ["themes.*.name"], value_field: "themes.*.name", hint: "Cinéma, peinture, sculpture… Plusieurs choix possibles. La liste se modifie dans « Catégories du blog »." }
+      - { label: "Type d’article", name: "kind", widget: "relation", collection: "reglages", file: "categories", required: false, search_fields: ["types.*.name"], display_fields: ["types.*.name"], value_field: "types.*.name", hint: "Actualité, événement, exposition, formation… Un seul choix. La liste se modifie dans « Catégories du blog »." }
+      - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Brouillon", name: "draft", widget: "boolean", default: true, hint: "Coché : l’article est enregistré mais reste invisible sur le site. Décochez pour le publier." }
 
   - name: messages
     label: Messages reçus
     label_singular: Message
+    description: "Les messages envoyés depuis les formulaires de contact et d’adhésion."
     icon: mail
     folder: content/messages
     create: false
@@ -141,9 +150,13 @@ collections:
       - { label: "Fonction", name: "role", widget: "string", required: false }
       - { label: "Type ou sujet", name: "type", widget: "string", required: false }
       - { label: "Message", name: "body", widget: "text", required: false }
+      - { label: "Newsletter", name: "newsletter", widget: "string", required: false }
+      - { label: "Consentement newsletter (date)", name: "newsletter_consent_at", widget: "string", required: false }
+      - { label: "Consentement newsletter (version)", name: "newsletter_consent_version", widget: "string", required: false }
 
   - name: reglages
-    label: Réglages du blog
+    label: Catégories du blog
+    description: "Les thématiques et les types d’articles proposés lors de la rédaction, et utilisés comme filtres sur le blog."
     icon: tune
     files:
       - name: categories
