@@ -5,9 +5,9 @@ const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const OUT = path.join(process.cwd(), 'dist');
 const enc = encodeURIComponent;
 const ART = {
-  monet: { f: 'Claude_Monet,_Impression,_soleil_levant,_1872.jpg', w: 1051, h: 808, lic: 'Domaine public', fit: true, alt: 'Tableau de Claude Monet : un soleil orange se lève sur le port du Havre dans la brume bleutée', cap: 'Claude Monet, <i>Impression, soleil levant</i>, 1872. Musée Marmottan Monet, Paris.' },
-  nike: { f: 'Victoire_de_Samothrace_-_Musee_du_Louvre_-_20190812.jpg', w: 3616, h: 4800, lic: 'CC0', portrait: true, alt: 'La Victoire de Samothrace, statue de marbre ailée, en haut de l’escalier Daru du Louvre', cap: '<i>La Victoire de Samothrace</i>, marbre, vers 190 av. J.-C. Musée du Louvre, Paris. La statue se dresse sur une proue de navire.' },
-  flotte: { f: 'Flotte_normande.jpg', w: 1095, h: 719, lic: 'Domaine public', fit: true, alt: 'Détail de la Tapisserie de Bayeux : la flotte normande traverse la Manche, voiles gonflées', cap: '<i>Tapisserie de Bayeux</i>, la flotte normande, broderie de laine sur lin, XI<sup>e</sup> siècle.' },
+  monet: { f: 'Claude_Monet,_Impression,_soleil_levant,_1872.jpg', w: 1051, h: 808, lic: 'Domaine public', alt: 'Tableau de Claude Monet : un soleil orange se lève sur le port du Havre dans la brume bleutée', cap: 'Claude Monet, <i>Impression, soleil levant</i>, 1872. Musée Marmottan Monet, Paris.' },
+  puget: { f: 'Atlantes_Puget_1.JPG', w: 2048, h: 1536, lic: 'CC0', alt: 'Les atlantes sculptés par Pierre Puget soutenant le balcon de l’ancien hôtel de ville de Toulon, face au port', cap: 'Pierre Puget, <i>Atlantes</i> du portail de l’ancien hôtel de ville de Toulon, 1656-1657.' },
+  flotte: { f: 'Flotte_normande.jpg', w: 1095, h: 719, lic: 'Domaine public', alt: 'Détail de la Tapisserie de Bayeux : la flotte normande traverse la Manche, voiles gonflées', cap: '<i>Tapisserie de Bayeux</i>, la flotte normande, broderie de laine sur lin, XI<sup>e</sup> siècle.' },
   piranesi: { f: 'Piranesi-16028.jpg', w: 1200, h: 836, lic: 'Domaine public', alt: 'Eau-forte de Piranesi : la place du Quirinal à Rome, avec ses monuments et de petits personnages', cap: 'Giovanni Battista Piranesi, <i>Vue du Quirinal</i>, eau-forte extraite des <i>Vedute di Roma</i>, milieu du XVIII<sup>e</sup> siècle.' },
   rembrandt: { f: 'Rembrandt_The_Hundred_Guilder_Print.jpg', w: 5022, h: 3648, lic: 'Domaine public', alt: 'Gravure de Rembrandt : le Christ entouré d’une foule de malades et de curieux', cap: 'Rembrandt, <i>La Gravure aux cent florins</i>, eau-forte, burin et pointe sèche, vers 1647-1649. Rijksmuseum, Amsterdam.' },
   venus: { f: 'Venus_de_Milo_Louvre_Ma399_n4.jpg', w: 2250, h: 3775, lic: 'Domaine public', portrait: true, alt: 'La Vénus de Milo, statue antique de marbre dont les bras sont brisés', cap: '<i>Vénus de Milo</i>, marbre de Paros, vers 130-100 av. J.-C. Musée du Louvre, Paris.' },
@@ -17,7 +17,7 @@ const ART = {
 function thumb(f, w) { const h = crypto.createHash('md5').update(f).digest('hex'); return 'https://upload.wikimedia.org/wikipedia/commons/thumb/' + h[0] + '/' + h.slice(0, 2) + '/' + enc(f) + '/' + w + 'px-' + enc(f); }
 function fig(k) {
   const a = ART[k], w = Math.min(960, a.w - 1), small = Math.min(500, w), h = Math.round(w * a.h / a.w);
-  const c = ['art-fig', a.fit ? 'fit' : '', a.portrait ? 'art-portrait' : ''].filter(Boolean).join(' ');
+  const c = ['art-fig', a.portrait ? 'art-portrait' : ''].filter(Boolean).join(' ');
   return '<figure class="' + c + '"><img src="' + thumb(a.f, w) + '" srcset="' + thumb(a.f, small) + ' ' + small + 'w, ' + thumb(a.f, w) + ' ' + w + 'w" sizes="' + (a.portrait ? '(max-width:860px) 80vw, 380px' : '(max-width:860px) 92vw, 520px') + '" width="' + w + '" height="' + h + '" alt="' + a.alt + '" loading="lazy" decoding="async">' +
     '<figcaption>' + a.cap + ' <a href="https://commons.wikimedia.org/wiki/File:' + enc(a.f) + '" target="_blank" rel="noopener">' + a.lic + ' · Wikimedia Commons</a></figcaption></figure>';
 }
@@ -27,8 +27,8 @@ function band(bg, eyebrow, title, text, k, flip) {
   return '\n<section class="' + bg + ' art-band" data-diversity="1"><div class="container"><div class="split">' + (flip ? img + copy : copy + img) + '</div></div></section>';
 }
 const home = '<section class="bg-white art-band" data-diversity="1"><div class="container"><span class="eyebrow reveal">Un patrimoine universel</span><h2 class="title reveal">La culture, un seul et même horizon</h2>' +
-  '<p class="lead reveal">Un port au lever du soleil, une proue de marbre, une flotte brodée sur du lin : une peinture, une sculpture et une tapisserie, séparées par des siècles, racontent pourtant la même mer. Les formes d’art se répondent et se nourrissent les unes les autres : c’est cet ensemble, dans toute sa diversité, que Mecenia veut financer, valoriser et protéger.</p>' +
-  '<div class="art-trio diverse-trio stagger">' + fig('monet') + fig('nike') + fig('flotte') + '</div></div></section>';
+  '<p class="lead reveal">Un port au lever du soleil, des atlantes sculptés face au port de Toulon, une flotte brodée sur du lin : une peinture, une sculpture et une tapisserie, séparées par des siècles, racontent pourtant la même mer. Les formes d’art se répondent et se nourrissent les unes les autres : c’est cet ensemble, dans toute sa diversité, que Mecenia veut financer, valoriser et protéger.</p>' +
+  '<div class="art-trio diverse-trio stagger">' + fig('monet') + fig('puget') + fig('flotte') + '</div></div></section>';
 const PAGES = {
   'index.html': { marker: 'La culture, richesse de tous les peuples', html: home, replace: true },
   'notre-histoire/index.html': { marker: 'Rien n’est acquis', html: band('bg-beige', 'La mémoire par l’image', 'Ce que l’on grave, on le transmet', 'Au XVIII<sup>e</sup> siècle, les eaux-fortes de Giovanni Battista Piranesi font connaître les monuments de Rome à toute l’Europe. Documenter, montrer, diffuser : c’est déjà une façon de protéger le patrimoine, et c’est l’état d’esprit que Mecenia veut partager.', 'piranesi', false) },
@@ -37,7 +37,7 @@ const PAGES = {
   'equipe/index.html': { marker: 'Des visages derrière la culture', html: band('bg-beige', 'La mode, un patrimoine vivant', 'Des savoir-faire, des parcours', 'Les planches de mode du XIX<sup>e</sup> siècle racontent les tenues, les ateliers et les métiers d’une époque. Pauline Bion a exercé en médiation culturelle au Palais Galliera, musée de la Mode de la Ville de Paris : cette attention aux métiers d’art et à la mode fait partie des regards que Mecenia veut réunir.', 'mode', false) },
   'contact/index.html': { marker: 'Une idée, une question, un projet ?', html: band('bg-white', 'L’écriture à la main', 'Chaque message compte', 'Cette page est tirée du manuscrit du <i>Requiem</i> de Mozart, écrit à la plume. Une idée jetée sur le papier peut devenir une œuvre ; de la même façon, un message, une question ou une proposition de projet peut devenir le début d’une collaboration.', 'mozart', false) }
 };
-const CSS = '<style id="mecenia-diversity">.diverse-trio .art-fig img{aspect-ratio:4/5;object-fit:cover;object-position:center top}.diverse-trio .art-fig.fit img{object-fit:contain;padding:10px;background:var(--beige)}.diverse-trio .art-fig.art-portrait{max-width:none;margin:0}.art-fig.fit img{background:var(--beige)}@media(max-width:860px){.diverse-trio .art-fig{max-width:420px;margin:0 auto}}</style>';
+const CSS = '<style id="mecenia-diversity">.diverse-trio{align-items:stretch}.diverse-trio .art-fig{margin:0}.diverse-trio .art-fig img{aspect-ratio:4/3;object-fit:cover;object-position:center}@media(max-width:860px){.diverse-trio .art-fig{max-width:560px;margin:0 auto}}</style>';
 let done = 0;
 for (const rel of Object.keys(PAGES)) {
   try {
