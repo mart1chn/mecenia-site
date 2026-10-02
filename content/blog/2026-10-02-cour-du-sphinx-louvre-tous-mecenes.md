@@ -1,11 +1,11 @@
 ---
 title: "Cour du Sphinx, le Louvre appelle à devenir « tous mécènes »"
-date: "2026-10-03"
 description: "Le Louvre lance une souscription publique de 800 000 € pour restaurer la cour du Sphinx. Mecenia soutient l'initiative et propose un nom, Maecenas."
 image: "/assets/img/blog/rectangle-2397-1.webp"
 themes:
   - "Patrimoine"
 kind: "Actualité"
+date: "2026-10-03"
 draft: false
 ---
 _Par Pauline Bion et Martin Chanteranne, fondateurs de Mecenia_
@@ -32,7 +32,7 @@ _Hier : la façade ouest de la Petite Galerie du Louvre et la cour du Sphinx, d�
 
 ## Le sphinx qui lui donna son nom
 
-Le Grand Sphinx de Tanis est une statue colossale en granite rose : corps de lion couché, tête royale coiffée du némès, uraeus et fausse barbe. La notice des collections du Louvre lui donne 4,80 mètres de longueur, 1,83 mètre de hauteur et 1,54 mètre de largeur. Ses numéros d’inventaire sont N 23 et A 23. Son achat auprès du collectionneur et vendeur Henry Salt est inscrit sur l’inventaire en 1826.
+Le Grand Sphinx de Tanis est une statue colossale en granite rose : corps de lion couché, tête royale coiffée du némès, uraeus et fausse barbe. La notice des collections du Louvre lui donne 4,80 mètres de longueur, 1,83 mètre de hauteur et 1,54 mètre de largeur. 
 
 Sa datation ne doit pas être présentée comme certaine : la notice discute une attribution à la IVe dynastie et une autre au règne d’Amenemhat II. Elle relève également des noms de souverains ajoutés lors de réutilisations, dont ceux d’Apophis, de Mérenptah et de Chéchonq Ier. Autre nuance documentaire : le communiqué de la campagne évoque une découverte en 1825, tandis que la notice scientifique indique 1801-1802. Nous signalons cette divergence plutôt que de transformer une seule de ces dates en certitude. ([Notice scientifique](https://collections.louvre.fr/ark:/53355/cl010010062) ; [communiqué de campagne](https://presse.louvre.fr/tous-mecenes/))
 
@@ -40,7 +40,7 @@ Le sphinx se trouve aujourd’hui dans la crypte du Sphinx, salle 338, aile Sull
 
 ![Le Grand Sphinx de Tanis, sculpture égyptienne en granite rose conservée au Louvre](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Grand_sphinx_de_Tanis_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_%C3%A9gyptiennes_N_23_%3B_A_23_%3B_Salt_3837.jpg/960px-Grand_sphinx_de_Tanis_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_%C3%A9gyptiennes_N_23_%3B_A_23_%3B_Salt_3837.jpg)
 
-_Le Grand Sphinx de Tanis (A 23), en granite rose, dans les collections du Louvre. C’est à lui que la cour doit son nom. Photo : Shonagon, [CC0](https://commons.wikimedia.org/wiki/File:Grand_sphinx_de_Tanis_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_%C3%A9gyptiennes_N_23_%3B_A_23_%3B_Salt_3837.jpg)._
+_Le Grand Sphinx de Tanis, en granite rose, dans les collections du Louvre. C’est à lui que la cour doit son nom. Photo : Shonagon, [CC0](https://commons.wikimedia.org/wiki/File:Grand_sphinx_de_Tanis_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_%C3%A9gyptiennes_N_23_%3B_A_23_%3B_Salt_3837.jpg)._
 
 ## Pourquoi restaurer la cour maintenant ?
 
