@@ -1,6 +1,6 @@
 ---
 title: "Cour du Sphinx, le Louvre appelle à devenir « tous mécènes »"
-date: "2026-10-05"
+date: "2026-10-02"
 description: "Le Louvre lance une souscription publique de 800 000 € pour restaurer la cour du Sphinx. Mecenia soutient l'initiative et propose un nom, Maecenas."
 image: "/assets/img/blog/rectangle-2397-1.webp"
 themes:
