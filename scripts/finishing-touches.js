@@ -40,3 +40,4 @@ edit('nos-projets/index.html', h => {
   return h.slice(0, cut) + item + h.slice(cut, b) + h.slice(b);
 });
 console.log('Retouches : badges fondateurs et lettre mensuelle appliqués.');
+try { require('./blog-reading.js'); } catch (e) { console.warn('Lecture : étape ignorée', e.message); }
