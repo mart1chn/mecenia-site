@@ -1,6 +1,6 @@
 ---
 title: "Mecenia : inspiration, source, projection"
-date: "2026-10-02"
+date: "2026-09-30"
 description: "Pourquoi Mecenia veut rapprocher la culture et les affaires : l'histoire, la mission et les projets de l'association, racontés par ses deux fondateurs."
 image: "/assets/img/blog/logo-mecenia.webp"
 kind: "Actualité"
