@@ -26,8 +26,6 @@ _Hier : la façade ouest de la Petite Galerie du Louvre et la cour du Sphinx, d�
 
 Son nom actuel vient du Grand Sphinx de Tanis, exposé dans la cour entre 1826 et 1848. Cette sculpture colossale en granite rose, longue de 4,80 mètres, se trouve désormais dans la crypte du Sphinx, aile Sully, et non dans la cour de l’aile Denon. Le lieu a conservé le nom d’une œuvre qui en est absente depuis près de deux siècles.
 
-> Repère documentaire : la datation du Sphinx fait débat. Sa notice scientifique indique une découverte en 1801-1802, tandis que le communiqué de campagne mentionne 1825. Nous conservons cette divergence sans trancher entre les deux sources. ([Notice du Louvre](https://collections.louvre.fr/ark:/53355/cl010010062) ; [communiqué](https://presse.louvre.fr/tous-mecenes/))
-
 ![Le Grand Sphinx de Tanis, sculpture égyptienne en granite rose conservée au Louvre](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Grand_sphinx_de_Tanis_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_%C3%A9gyptiennes_N_23_%3B_A_23_%3B_Salt_3837.jpg/960px-Grand_sphinx_de_Tanis_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_%C3%A9gyptiennes_N_23_%3B_A_23_%3B_Salt_3837.jpg)
 
 _Le Grand Sphinx de Tanis, en granite rose, dans les collections du Louvre. C’est à lui que la cour doit son nom. Photo : Shonagon, [CC0](https://commons.wikimedia.org/wiki/File:Grand_sphinx_de_Tanis_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_%C3%A9gyptiennes_N_23_%3B_A_23_%3B_Salt_3837.jpg)._
