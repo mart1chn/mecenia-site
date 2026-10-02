@@ -18,6 +18,10 @@ Le Louvre veut réunir **800 000 euros** auprès du public avant le **19 janvier
 
 La cour, édifiée en 1663 par l'architecte François Le Vau, couvre environ 500 m² et accueillera bientôt les œuvres du parcours romain repensé du musée. Le chantier prévoit le remplacement de la verrière installée en 1934, devenue peu étanche et difficile à entretenir, la restauration des façades, abîmées par les infiltrations d'eau, la pose d'un nouveau dallage, ainsi que l'installation d'un système de ventilation naturelle destiné à rafraîchir la cour l'été. Le projet est confié à Michel Goutal, architecte en chef des monuments historiques, pour un achèvement prévu à l'horizon 2029.
 
+![Infographie : le chantier de la cour du Sphinx en quatre volets (verrière, façades, sol, parcours romain) et son calendrier, de la souscription du 1er octobre 2026 à la réouverture prévue en 2029](/assets/img/blog/cour-du-sphinx-chantier.svg)
+
+_Le chantier en bref. Infographie Mecenia, d’après les informations publiées par le musée du Louvre ([tousmecenes.louvre.fr](https://tousmecenes.louvre.fr/fr/projet/))._
+
 La démarche est inédite, puisque « Tous mécènes ! » financait jusqu'ici l'acquisition ou la restauration d'œuvres des collections, alors que la campagne porte cette année sur le bâtiment lui‑même. Les 800 000 euros ne couvriront d'ailleurs qu'une partie du budget du chantier, d'autant plus que le Louvre recherche également des entreprises mécènes.
 
 ## Pourquoi Mecenia soutient cet appel
@@ -29,6 +33,14 @@ Notre mission est précisément de faire dialoguer acteurs économiques et acteu
 ## Un nom à réinventer, « Maecenas »
 
 La cour a porté plusieurs noms au fil des siècles, dont « cour de la Reine », « petit jardin à Monsieur Girardon », « cour de l'Infante » et « cour du Musée », avant de devoir son appellation actuelle au Sphinx de Tanis, exposé là entre 1826 et 1848 et absent depuis près de deux siècles.
+
+![Gravure ancienne de la façade ouest de la Petite Galerie du Louvre et de la cour du Sphinx](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Petite_Galerie_du_Louvre_et_Cour_du_Sphinx%2C_d%C3%A9tail_de_BnF_Destailleur_Paris_t1%2C_27.jpg/960px-Petite_Galerie_du_Louvre_et_Cour_du_Sphinx%2C_d%C3%A9tail_de_BnF_Destailleur_Paris_t1%2C_27.jpg)
+
+_Hier : la façade ouest de la Petite Galerie du Louvre et la cour du Sphinx, détail d’une planche du recueil Destailleur. Bibliothèque nationale de France, via Gallica. [Domaine public](https://commons.wikimedia.org/wiki/File:Petite_Galerie_du_Louvre_et_Cour_du_Sphinx%2C_d%C3%A9tail_de_BnF_Destailleur_Paris_t1%2C_27.jpg)._
+
+![Le Grand Sphinx de Tanis, sculpture égyptienne en granite rose conservée au Louvre](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Grand_sphinx_de_Tanis_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_%C3%A9gyptiennes_N_23_%3B_A_23_%3B_Salt_3837.jpg/960px-Grand_sphinx_de_Tanis_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_%C3%A9gyptiennes_N_23_%3B_A_23_%3B_Salt_3837.jpg)
+
+_Le Grand Sphinx de Tanis (A 23), en granite rose, aujourd’hui exposé dans l’aile Sully du Louvre. C’est à lui que la cour doit son nom. Photo : Shonagon, [CC0](https://commons.wikimedia.org/wiki/File:Grand_sphinx_de_Tanis_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_%C3%A9gyptiennes_N_23_%3B_A_23_%3B_Salt_3837.jpg)._
 
 Pour la première fois, le Louvre invite chacun à proposer un nouveau nom, jusqu'au **23 novembre**, et les donateurs voteront ensuite parmi les propositions retenues par le musée. Dès le 1er octobre, Mecenia a proposé sur le site officiel le nom de **Maecenas**. Caius Maecenas, conseiller de l'empereur Auguste, protégea Virgile, Horace et Properce, et son nom est devenu un nom commun, le _mécène_.
 
