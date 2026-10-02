@@ -2,7 +2,9 @@
 title: "Mecenia : inspiration, source, projection"
 date: "2026-10-02"
 description: "Pourquoi Mecenia veut rapprocher la culture et les affaires : l'histoire, la mission et les projets de l'association, racontés par ses deux fondateurs."
-draft: true
+image: "/assets/img/blog/logo-mecenia.webp"
+kind: "Actualité"
+draft: false
 ---
 _Par Pauline Bion et Martin Chanteranne, fondateurs de Mecenia_
 
