@@ -50,6 +50,6 @@ Notre proposition n'est qu'une parmi d'autres, et c'est le Louvre qui établira 
 
 ## Comment participer
 
-Chacun peut donner sur [tousmecenes.louvre.fr](tousmecenes.louvre.fr) avant le 19 janvier 2027, et proposer un nom sur le même site avant le 23 novembre. De même, celles et ceux qui souhaitent suivre nos travaux ou rejoindre Mecenia peuvent se rendre sur la page [Adhérer](/adherer/) ou nous écrire à [contact@mecenia.org](mailto:contact@mecenia.org).
+Chacun peut donner sur [tousmecenes.louvre.fr](https://tousmecenes.louvre.fr/fr/projet/) avant le 19 janvier 2027, et proposer un nom sur le même site avant le 23 novembre. De même, celles et ceux qui souhaitent suivre nos travaux ou rejoindre Mecenia peuvent se rendre sur la page [Adhérer](/adherer/) ou nous écrire à [contact@mecenia.org](mailto:contact@mecenia.org).
 
 Pour mieux nous connaître, nous vous invitons à lire [notre premier article](/blog/mecenia-inspiration-source-projection/).
