@@ -1,10 +1,14 @@
 ---
 title: "Cour du Sphinx, le Louvre appelle à devenir « tous mécènes »"
-date: "2026-10-02"
+date: "2026-10-05"
 description: "Le Louvre lance une souscription publique de 800 000 € pour restaurer la cour du Sphinx. Mecenia soutient l'initiative et propose un nom, Maecenas."
-draft: true
+image: "/assets/img/blog/rectangle-2397-1.webp"
+themes:
+  - "Patrimoine"
+kind: "Actualité"
+draft: false
 ---
-*Par Pauline Bion et Martin Chanteranne, fondateurs de Mecenia*
+_Par Pauline Bion et Martin Chanteranne, fondateurs de Mecenia_
 
 Le 1er octobre 2026, le musée du Louvre a lancé une souscription publique pour restaurer la cour du Sphinx, au cœur de l'aile Denon. Son slogan, « Tous mécènes ! », dit ce que nous défendons à Mecenia, à savoir que le patrimoine culturel appartient à tous et que chacun peut contribuer à le faire vivre. Nous soutenons cette initiative sans réserve, et nous y avons pris part dès son ouverture.
 
@@ -26,7 +30,7 @@ Notre mission est précisément de faire dialoguer acteurs économiques et acteu
 
 La cour a porté plusieurs noms au fil des siècles, dont « cour de la Reine », « petit jardin à Monsieur Girardon », « cour de l'Infante » et « cour du Musée », avant de devoir son appellation actuelle au Sphinx de Tanis, exposé là entre 1826 et 1848 et absent depuis près de deux siècles.
 
-Pour la première fois, le Louvre invite chacun à proposer un nouveau nom, jusqu'au **23 novembre**, et les donateurs voteront ensuite parmi les propositions retenues par le musée. Dès le 1er octobre, Mecenia a proposé sur le site officiel le nom de **Maecenas**. Caius Maecenas, conseiller de l'empereur Auguste, protégea Virgile, Horace et Properce, et son nom est devenu un nom commun, le *mécène*.
+Pour la première fois, le Louvre invite chacun à proposer un nouveau nom, jusqu'au **23 novembre**, et les donateurs voteront ensuite parmi les propositions retenues par le musée. Dès le 1er octobre, Mecenia a proposé sur le site officiel le nom de **Maecenas**. Caius Maecenas, conseiller de l'empereur Auguste, protégea Virgile, Horace et Properce, et son nom est devenu un nom commun, le _mécène_.
 
 Ce choix repose sur trois raisons. Il s'agit d'abord d'un nom romain pour une cour qui accueillera bientôt le parcours romain du musée. Il s'agit ensuite d'un hommage à ceux qui donnent, d'autant plus justifié que, si la cour renaît grâce au public comme aux entreprises, il est juste que son nom les honore. Il s'agit enfin d'une cohérence avec l'esprit de la campagne, car une cour rebaptisée « Maecenas » rappellerait que le patrimoine se transmet par la générosité de tous.
 
