@@ -55,3 +55,14 @@ for (const rel of Object.keys(PAGES)) {
   } catch (e) { console.error('Diversité : page ignorée ' + rel, e.message); }
 }
 console.log('Diversité : ' + done + ' page(s) enrichie(s).');
+
+// Contact uniquement : retirer l'ancien bloc Mozart, jamais celui de Vermeer.
+try {
+  const contact = path.join(OUT, 'contact', 'index.html');
+  if (fs.existsSync(contact)) {
+    const before = fs.readFileSync(contact, 'utf8');
+    const after = before.replace(/<section\b[^>]*>[\s\S]*?<\/section>/g, section =>
+      /art-band/.test(section) && /Manuscript_of_the_last_page_of_Requiem/.test(section) && !/Vermeer|Woman_in_Blue_Reading_a_Letter/i.test(section) ? '' : section);
+    if (after !== before) fs.writeFileSync(contact, after);
+  }
+} catch (e) { console.error('Contact : suppression Mozart ignorée', e.message); }
