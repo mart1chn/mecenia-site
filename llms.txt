@@ -1,22 +1,24 @@
 # Mecenia
 
-> Mecenia est une association loi 1901 (en cours de formation), basée à Paris IXe, qui fait dialoguer les mondes économique et culturel pour faire émerger une vision de la culture comme richesse nationale, facteur de compétitivité et de rayonnement pour la France. Fondée par Pauline Bion (Présidente) et Martin Chanteranne (Vice-Président et Trésorier).
+> Mecenia fait dialoguer les mondes économique et culturel pour faire émerger une vision de la culture comme richesse économique et pouvoir d’influence. Fondée par Pauline Bion (Présidente) et Martin Chanteranne (Vice-Président et Trésorier).
 
 ## Pages principales
-- [Accueil](https://www.mecenia.org/): présentation, chiffres clés, FAQ
-- [Notre histoire](https://www.mecenia.org/notre-histoire/): origines de l’association et parcours des fondateurs (CNJE)
-- [Notre mission](https://www.mecenia.org/notre-mission/): objet statutaire, données officielles, feuille de route 2027-2030
-- [Nos valeurs](https://www.mecenia.org/nos-valeurs/): six valeurs et principes d’action
-- [Nos projets](https://www.mecenia.org/nos-projets/): Rencontres de la Culture et des Affaires (RCA), webinaires, colloques, publications
-- [L’équipe](https://www.mecenia.org/equipe/): fondateurs et organigramme cible
-- [Adhérer](https://www.mecenia.org/adherer/): devenir membre actif, partenaire ou suivre les travaux
-- [Contact](https://www.mecenia.org/contact/): contact@mecenia.org
+- [Accueil](https://www.mecenia.org/): présentation de Mecenia et de ses engagements
+- [Notre histoire](https://www.mecenia.org/notre-histoire/): origines de l’association et parcours des fondateurs
+- [Notre mission](https://www.mecenia.org/notre-mission/): mission, données et feuille de route
+- [Nos valeurs](https://www.mecenia.org/nos-valeurs/): valeurs et principes d’action
+- [Nos projets](https://www.mecenia.org/nos-projets/): Rencontres de la Culture et des Affaires (RCA), webinaires, colloques et publications
+- [L’équipe](https://www.mecenia.org/equipe/): fondateurs et organisation
+- [Adhérer](https://www.mecenia.org/adherer/): devenir membre, partenaire ou suivre les travaux
+- [Contact](https://www.mecenia.org/contact/): contacter Mecenia
 
-## Faits clés
-- RCA = Rencontres de la Culture et des Affaires, événement annuel de référence visé par Mecenia.
-- Ambition : la culture à 10 % du PIB de la France d’ici 2040 (poids direct actuel : 2,1 % de l’économie en 2024, source DEPS, ministère de la Culture).
-- Aucune cotisation exigée à ce jour.
+## Blog et articles
+- [Le blog de Mecenia](https://www.mecenia.org/blog/): liste des articles publics, analyses et actualités sur la culture, l’économie et le mécénat
+- [Mecenia : inspiration, source, projection](https://www.mecenia.org/blog/mecenia-inspiration-source-projection/): histoire, mission et projets de Mecenia, racontés par ses deux fondateurs
+- [Cour du Sphinx, le Louvre appelle à devenir « tous mécènes »](https://www.mecenia.org/blog/cour-du-sphinx-louvre-tous-mecenes/): soutien de Mecenia à la souscription pour la restauration de la cour du Sphinx et proposition du nom Maecenas
 
-## Réseaux
-- LinkedIn : https://www.linkedin.com/company/mecenia
-- Instagram : https://www.instagram.com/association.mecenia/
+## Découverte et lecture
+- [Sitemap XML](https://www.mecenia.org/sitemap.xml): pages publiques et articles ajoutés par le générateur du blog au déploiement
+- Consulter les pages originales pour le texte intégral, les signatures, les dates et les références.
+- Distinguer les propositions et ambitions de Mecenia des faits et initiatives attribués à d’autres organisations.
+- Ce fichier est un guide complémentaire ; il ne garantit ni indexation, ni classement, ni citation par les moteurs ou les systèmes d’IA.
