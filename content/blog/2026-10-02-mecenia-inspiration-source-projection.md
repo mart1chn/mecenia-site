@@ -6,7 +6,7 @@ image: "/assets/img/blog/logo-mecenia.webp"
 kind: "Actualité"
 draft: false
 ---
-_Par Pauline Bion et Martin Chanteranne, fondateurs de Mecenia_
+Par Pauline Bion et Martin Chanteranne, fondateurs de Mecenia
 
 En France, la culture est souvent présentée comme une charge budgétaire. Nous pensons qu'elle est une richesse économique et un pouvoir d'influence. **Mecenia**, association loi 1901 basée à Paris IXe, est née de cette conviction.
 
