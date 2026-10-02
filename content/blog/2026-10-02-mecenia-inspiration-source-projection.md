@@ -4,7 +4,7 @@ date: "2026-10-02"
 description: "Pourquoi Mecenia veut rapprocher la culture et les affaires : l'histoire, la mission et les projets de l'association, racontés par ses deux fondateurs."
 draft: true
 ---
-*Par Pauline Bion et Martin Chanteranne, fondateurs de Mecenia*
+_Par Pauline Bion et Martin Chanteranne, fondateurs de Mecenia_
 
 En France, la culture est souvent présentée comme une charge budgétaire. Nous pensons qu'elle est une richesse économique et un pouvoir d'influence. **Mecenia**, association loi 1901 basée à Paris IXe, est née de cette conviction.
 
