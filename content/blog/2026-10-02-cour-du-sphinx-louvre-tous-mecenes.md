@@ -6,7 +6,7 @@ themes:
   - "Patrimoine"
 kind: "Actualité"
 date: "2026-10-03"
-draft: false
+draft: true
 ---
 _Par Pauline Bion et Martin Chanteranne, fondateurs de Mecenia_
 
