@@ -51,3 +51,4 @@ try {
  }
  console.log("Aperçu des images : "+count+" article(s) équipé(s).");
 }catch(e){console.error("Aperçu des images : étape ignorée",e.message)}
+require("./exposition-refresh.js")().catch(error => { console.error("Refonte exposition :", error); process.exitCode = 1; });
