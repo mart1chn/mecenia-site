@@ -1,6 +1,6 @@
 "use strict";
 /* Accueil : remplace la section « L’équipe fondatrice » par « Le mot des fondateurs » (deux cartes horizontales).
-   Ne modifie que dist/index.html et ne fait jamais échouer le build. */
+   Remplacement sur dist/index.html ; styles des arrondis sur les pages publiques de dist/. */
 const fs = require("fs"), path = require("path");
 const FILE = path.join(process.cwd(), "dist", "index.html");
 
@@ -52,3 +52,20 @@ try {
     }
   }
 } catch (e) { console.error("Fondateurs : étape ignorée", e.message); }
+
+// Même arrondi discret sur les cadres des pages publiques, sans toucher au contenu.
+const ROUND_CSS = '<style id="mecenia-soft-corners">#contenu .card,#contenu .dark-card,#contenu .pcard,#contenu .chart,#contenu .quote,#contenu .stats,#contenu .news-view,#contenu .formbox,#contenu .org-node,#contenu .post-cover,#contenu .mag-box,#contenu .mag-fig img,#contenu .art-fig img,#contenu .post p>img:not(.avatar):not(.fw-photo),#contenu .post figure>img:not(.avatar):not(.fw-photo){border-radius:8px}#contenu .stats,#contenu .news-view,#contenu .post-cover{overflow:hidden}</style>';
+function roundPages(dir) {
+  for (const entry of fs.readdirSync(dir, {withFileTypes:true})) {
+    const file = path.join(dir, entry.name);
+    if (entry.isDirectory()) { if (entry.name !== 'admin') roundPages(file); continue; }
+    if (!entry.name.endsWith('.html')) continue;
+    const html = fs.readFileSync(file, 'utf8');
+    if (!html.includes('id="contenu"') || html.includes('id="mecenia-soft-corners"') || !html.includes('</head>')) continue;
+    fs.writeFileSync(file, html.replace('</head>', () => ROUND_CSS + '\n</head>'));
+  }
+}
+try {
+  const out = path.dirname(FILE);
+  if (fs.existsSync(out)) roundPages(out);
+} catch (e) { console.error('Arrondis : étape ignorée', e.message); }
