@@ -622,6 +622,48 @@
           backdrop-filter: none;
         }
       }
+            @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+        dialog::backdrop {
+          backdrop-filter: none;
+        }
+      }
+      /* Textes éditoriaux justifiés */
+      .intro,
+      .notice,
+      .act p,
+      .end p,
+      .fiche-content > p,
+      .reading p,
+      .transition,
+      .sources p {
+        text-align: justify;
+        hyphens: auto;
+      }
+
+      /* Sur petits écrans, alignement plus confortable */
+      @media (max-width: 760px) {
+        .intro,
+        .notice,
+        .act p,
+        .end p,
+        .fiche-content > p,
+        .reading p,
+        .transition,
+        .sources p {
+          text-align: left;
+          hyphens: auto;
+        }
+      }
     </style>
   </head>
 
