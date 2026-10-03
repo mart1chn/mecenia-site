@@ -1,10 +1,10 @@
 ---
 title: "Look ! 40 ans de mode au musée"
-date: "2026-10-03"
-description: "De Worth au Théâtre de la mode, des tisseurs aux métiers de la conservation : retour sur l’exposition « Look ! 40 ans de mode au musée », au Musée des Arts décoratifs de Paris, et sur tout ce qu’il faut de talents pour « faire mode »."
+description: "De Worth au Théâtre de la mode, des tisseurs aux métiers de la conservation, retour sur l’exposition « Look ! 40 ans de mode au musée », au Musée des Arts décoratifs de Paris, et sur tout ce qu’il faut de talents pour « faire mode »."
 themes:
   - "Mode"
 kind: "Exposition"
+date: "2026-10-03"
 draft: true
 ---
 Faire mode, effet de mode, qu’est-ce que la mode ? La notion de mode, telle qu’on l’entend aujourd’hui, n’existe pas avant le XXe siècle. Toutefois, la volonté de « faire mode », d’uniformiser une collection et de créer par saisons apparaît dès 1858 sous la direction de Charles Frederick Worth, considéré comme l’inventeur de la Haute Couture au sens actuel du terme.
@@ -19,11 +19,11 @@ Dans les années 1920, Madeleine Vionnet est considérée comme la grande protec
 
 Durant la Seconde Guerre mondiale, la mode subit un grand choc financier. Les ateliers sont soumis à des restrictions de matières premières : des tickets de rationnement ou la carte « couture création » sont nécessaires pour se fournir en tissus jusqu’en 1948. Certains déjouent la règle, comme Balenciaga qui, de par sa nationalité espagnole, se procure du tissu en Espagne afin d’en avoir davantage et de continuer à concevoir de la Haute Couture. De nombreuses maisons ferment toutefois, comme Schiaparelli ou encore Chanel. La Haute Couture maintient néanmoins une certaine dynamique grâce au soutien de Paul Reynaud, ministre des Finances.
 
-C’est par une initiative artistique, mêlant plusieurs domaines comme le théâtre et la mode, que la Haute Couture française est reconnue à l’international en 1949. C’est ainsi que débute l’exposition *Look ! 40 ans de mode au musée* : par l’explication de ce qu’est le Théâtre de la mode, un travail collaboratif entre Christian Bérard, Jean Cocteau et tous les couturiers français. Cette exposition, itinérante dans tous les pays, a permis de diffuser la Haute Couture française à l’échelle internationale.
+C’est par une initiative artistique, mêlant plusieurs domaines comme le théâtre et la mode, que la Haute Couture française est reconnue à l’international en 1949. C’est ainsi que débute l’exposition _Look ! 40 ans de mode au musée_ : par l’explication de ce qu’est le Théâtre de la mode, un travail collaboratif entre Christian Bérard, Jean Cocteau et tous les couturiers français. Cette exposition, itinérante dans tous les pays, a permis de diffuser la Haute Couture française à l’échelle internationale.
 
 ## Faire mode : un travail collectif
 
-Faire mode est un travail collaboratif entre différents corps de métier et différentes personnalités. La création ne repose pas seulement entre les mains du couturier : elle dépend aussi du choix des tissus, du motif dessiné par les dessinateurs, de l’assemblage et de bien d’autres facteurs. « Le tissu est le vecteur de nos rêves, bien des tissus ne naissent que de lui », affirme Christian Dior dans son livre *Christian Dior et moi*. Hubert de Givenchy, lors d’une interview de 2013, décrit l’émotion et l’effervescence créative qui le guident lorsque des tisserands comme Bianchini Férier apportent de nouveaux modèles de textiles et de motifs. Les couturiers eux-mêmes témoignent que la mode n’est pas seulement liée à la figure du grand couturier.
+Faire mode est un travail collaboratif entre différents corps de métier et différentes personnalités. La création ne repose pas seulement entre les mains du couturier : elle dépend aussi du choix des tissus, du motif dessiné par les dessinateurs, de l’assemblage et de bien d’autres facteurs. « Le tissu est le vecteur de nos rêves, bien des tissus ne naissent que de lui », affirme Christian Dior dans son livre _Christian Dior et moi_. Hubert de Givenchy, lors d’une interview de 2013, décrit l’émotion et l’effervescence créative qui le guident lorsque des tisserands comme Bianchini Férier apportent de nouveaux modèles de textiles et de motifs. Les couturiers eux-mêmes témoignent que la mode n’est pas seulement liée à la figure du grand couturier.
 
 L’exposition met en lumière une figure méconnue du grand public : André Brossin de Méré, dessinatrice et fabricante textile. En 1948, elle commence son activité à Zurich avec INANO, un groupe de tisseurs suisses. Elle décide toutefois de s’émanciper et, en 1953, elle fonde sa filiale à Zurich, Tissus Brossin de Méré. Elle collabore avec de nombreux couturiers comme Dior et Yves Saint Laurent, mais également Hubert de Givenchy. Une robe citron illustre notamment cette collaboration entre les tissus Brossin de Méré et Hubert de Givenchy.
 
@@ -37,4 +37,4 @@ L’exposition se poursuit par une présentation des corps de métier liés à l
 
 ## Les expositions du MAD en un regard
 
-Pour clôturer l’exposition, l’allée centrale présente les tenues emblématiques des expositions qui se sont tenues au MAD : *La Mécanique des dessous, une histoire indiscrète de la silhouette* en 2013, *Travaux de Dames ?* en 2017, *Mode et sport, d’un podium à l’autre* en 2023, et bien d’autres. Elles nous rappellent tous les travaux de recherche menés par les commissaires et les équipes des expositions.
+Pour clôturer l’exposition, l’allée centrale présente les tenues emblématiques des expositions qui se sont tenues au MAD : _La Mécanique des dessous, une histoire indiscrète de la silhouette_ en 2013, _Travaux de Dames ?_ en 2017, _Mode et sport, d’un podium à l’autre_ en 2023, et bien d’autres. Elles nous rappellent tous les travaux de recherche menés par les commissaires et les équipes des expositions.
