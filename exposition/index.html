@@ -372,6 +372,7 @@
 
       dialog {
         width: min(1050px, calc(100% - 40px));
+        max-height: calc(100vh - 48px);
         max-height: calc(100dvh - 48px);
         padding: 0;
         overflow: hidden;
@@ -424,6 +425,7 @@
       }
 
       .details {
+        max-height: calc(100vh - 120px);
         max-height: calc(100dvh - 120px);
         padding: 28px;
         overflow: auto;
@@ -505,6 +507,19 @@
         font-style: italic;
       }
 
+      /* Textes éditoriaux justifiés */
+      .intro,
+      .notice,
+      .act p,
+      .end p,
+      .fiche-content > p,
+      .reading p,
+      .transition,
+      .sources p {
+        text-align: justify;
+        hyphens: auto;
+      }
+
       @keyframes modal-in {
         from {
           opacity: 0;
@@ -577,6 +592,7 @@
 
         dialog {
           width: calc(100% - 24px);
+          max-height: calc(100vh - 24px);
           max-height: calc(100dvh - 24px);
         }
 
@@ -585,6 +601,7 @@
         }
 
         .details {
+          max-height: calc(100vh - 98px);
           max-height: calc(100dvh - 98px);
           padding: 18px;
         }
@@ -603,6 +620,19 @@
           grid-template-columns: 1fr;
           gap: 14px;
         }
+
+        /* Sur smartphone, la justification est désactivée */
+        .intro,
+        .notice,
+        .act p,
+        .end p,
+        .fiche-content > p,
+        .reading p,
+        .transition,
+        .sources p {
+          text-align: left;
+          hyphens: auto;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -620,48 +650,6 @@
 
         dialog::backdrop {
           backdrop-filter: none;
-        }
-      }
-            @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-        *,
-        *::before,
-        *::after {
-          transition-duration: 0.01ms !important;
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-        }
-        dialog::backdrop {
-          backdrop-filter: none;
-        }
-      }
-      /* Textes éditoriaux justifiés */
-      .intro,
-      .notice,
-      .act p,
-      .end p,
-      .fiche-content > p,
-      .reading p,
-      .transition,
-      .sources p {
-        text-align: justify;
-        hyphens: auto;
-      }
-
-      /* Sur petits écrans, alignement plus confortable */
-      @media (max-width: 760px) {
-        .intro,
-        .notice,
-        .act p,
-        .end p,
-        .fiche-content > p,
-        .reading p,
-        .transition,
-        .sources p {
-          text-align: left;
-          hyphens: auto;
         }
       }
     </style>
