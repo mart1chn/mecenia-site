@@ -7,11 +7,13 @@ const FILE = path.join(process.cwd(), "dist", "index.html");
 const CSS = '<style id="mecenia-founders-css">' +
   '.founders-words{display:grid;gap:22px;max-width:880px;margin:36px auto 0}' +
   '.founders-words .fw-card{display:grid;grid-template-columns:140px minmax(0,1fr);gap:30px;align-items:center;text-align:left;padding:30px 34px}' +
+  '.founders-words .fw-card:nth-child(2){grid-template-columns:minmax(0,1fr) 140px}.founders-words .fw-card:nth-child(2) .fw-photo{grid-column:2;grid-row:1}.founders-words .fw-card:nth-child(2)>div{grid-column:1;grid-row:1}' +
   '.founders-words .fw-photo{width:140px;height:140px;border-radius:50%;object-fit:cover;display:block;border:1px solid var(--line)}' +
   '.founders-words .fw-head{margin:0 0 4px;font-family:"Playfair Display",Georgia,serif;font-size:21px}' +
   '.founders-words .fw-role{display:block;margin-bottom:14px;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--bronze,#9A5F37)}' +
-  '.founders-words .fw-text{margin:0;text-align:left;hyphens:none;-webkit-hyphens:none;font-size:16.5px;line-height:1.7}' +
-  '@media(max-width:700px){.founders-words .fw-card{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;padding:26px 22px}.founders-words .fw-photo{width:112px;height:112px}.founders-words .fw-text{text-align:left}}' +
+  '.founders-words .fw-text{margin:0;text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;font-size:16.5px;line-height:1.7}' +
+  '#contenu .card,#contenu .dark-card,#contenu .pcard,#contenu .chart,#contenu .quote,#contenu .stats,#contenu .news-view,#contenu .art-fig img{border-radius:8px}#contenu .stats,#contenu .news-view{overflow:hidden}' +
+  '@media(max-width:700px){.founders-words .fw-card,.founders-words .fw-card:nth-child(2){grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;padding:26px 22px}.founders-words .fw-photo{width:112px;height:112px}.founders-words .fw-card:nth-child(2) .fw-photo,.founders-words .fw-card:nth-child(2)>div{grid-column:auto;grid-row:auto}.founders-words .fw-text{text-align:justify}}' +
   '</style>';
 
 function card(img, alt, name, role, text) {
