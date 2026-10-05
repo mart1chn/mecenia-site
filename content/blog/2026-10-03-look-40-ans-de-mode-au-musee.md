@@ -6,7 +6,7 @@ themes:
   - "Mode"
 kind: "Exposition"
 date: "2026-10-04"
-draft: false
+draft: true
 ---
 Faire mode, effet de mode, qu’est-ce que la mode ? La notion de mode, telle qu’on l’entend aujourd’hui, n’existe pas avant le XXe siècle. Toutefois, la volonté de « faire mode », d’uniformiser une collection et de créer par saisons apparaît dès 1858 sous la direction de Charles Frederick Worth, considéré comme l’inventeur de la Haute Couture au sens actuel du terme.
 
