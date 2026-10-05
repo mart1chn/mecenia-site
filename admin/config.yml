@@ -122,6 +122,75 @@ collections:
       - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Brouillon", name: "draft", widget: "boolean", default: true, hint: "Coché : l’article est enregistré mais reste invisible sur le site. Décochez pour le publier." }
 
+  - name: expositions
+    label: Expositions
+    label_singular: Exposition
+    description: "Composez les expositions numériques : étapes, œuvres, cartels et sources. Une exposition en brouillon reste invisible ; la plus récente exposition publiée s’affiche sur /exposition/."
+    icon: museum
+    folder: content/expositions
+    create: true
+    extension: yml
+    format: yaml
+    slug: "{{year}}-{{month}}-{{slug}}"
+    media_folder: /assets/img/expositions
+    public_folder: /assets/img/expositions
+    summary: "{{title}} ({{period}})"
+    sortable_fields: ["period", "title"]
+    fields:
+      - { label: "Titre de l’exposition", name: "title", widget: "string" }
+      - { label: "Période", name: "period", widget: "string", hint: "Format AAAA-MM, par exemple 2026-10. La période la plus récente, parmi les expositions publiées, s’affiche sur le site." }
+      - { label: "Brouillon", name: "draft", widget: "boolean", default: true, hint: "Coché : l’exposition reste invisible. Décochez pour la publier." }
+      - { label: "Description pour Google", name: "seo_description", widget: "text" }
+      - { label: "Sous-titre de la page", name: "hero_subtitle", widget: "text" }
+      - { label: "Étiquette de l’en-tête", name: "eyebrow", widget: "string", default: "L’exposition Mecenia · Octobre 2026" }
+      - { label: "Titre de l’introduction", name: "intro_title", widget: "string" }
+      - { label: "Paragraphes d’introduction", name: "intro_paragraphs", widget: "list", field: { label: "Paragraphe", name: "text", widget: "text" } }
+      - { label: "Lien vers le projet institutionnel", name: "project_url", widget: "string", hint: "Adresse en https://" }
+      - { label: "Texte du lien institutionnel", name: "project_link_label", widget: "string", default: "Découvrir le projet officiel" }
+      - { label: "Note de statut éditorial", name: "note", widget: "text", hint: "Précise que l’exposition est indépendante de l’institution." }
+      - { label: "Article lié (adresse du site)", name: "article_url", widget: "string", required: false, hint: "Par exemple /blog/cour-du-sphinx-louvre-tous-mecenes/" }
+      - label: "Étapes"
+        name: "acts"
+        widget: "list"
+        label_singular: "étape"
+        summary: "Étape {{fields.n}} : {{fields.title}}"
+        fields:
+          - { label: "Numéro", name: "n", widget: "number", value_type: "int", min: 1 }
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Texte de l’étape", name: "text", widget: "text" }
+      - label: "Œuvres"
+        name: "works"
+        widget: "list"
+        label_singular: "œuvre"
+        summary: "{{fields.title}}"
+        fields:
+          - { label: "Identifiant", name: "id", widget: "string", hint: "Court, sans espace ni accent (exemple : tibre). Il ne doit pas changer une fois publié." }
+          - { label: "Étape", name: "act", widget: "number", value_type: "int", min: 1, hint: "Numéro de l’étape où se trouve l’œuvre." }
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Datation", name: "date", widget: "string" }
+          - { label: "Technique / inventaire", name: "medium", widget: "string" }
+          - { label: "Origine", name: "origin", widget: "string" }
+          - { label: "Statut affiché", name: "status", widget: "string", hint: "Exemple : Ensemble annoncé par le Louvre" }
+          - { label: "Contrepoint choisi par Mecenia", name: "contrepoint", widget: "boolean", default: false }
+          - { label: "Image téléversée", name: "image", widget: "image", required: false, hint: "Facultatif. Sans image, la reproduction est récupérée depuis Wikimedia Commons grâce au nom de fichier ci-dessous." }
+          - { label: "Fichier Wikimedia Commons", name: "commons_file", widget: "string", required: false, hint: "Nom exact du fichier, sans « File: »." }
+          - { label: "Texte alternatif", name: "alt", widget: "string" }
+          - { label: "Crédit photographique", name: "credit", widget: "string", required: false, hint: "Laissez vide pour reprendre l’auteur depuis Wikimedia Commons." }
+          - { label: "Nom de la licence", name: "license_name", widget: "string", required: false }
+          - { label: "Adresse de la licence", name: "license_url", widget: "string", required: false }
+          - { label: "Page source de l’image", name: "image_source_url", widget: "string", required: false }
+          - { label: "Source institutionnelle", name: "source", widget: "string", hint: "Adresse en https://" }
+          - { label: "Regarder l’œuvre (notice)", name: "notice", widget: "text" }
+          - { label: "Complément de notice", name: "complement", widget: "text", required: false }
+          - { label: "Le regard de Mecenia", name: "reading", widget: "text" }
+          - { label: "Transition vers l’œuvre suivante", name: "transition", widget: "text" }
+      - { label: "Titre « Pour approfondir »", name: "method_title", widget: "string", default: "Conserver, interpréter, transmettre" }
+      - { label: "Texte de méthode", name: "method_text", widget: "text" }
+      - { label: "Texte sur les reproductions", name: "images_text", widget: "text" }
+      - { label: "Mention de mise à jour", name: "update_note", widget: "text" }
+      - { label: "Titre de clôture", name: "cta_title", widget: "string" }
+      - { label: "Texte de clôture", name: "cta_text", widget: "text" }
+
   - name: messages
     label: Messages reçus
     label_singular: Message
