@@ -1,6 +1,7 @@
 ---
 title: "Look ! 40 ans de mode au musée"
 description: "De Worth au Théâtre de la mode, des tisseurs aux métiers de la conservation, retour sur l’exposition « Look ! 40 ans de mode au musée », au Musée des Arts décoratifs de Paris, et sur tout ce qu’il faut de talents pour « faire mode »."
+image: "/assets/img/blog/img_1221.webp"
 themes:
   - "Mode"
 kind: "Exposition"
@@ -19,19 +20,31 @@ Dans les années 1920, Madeleine Vionnet est considérée comme la grande protec
 
 Durant la Seconde Guerre mondiale, la mode subit un grand choc financier. Les ateliers sont soumis à des restrictions de matières premières : des tickets de rationnement ou la carte « couture création » sont nécessaires pour se fournir en tissus jusqu’en 1948. Certains déjouent la règle, comme Balenciaga qui, de par sa nationalité espagnole, se procure du tissu en Espagne afin d’en avoir davantage et de continuer à concevoir de la Haute Couture. De nombreuses maisons ferment toutefois, comme Schiaparelli ou encore Chanel. La Haute Couture maintient néanmoins une certaine dynamique grâce au soutien de Paul Reynaud, ministre des Finances.
 
+![](/assets/img/blog/img_2550.webp)
+
 C’est par une initiative artistique, mêlant plusieurs domaines comme le théâtre et la mode, que la Haute Couture française est reconnue à l’international en 1949. C’est ainsi que débute l’exposition _Look ! 40 ans de mode au musée_ : par l’explication de ce qu’est le Théâtre de la mode, un travail collaboratif entre Christian Bérard, Jean Cocteau et tous les couturiers français. Cette exposition, itinérante dans tous les pays, a permis de diffuser la Haute Couture française à l’échelle internationale.
+
+![](/assets/img/blog/img_6231.webp)
 
 ## Faire mode : un travail collectif
 
 Faire mode est un travail collaboratif entre différents corps de métier et différentes personnalités. La création ne repose pas seulement entre les mains du couturier : elle dépend aussi du choix des tissus, du motif dessiné par les dessinateurs, de l’assemblage et de bien d’autres facteurs. « Le tissu est le vecteur de nos rêves, bien des tissus ne naissent que de lui », affirme Christian Dior dans son livre _Christian Dior et moi_. Hubert de Givenchy, lors d’une interview de 2013, décrit l’émotion et l’effervescence créative qui le guident lorsque des tisserands comme Bianchini Férier apportent de nouveaux modèles de textiles et de motifs. Les couturiers eux-mêmes témoignent que la mode n’est pas seulement liée à la figure du grand couturier.
 
+![](/assets/img/blog/img_3262.webp)
+
 L’exposition met en lumière une figure méconnue du grand public : André Brossin de Méré, dessinatrice et fabricante textile. En 1948, elle commence son activité à Zurich avec INANO, un groupe de tisseurs suisses. Elle décide toutefois de s’émanciper et, en 1953, elle fonde sa filiale à Zurich, Tissus Brossin de Méré. Elle collabore avec de nombreux couturiers comme Dior et Yves Saint Laurent, mais également Hubert de Givenchy. Une robe citron illustre notamment cette collaboration entre les tissus Brossin de Méré et Hubert de Givenchy.
 
 « Ce que je préfère, c’est l’inspiration, je vais voir toutes les expositions, je visite les antiquaires ; pour ma collection Entremets, j’ai acheté tous les magazines de cuisine », témoigne Brossin de Méré. Pour elle, la création ne se fait pas de manière isolée : en sortant, en regardant le monde, la curiosité fonde sa créativité.
 
+![](/assets/img/blog/img_7711.webp)
+
 ## Conserver la mode
 
-L’exposition se poursuit par une présentation des corps de métier liés à la culture et à la conservation des œuvres de mode. On comprend qui les conserve, qui les restaure et comment elles sont stockées. La gestion d’une pièce de mode, que ce soit dans son exposition ou sa conservation, n’est pas identique à celle d’un tableau ou d’une sculpture. Le textile se dégrade plus vite à la lumière et selon certaines températures. Il est important de surveiller l’état de conservation d’une œuvre textile et de prévenir les risques : l’exposer six mois maximum, la stocker dans un endroit neutre et installer des pièges pour certains insectes ou nuisibles.
+L’exposition se poursuit par une présentation des corps de métier liés à la culture et à la conservation des œuvres de mode. On comprend qui les conserve, qui les restaure et comment elles sont stockées. La gestion d’une pièce de mode, que ce soit dans son expo
+
+sition ou sa conservation, n’est pas identique à celle d’un tableau ou d’une sculpture. Le textile se dégrade plus vite à la lumière et selon certaines températures. Il est important de surveiller l’état de conservation d’une œuvre textile et de prévenir les risques : l’exposer six mois maximum, la stocker dans un endroit neutre et installer des pièges pour certains insectes ou nuisibles.
+
+![](/assets/img/blog/img_5484.webp)
 
 À titre anecdotique, la manière de stocker une pièce vestimentaire peut entraîner des dommages. Une robe des années 1920, constituée de sequins et de passementeries lourdes, ne peut pas être stockée dans les réserves sur cintre : elle doit l’être à plat. Avec la pesanteur, le poids déchirerait la robe et ses fines bretelles.
 
