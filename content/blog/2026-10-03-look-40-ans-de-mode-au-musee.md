@@ -1,7 +1,7 @@
 ---
 title: "Look ! 40 ans de mode au musée"
 description: "De Worth au Théâtre de la mode, des tisseurs aux métiers de la conservation, retour sur l’exposition « Look ! 40 ans de mode au musée », au Musée des Arts décoratifs de Paris, et sur tout ce qu’il faut de talents pour « faire mode »."
-image: "https://drive.google.com/file/d/1NuxsnwD4TsIRlWFQGWATJXS-mM7lPnYw/view?usp=sharing"
+image: "https://drive.google.com/file/d/15i_c5X6fuYAhdhQ_dBrzyNi3-WDjDQ1L/view?usp=sharing"
 themes:
   - "Mode"
 kind: "Exposition"
