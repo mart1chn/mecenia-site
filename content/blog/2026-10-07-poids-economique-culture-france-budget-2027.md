@@ -2,12 +2,12 @@
 title: "Poids économique de la culture : 54,1 milliards, un budget en recul"
 description: "La culture crée 54,1 milliards d’euros de valeur ajoutée en France. Que révèle le budget 2027 ? Chiffres, emplois et analyse des baisses annoncées."
 image: "/assets/img/blog/mecenia-poids-culture-reperes.svg"
-themes: ["Patrimoine"]
-kind: "Analyse"
-date: "2026-10-07"
-draft: true
+themes:
+  - "Patrimoine"
+kind: "Actualité"
+date: "2026-10-09"
+draft: false
 ---
-
 _Par Martin Chanteranne, Vice-Président Mecenia._
 
 La culture est-elle une dépense que la France ne pourrait plus se permettre, ou une richesse dont elle sous-estime les conditions de production ? Le projet de loi de finances pour 2027 remet cette question au premier plan. Les articles publiés ces derniers jours décrivent une nouvelle contraction des moyens culturels, particulièrement marquée pour certaines activités de création et de transmission. Mais pour comprendre ce que ces arbitrages mettent en jeu, il faut commencer par mesurer ce que la culture apporte réellement à l’économie.
@@ -24,15 +24,17 @@ On lit souvent que la culture représente « 2,1 % du PIB ». La formule est com
 
 Le périmètre compte également. L’étude couvre neuf domaines : audiovisuel, spectacle vivant, agences de publicité, patrimoine, arts visuels, architecture, presse, enseignement culturel et livre. Elle ne mesure pas toutes les activités créatives au sens large. La mode et les métiers d’art, certaines activités numériques, les entreprises de construction intervenant dans les monuments ou les retombées touristiques ne sont pas intégralement compris dans cette estimation directe. Il serait tout aussi inexact de les oublier que de les ajouter arbitrairement. ([DEPS, annexe méthodologique](https://www.culture.gouv.fr/espace-documentation/service-statistique-ministeriel-deps/publications/collections-de-synthese/culture-chiffres-2007-2026/le-poids-economique-direct-de-la-culture-en-2024-cc-2026-3))
 
-![Façade du Palais Garnier à Paris](https://commons.wikimedia.org/wiki/Special:Redirect/file/Palais_Garnier.jpg "Le Palais Garnier à Paris : un lieu où se rencontrent patrimoine et spectacle vivant. Photographie : Eric Pouhier ; version corrigée par Berthold Werner. CC BY-SA 2.5, via Wikimedia Commons. Illustration du secteur, non photographie d’un chantier annoncé pour 2027.")
+![Façade du Palais Garnier à Paris](https://commons.wikimedia.org/wiki/Special:Redirect/file/Palais_Garnier.jpg)
 
-Source de l’image : [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palais_Garnier.jpg) ; licence [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+_Le Palais Garnier à Paris : un lieu où se rencontrent patrimoine et spectacle vivant. Photographie : Eric Pouhier ; version corrigée par Berthold Werner. CC BY-SA 2.5, via Wikimedia Commons. Illustration du secteur, non photographie d’un chantier annoncé pour 2027._ Source de l’image : [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palais_Garnier.jpg) ; licence [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
 
 ## Des activités et des emplois
 
 La culture ne se résume ni aux musées, ni aux monuments. Avec 14,5 milliards d’euros de valeur ajoutée en 2024, l’audiovisuel représente la première branche culturelle. Le spectacle vivant suit avec 9,5 milliards, devant la publicité, à 5,3 milliards, et le patrimoine, à 5 milliards. Les arts visuels atteignent 4,9 milliards, l’architecture 4,7 milliards, la presse 4 milliards, l’enseignement culturel 3,1 milliards et le livre 3 milliards. Les montants arrondis par branche ne reconstituent pas nécessairement exactement le total publié. ([DEPS, tableau 1](https://www.culture.gouv.fr/espace-documentation/service-statistique-ministeriel-deps/publications/collections-de-synthese/culture-chiffres-2007-2026/le-poids-economique-direct-de-la-culture-en-2024-cc-2026-3))
 
-![Infographie Mecenia : valeur ajoutée culturelle 2024 par branche, de l’audiovisuel à 14,5 milliards d’euros au livre à 3 milliards.](/assets/img/blog/mecenia-poids-culture-branches.svg "Infographie Mecenia — D’où vient la richesse culturelle ? Source : DEPS / Insee, CC-2026-3, tableau 1. Milliards d’euros courants, données provisoires et montants arrondis.")
+![Infographie Mecenia : valeur ajoutée culturelle 2024 par branche, de l’audiovisuel à 14,5 milliards d’euros au livre à 3 milliards.](/assets/img/blog/mecenia-poids-culture-branches.svg)
+
+_Infographie Mecenia — D’où vient la richesse culturelle ? Source : DEPS / Insee, CC-2026-3, tableau 1. Milliards d’euros courants, données provisoires et montants arrondis._
 
 Les emplois obéissent à deux définitions qu’il faut distinguer. Selon les Chiffres clés 2025, 779 600 personnes exercent une profession culturelle au titre de leur emploi principal en 2023, soit 2,7 % de l’emploi total. Par ailleurs, 818 100 personnes travaillent dans un secteur culturel, soit 2,9 % de l’emploi total. Un designer peut exercer dans l’industrie automobile ; un secrétaire peut travailler dans un théâtre. Ces deux populations se recoupent et ne doivent donc pas être additionnées. Le champ est celui de la France hors Mayotte. ([DEPS, Emploi culturel](https://www.culture.gouv.fr/mc/content/download/391044/file/Chiffres%20cl%C3%A9s%202025_DEPS_Emploi%20culturel_Fiche.pdf?inLanguage=fre-FR&version=1))
 
@@ -48,7 +50,9 @@ Le Monde rapporte un autre chiffre : une baisse de 0,6 %, selon la comparaison p
 
 La précision essentielle se trouve ensuite dans la répartition. Selon Beaux Arts, les crédits de paiement du programme Création diminueraient de 3,5 %, ceux du spectacle vivant de 4,92 % et ceux de l’action consacrée à l’éducation artistique et culturelle de 8,1 %. Les monuments historiques et le patrimoine monumental reculeraient de 8,38 %. À l’inverse, les crédits des musées progresseraient de 3,92 % et ceux des arts visuels de 2,18 %. Ces lignes correspondent à des programmes et à des actions qui se recoupent : leurs variations ne peuvent pas être additionnées.
 
-![Infographie Mecenia : variations sectorielles rapportées pour le PLF 2027, de −8,38 % pour les monuments historiques et le patrimoine monumental à +3,92 % pour les musées. Lignes de périmètres différents, non additionnables.](/assets/img/blog/mecenia-budget-culture-2027.svg "Infographie Mecenia — Budget 2027, des évolutions contrastées. Source : Beaux Arts, article du 5 octobre 2026, mis à jour le 6 octobre. Chiffres de presse relatifs à un projet non adopté. Les lignes se recoupent et ne s’additionnent pas.")
+![Infographie Mecenia : variations sectorielles rapportées pour le PLF 2027, de −8,38 % pour les monuments historiques et le patrimoine monumental à +3,92 % pour les musées. Lignes de périmètres différents, non additionnables.](/assets/img/blog/mecenia-budget-culture-2027.svg)
+
+_Infographie Mecenia — Budget 2027, des évolutions contrastées. Source : Beaux Arts, article du 5 octobre 2026, mis à jour le 6 octobre. Chiffres de presse relatifs à un projet non adopté. Les lignes se recoupent et ne s’additionnent pas._
 
 Le patrimoine n’est donc pas uniformément préservé, pas plus que la création n’est uniformément réduite. La hausse de l’enveloppe des musées ne signifie pas que chaque établissement disposera de davantage de moyens de fonctionnement. Le Monde et Beaux Arts indiquent notamment une baisse de 3 millions d’euros de la subvention de fonctionnement du Louvre, tandis que certains grands chantiers sont maintenus et que d’autres travaux sont différés. ([Le Monde](https://www.lemonde.fr/culture/article/2026/10/02/le-budget-de-la-culture-en-baisse-de-0-6-dans-le-projet-de-loi-de-finances-2027_6787141_3246.html) ; [Beaux Arts](https://www.beauxarts.com/grand-format/une-baisse-de-954-millions-deuros-le-budget-de-la-culture-encore-sacrifie-en-2027/))
 
