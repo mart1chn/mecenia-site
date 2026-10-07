@@ -2,8 +2,9 @@
   "name": "mecenia-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Site de l\u2019association Mecenia",
+  "description": "Site de l’association Mecenia",
   "dependencies": {
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "markdown-it": "14.1.0"
   }
 }

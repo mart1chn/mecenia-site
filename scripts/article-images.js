@@ -1,6 +1,5 @@
 "use strict";
-/* Articles du blog : images d'illustration (hors infographies SVG) limitées en hauteur, centrées.
-   Ne modifie que dist/ et ne fait jamais échouer le build. */
+/* Articles : cadrage existant conservé, puis rendu commun des médias. */
 const fs = require("fs"), path = require("path");
 const BLOG = path.join(process.cwd(), "dist", "blog");
 const CSS = '<style id="mecenia-article-images">' +
@@ -20,3 +19,4 @@ try {
   }
   console.log("Images d'articles : hauteur limitée sur " + n + " article(s).");
 } catch (e) { console.error("Images d'articles : étape ignorée", e.message); }
+require('./blog-media-repair.js');
