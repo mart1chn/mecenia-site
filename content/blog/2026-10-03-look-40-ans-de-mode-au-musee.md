@@ -8,6 +8,8 @@ kind: "Exposition"
 date: "2026-10-04"
 draft: false
 ---
+_Par Pauline Bion, Présidente de Mecenia._
+
 Faire mode, effet de mode, qu’est-ce que la mode ? La notion de mode, telle qu’on l’entend aujourd’hui, n’existe pas avant le XXe siècle. Toutefois, la volonté de « faire mode », d’uniformiser une collection et de créer par saisons apparaît dès 1858 sous la direction de Charles Frederick Worth, considéré comme l’inventeur de la Haute Couture au sens actuel du terme.
 
 La mode n’est reconnue comme pratique artistique que dans les années 1980, sous François Mitterrand. Cette reconnaissance ne vient pas de nulle part : elle est le fruit d’un travail collaboratif entre plusieurs acteurs, qu’ils soient artistiques, économiques ou politiques.
