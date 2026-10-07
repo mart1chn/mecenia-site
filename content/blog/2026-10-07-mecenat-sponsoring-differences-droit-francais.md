@@ -2,6 +2,8 @@
 title: "Mécénat ou sponsoring : quelles différences en droit français ?"
 description: "Don ou prestation publicitaire ? Les différences entre mécénat et sponsoring en droit français : contreparties, fiscalité et contrat, au 7 octobre 2026."
 image: "/assets/img/blog/mecenia-mecenat-sponsoring-differences.svg"
+themes:
+  - "Mécénat"
 kind: "Formation"
 date: "2026-10-16"
 draft: false
