@@ -18,6 +18,10 @@ Pourquoi une banque finance-t-elle la restauration d’une œuvre ? Pourquoi un 
 
 Le premier objectif peut être directement culturel : sauvegarder une œuvre, restaurer un monument, accompagner un artiste ou rendre une programmation accessible à de nouveaux publics. Le programme [Art Conservation Project de Bank of America](https://about.bankofamerica.com/en/making-an-impact/art-conservation-project), lancé en 2010, finance la conservation d’œuvres et d’objets patrimoniaux dans différents pays. Il illustre une contribution à la transmission du patrimoine, au-delà de la seule visibilité du financeur.
 
+![La Victoire de Samothrace au musée du Louvre](https://commons.wikimedia.org/wiki/Special:Redirect/file/Winged_Victory_of_Samothrace_-_March_2015_by_kHo.jpg)
+
+*La Victoire de Samothrace au Louvre. Photographie : KHo235 — [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Winged_Victory_of_Samothrace_-_March_2015_by_kHo.jpg), [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Fichier source non modifié ; affichage redimensionné.*
+
 ### Exprimer une identité
 
 Une entreprise peut choisir un domaine culturel en cohérence avec son histoire, ses métiers ou ses valeurs. LVMH associe son mécénat à la créativité, à l’excellence, à l’innovation et à la transmission. Cette proximité permet de comprendre pourquoi un groupe dont l’activité repose notamment sur les savoir-faire et la création souhaite soutenir les arts. Elle ne signifie toutefois pas que chaque projet culturel devient une opération commerciale.
@@ -40,12 +44,9 @@ La philanthropie désigne ici la démarche générale de contribution à l’int
 
 Le parrainage, également appelé sponsoring, répond à une logique différente : l’entreprise recherche une prestation ou une retombée publicitaire directe. La présence d’un logo ne suffit cependant pas, à elle seule, à distinguer les deux. Le [ministère de la Culture](https://www.culture.gouv.fr/thematiques/mecenat/entreprises/le-regime-fiscal-general) admet certaines contreparties de communication dans le mécénat, à condition qu’elles demeurent nettement disproportionnées par rapport au don.
 
-| Forme de soutien | Logique dominante | Exemple |
-| --- | --- | --- |
-| Mécénat financier | Contribuer à une action d’intérêt général | Donner pour restaurer une œuvre |
-| Mécénat en nature | Apporter des biens ou des moyens | Fournir du matériel à un organisme culturel éligible |
-| Mécénat de compétences | Mobiliser des savoir-faire | Mettre des compétences professionnelles au service d’un projet |
-| Parrainage | Obtenir une prestation de visibilité ou de promotion | Acheter une présence publicitaire dans un festival |
+![Infographie Mecenia : mécénat financier, contribution à l’intérêt général par un don pour restaurer une œuvre ; mécénat en nature, apport de biens ou de matériel à un organisme éligible ; mécénat de compétences, mobilisation de savoir-faire au service d’un projet ; parrainage, achat d’une prestation de visibilité ou de promotion, par exemple dans un festival.](/assets/img/blog/mecenia-formes-soutien-culture.svg)
+
+*Infographie Mecenia — Quatre façons de soutenir la culture. Source : [ministère de la Culture](https://www.culture.gouv.fr/thematiques/mecenat/entreprises/le-regime-fiscal-general).*
 
 Les trois premières formes peuvent relever du régime fiscal du mécénat lorsque les conditions sont réunies ; la qualification dépend de la réalité de l’opération, et pas simplement de son intitulé.
 
@@ -79,11 +80,9 @@ Ces exemples correspondent à deux orientations : accompagner des artistes et le
 
 Comparer les pays suppose de distinguer les pratiques de financement de leurs effets fiscaux. Une réduction d’impôt française n’est pas l’équivalent d’une déduction du bénéfice imposable en Suisse ou aux États-Unis.
 
-| Dimension | France | Suisse | États-Unis |
-| --- | --- | --- | --- |
-| Mécanisme fiscal présenté | Réduction d’impôt pour les dons éligibles | Déduction du bénéfice imposable, sous conditions et plafonds | Déduction fédérale des contributions éligibles, avec règles propres aux entreprises concernées |
-| Pratiques illustrées | Fondation d’entreprise, soutien aux artistes, patrimoine et institutions | Fondation culturelle, médiation artistique et partenariats avec le marché de l’art | Financement par entreprises, particuliers, fondations et acteurs publics |
-| Acteurs étudiés | BNP Paribas et LVMH | UBS, Fondation Beyeler et Art Basel | Bank of America et National Endowment for the Arts |
+![Infographie Mecenia : France, réduction d’impôt et soutien par fondations d’entreprise, aux artistes, au patrimoine et aux institutions, exemples BNP Paribas et LVMH ; Suisse, déduction du bénéfice et fondations culturelles, médiation et partenariats avec le marché de l’art, exemples UBS, Beyeler et Art Basel ; États-Unis, déduction fédérale sous conditions et financement par entreprises, particuliers, fondations et acteurs publics, exemples Bank of America et NEA.](/assets/img/blog/mecenia-modeles-culture-international.svg)
+
+*Infographie Mecenia — Trois approches du soutien culturel. Synthèse des sources institutionnelles et juridiques citées dans cette section ; elle ne présente pas un classement des pays.*
 
 Les sources et les nuances juridiques de cette comparaison sont détaillées ci-dessous.
 
@@ -108,6 +107,10 @@ Il faut distinguer l’impôt fédéral des impôts cantonaux et communaux. À t
 ### Aux États-Unis, un financement diversifié
 
 Le système américain ne repose ni sur les seules entreprises, ni sur les seules grandes fortunes. Le [National Endowment for the Arts](https://www.arts.gov/impact/research/publications/how-united-states-funds-arts) décrit un ensemble de financeurs publics et privés comprenant les fondations, les entreprises, les particuliers et les partenaires publics aux niveaux fédéral, étatique et local. Il faut éviter de confondre le don personnel d’un entrepreneur, l’action d’une fondation et le soutien directement financé par une société.
+
+![Façade du Metropolitan Museum of Art à New York](https://commons.wikimedia.org/wiki/Special:Redirect/file/Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg)
+
+*Le Metropolitan Museum of Art à New York : une illustration du paysage muséal américain, sans présumer d’un partenariat particulier avec les entreprises citées. Photographie : Hugo Schneider — [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Fichier source non modifié ; affichage redimensionné.*
 
 [Bank of America](https://about.bankofamerica.com/en/making-an-impact/arts-and-culture) illustre la place d’une banque dans cet ensemble. Outre son Art Conservation Project, elle développe Museums on Us et Art in our Communities, qui permettent notamment à des institutions culturelles à but non lucratif d’emprunter des expositions constituées à partir de sa collection. Son soutien combine conservation, circulation des œuvres et accès aux institutions.
 
@@ -143,4 +146,4 @@ Soutenir la culture ne consiste pas seulement à financer ce qui existe déjà. 
 
 *Note éditoriale : les développements fiscaux présentent des règles générales et ne constituent pas un conseil personnalisé. Ils doivent être vérifiés à la date du versement, selon le statut du donateur, du bénéficiaire et la juridiction concernée. Le présent article n’affirme pas que les dons à Mecenia ouvrent droit à un avantage fiscal.*
 
-*Illustration de couverture : composition géométrique originale générée avec l’assistance d’une IA pour cet article ; elle ne représente aucun bâtiment réel. Photographie intérieure : crédit et licence indiqués sous l’image.*
+*Visuels : couverture originale et infographies Mecenia réalisées avec l’assistance d’une IA. La couverture ne représente aucun bâtiment réel. Les trois photographies sont hébergées sur Wikimedia ; crédits, sources et licences figurent sous chaque image.*
