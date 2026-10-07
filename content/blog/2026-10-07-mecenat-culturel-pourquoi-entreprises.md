@@ -6,7 +6,7 @@ themes:
   - "Mécénat"
 kind: "Analyse"
 date: "2026-10-12"
-draft: false
+draft: true
 ---
 _Par Martin Chanteranne, Vice-Président de Mecenia._
 
