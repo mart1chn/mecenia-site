@@ -9,6 +9,8 @@ themes:
   - name: "Architecture"
   - name: "Patrimoine"
   - name: "Photographie"
+  - name: "Mécénat"
+  - name: "Politique culturelle"
 types:
   - name: "Actualité"
   - name: "Événement"
