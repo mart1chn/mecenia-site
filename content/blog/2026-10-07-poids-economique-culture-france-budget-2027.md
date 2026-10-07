@@ -6,7 +6,7 @@ themes:
   - "Politique culturelle"
 kind: "Actualité"
 date: "2026-10-09"
-draft: false
+draft: true
 ---
 _Par Martin Chanteranne, Vice-Président Mecenia._
 
