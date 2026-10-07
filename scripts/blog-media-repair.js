@@ -30,7 +30,7 @@ function render(source) {
     image.attrs=(image.attrs || []).filter(x=>x[0]!=='title');
     const svg=/\.svg(?:[?#]|$)/i.test(src);
     const html='<figure class="media-figure '+(svg?'media-infographic':'media-photo')+'">'+md.renderer.renderInline([image],md.options,{})+(caption?'<figcaption>'+md.renderInline(clean(caption))+'</figcaption>':'')+'</figure>\n';
-    const token=new md.Token('html_block','',0);token.content=html;
+    const token=new p.constructor('html_block','',0);token.content=html;
     tokens.splice(i,count,token);
   }
   return md.renderer.render(tokens,md.options,{});
