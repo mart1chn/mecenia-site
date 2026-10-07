@@ -2,8 +2,11 @@
 title: "Mécénat culturel : pourquoi les entreprises investissent dans la culture"
 description: "Pourquoi les entreprises soutiennent-elles la culture ? Motivations, fiscalité du mécénat et exemples en France, en Suisse et aux États-Unis."
 image: "/assets/img/blog/mecenat-culturel-entreprises.svg"
-date: "2026-10-07"
-draft: true
+themes:
+  - "Patrimoine"
+kind: "Analyse"
+date: "2026-10-12"
+draft: false
 ---
 _Par Martin Chanteranne, Vice-Président Mecenia._
 
@@ -19,7 +22,7 @@ Le premier objectif peut être directement culturel : sauvegarder une œuvre, re
 
 ![La Victoire de Samothrace au musée du Louvre](https://commons.wikimedia.org/wiki/Special:Redirect/file/Winged_Victory_of_Samothrace_-_March_2015_by_kHo.jpg)
 
-_La Victoire de Samothrace au Louvre. Photographie : KHo235 —&#32;[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Winged_Victory_of_Samothrace_-_March_2015_by_kHo.jpg),&#32;[CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Fichier source non modifié ; affichage redimensionné._
+_La Victoire de Samothrace au Louvre. Photographie : KHo235 — [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Winged_Victory_of_Samothrace_-_March_2015_by_kHo.jpg), [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Fichier source non modifié ; affichage redimensionné._
 
 ### Exprimer une identité
 
@@ -95,7 +98,7 @@ UBS participe également aux [Artist Talks de la Fondation Beyeler](https://www.
 
 ![Vue extérieure de la Fondation Beyeler à Riehen, en Suisse](https://commons.wikimedia.org/wiki/Special:Redirect/file/Fondation_Beyeler_2011_B.JPG)
 
-_Fondation Beyeler, Riehen, Suisse. Photographie : Louis-Fabrice Jean —&#32;[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fondation_Beyeler_2011_B.JPG),&#32;[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Image intégrée sans modification du fichier source ; affichage redimensionné. La photographie reste hébergée sur Wikimedia._
+_Fondation Beyeler, Riehen, Suisse. Photographie : Louis-Fabrice Jean — [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fondation_Beyeler_2011_B.JPG), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Image intégrée sans modification du fichier source ; affichage redimensionné. La photographie reste hébergée sur Wikimedia._
 
 Le partenariat d’UBS avec [Art Basel](https://www.artbasel.com/about/partners) relève d’une relation différente. Art Basel mentionne notamment l’association de marque, l’accès privilégié pour les clients et des expériences événementielles parmi les avantages proposés aux partenaires. Il serait donc inexact de regrouper automatiquement une fondation culturelle et un partenariat avec une foire d’art sous la seule étiquette de philanthropie.
 
@@ -109,7 +112,7 @@ Le système américain ne repose ni sur les seules entreprises, ni sur les seule
 
 ![Façade du Metropolitan Museum of Art à New York](https://commons.wikimedia.org/wiki/Special:Redirect/file/Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg)
 
-_Le Metropolitan Museum of Art à New York : une illustration du paysage muséal américain, sans présumer d’un partenariat particulier avec les entreprises citées. Photographie : Hugo Schneider —&#32;[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Fichier source non modifié ; affichage redimensionné._
+_Le Metropolitan Museum of Art à New York : une illustration du paysage muséal américain, sans présumer d’un partenariat particulier avec les entreprises citées. Photographie : Hugo Schneider — [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Fichier source non modifié ; affichage redimensionné._
 
 [Bank of America](https://about.bankofamerica.com/en/making-an-impact/arts-and-culture) illustre la place d’une banque dans cet ensemble. Outre son Art Conservation Project, elle développe Museums on Us et Art in our Communities, qui permettent notamment à des institutions culturelles à but non lucratif d’emprunter des expositions constituées à partir de sa collection. Son soutien combine conservation, circulation des œuvres et accès aux institutions.
 
