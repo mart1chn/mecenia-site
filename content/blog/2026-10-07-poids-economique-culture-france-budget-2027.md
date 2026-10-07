@@ -3,7 +3,7 @@ title: "Poids économique de la culture : 54,1 milliards, un budget en recul"
 description: "La culture crée 54,1 milliards d’euros de valeur ajoutée en France. Que révèle le budget 2027 ? Chiffres, emplois et analyse des baisses annoncées."
 image: "/assets/img/blog/mecenia-poids-culture-reperes.svg"
 themes:
-  - "Patrimoine"
+  - "Politique culturelle"
 kind: "Actualité"
 date: "2026-10-09"
 draft: false
