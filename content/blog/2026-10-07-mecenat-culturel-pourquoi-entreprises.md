@@ -3,7 +3,7 @@ title: "Mécénat culturel : pourquoi les entreprises investissent dans la cultu
 description: "Pourquoi les entreprises soutiennent-elles la culture ? Motivations, fiscalité du mécénat et exemples en France, en Suisse et aux États-Unis."
 image: "/assets/img/blog/mecenat-culturel-entreprises.svg"
 themes:
-  - "Patrimoine"
+  - "Mécénat"
 kind: "Analyse"
 date: "2026-10-12"
 draft: false
