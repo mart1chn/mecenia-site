@@ -2,14 +2,13 @@
 title: "Mécénat ou sponsoring : quelles différences en droit français ?"
 description: "Don ou prestation publicitaire ? Les différences entre mécénat et sponsoring en droit français : contreparties, fiscalité et contrat, au 7 octobre 2026."
 image: "/assets/img/blog/mecenia-mecenat-sponsoring-differences.svg"
-kind: "Analyse"
-date: "2026-10-07"
-draft: true
+kind: "Formation"
+date: "2026-10-16"
+draft: false
 ---
+_Par Martin Chanteranne, Vice-Président de Mecenia._
 
-_Par Martin Chanteranne, Vice-Président Mecenia. Analyse du droit français au 7 octobre 2026._
-
-Une entreprise finance un musée ou un festival : est-elle mécène ou sponsor ? La réponse dépend moins du nom donné au partenariat que de ce qu’elle reçoit en échange. En droit fiscal français, le mécénat procède d’une intention libérale ; le sponsoring, appelé « parrainage », rémunère une prestation destinée à procurer un bénéfice commercial direct. ([BOFiP, BOI-BIC-RICI-20-30-10-20, § 1 et 120–180](https://bofip.impots.gouv.fr/bofip/6476-PGP.html/identifiant=BOI-BIC-RICI-20-30-10-20-20250108))
+Une entreprise finance un musée ou un festival : est-elle mécène ou sponsor ? La réponse dépend moins du nom donné au partenariat que de ce qu’elle reçoit en échange. En droit fiscal, le mécénat procède d’une intention libérale ; le sponsoring, appelé « parrainage », rémunère une prestation destinée à procurer un bénéfice commercial direct. ([BOFiP, BOI-BIC-RICI-20-30-10-20, § 1 et 120–180](https://bofip.impots.gouv.fr/bofip/6476-PGP.html/identifiant=BOI-BIC-RICI-20-30-10-20-20250108))
 
 ## Don ou prestation commerciale ?
 
@@ -17,7 +16,9 @@ Le mécénat peut prendre la forme d’un apport financier, de biens ou de comp�
 
 Le parrainage répond à une autre logique : l’entreprise achète de la visibilité, une association de marque ou une autre prestation commerciale. Les deux dispositifs peuvent soutenir la culture ; aucun n’est juridiquement « supérieur » à l’autre. Leur qualification doit simplement correspondre à la réalité. ([BOFiP, § 5 et 120–180](https://bofip.impots.gouv.fr/bofip/6476-PGP.html/identifiant=BOI-BIC-RICI-20-30-10-20-20250108))
 
-![Infographie Mecenia comparant la finalité, les contreparties, la fiscalité et les justificatifs du mécénat et du sponsoring.](/assets/img/blog/mecenia-mecenat-sponsoring-differences.svg "Infographie Mecenia — Deux logiques, deux régimes. Sources : CGI, article 238 bis ; article 39, 1, 7° ; BOFiP, BOI-BIC-RICI-20-30-10-20. Synthèse au 7 octobre 2026, sous réserve des conditions applicables.")
+![Infographie Mecenia comparant la finalité, les contreparties, la fiscalité et les justificatifs du mécénat et du sponsoring.](/assets/img/blog/mecenia-mecenat-sponsoring-differences.svg)
+
+_Infographie Mecenia — Deux logiques, deux régimes. Sources : CGI, article 238 bis ; article 39, 1, 7° ; BOFiP, BOI-BIC-RICI-20-30-10-20. Synthèse au 7 octobre 2026, sous réserve des conditions applicables._
 
 ## Un logo ne tranche pas
 
@@ -29,7 +30,9 @@ Dans le secteur culturel, le ministère présente un repère de 25 % pour la val
 
 Exemple illustratif : financer la restauration d’une œuvre avec une mention discrète parmi les soutiens peut relever du mécénat, si les autres conditions sont réunies. Acheter un emplacement publicitaire avec slogan et prestations commerciales relève d’une logique de parrainage. La convention doit décrire ce qui est réellement promis.
 
-![Façade du Palais Garnier à Paris](https://commons.wikimedia.org/wiki/Special:Redirect/file/Palais_Garnier.jpg "Le Palais Garnier à Paris : illustration du patrimoine et du spectacle vivant. Photographie : Eric Pouhier ; version corrigée par Berthold Werner. Wikimedia Commons, CC BY-SA 2.5. Cette image n’illustre aucun partenariat particulier.")
+![Façade du Palais Garnier à Paris](https://commons.wikimedia.org/wiki/Special:Redirect/file/Palais_Garnier.jpg)
+
+_Le Palais Garnier à Paris, illustration du patrimoine et du spectacle vivant. Photographie : Eric Pouhier ; version corrigée par Berthold Werner. Wikimedia Commons, CC BY-SA 2.5. Cette image n’illustre aucun partenariat particulier._
 
 ## Deux fiscalités distinctes
 
@@ -39,7 +42,9 @@ Le don n’est pas déductible du bénéfice imposable : il doit être réintég
 
 Le parrainage peut, lui, constituer une charge déductible lorsqu’il est engagé dans l’intérêt direct de l’exploitation et satisfait aux conditions générales de déduction, notamment sans dépense excessive au regard de l’avantage attendu. Il donne lieu à une facture ; la TVA dépend du régime applicable au prestataire, notamment de l’existence éventuelle d’une franchise. Le même paiement ne peut pas cumuler déduction au titre du parrainage et réduction d’impôt au titre du mécénat. ([Ministère de la Culture, article 39, 1, 7° du CGI](https://www.culture.gouv.fr/thematiques/mecenat/parrainage) ; [BOFiP, § 140–150](https://bofip.impots.gouv.fr/bofip/6476-PGP.html/identifiant=BOI-BIC-RICI-20-30-10-20-20250108))
 
-![Alphonse Mucha, affiche Gismonda, 1894, pour Sarah Bernhardt au Théâtre de la Renaissance](https://commons.wikimedia.org/wiki/Special:Redirect/file/Alfons_Mucha_-_1894_-_Gismonda.jpg "Alphonse Mucha, Gismonda, 1894, lithographie publicitaire pour Sarah Bernhardt au Théâtre de la Renaissance. Source : Art Renewal Center, via Wikimedia Commons ; œuvre et reproduction signalées dans le domaine public. Illustration historique de la promotion d’un spectacle, non exemple documenté de sponsoring.")
+![Alphonse Mucha, affiche Gismonda, 1894, pour Sarah Bernhardt au Théâtre de la Renaissance](https://commons.wikimedia.org/wiki/Special:Redirect/file/Alfons_Mucha_-_1894_-_Gismonda.jpg)
+
+_Alphonse Mucha, Gismonda, 1894, lithographie publicitaire pour Sarah Bernhardt au Théâtre de la Renaissance. Source : Art Renewal Center, via Wikimedia Commons ; œuvre et reproduction signalées dans le domaine public. Illustration historique de la promotion d’un spectacle, non exemple documenté de sponsoring._
 
 ## Qualifier avant de signer
 
@@ -52,8 +57,10 @@ Avant tout versement, quatre vérifications permettent de réduire le risque :
 
 Le ministère propose des modèles de conventions distincts. Le BOFiP souligne la concordance du traitement fiscal entre donateur et bénéficiaire : intituler un contrat « mécénat » ne suffit pas à transformer une prestation publicitaire en don. ([Modèles du ministère](https://www.culture.gouv.fr/de/thematiques/mecenat/modeles-de-conventions-de-mecenat-et-de-parrainage) ; [BOFiP, § 170](https://bofip.impots.gouv.fr/bofip/6476-PGP.html/identifiant=BOI-BIC-RICI-20-30-10-20-20250108))
 
-![Infographie Mecenia : vérifier l’objet du versement, les contreparties puis le régime fiscal et les justificatifs avant de signer.](/assets/img/blog/mecenia-mecenat-sponsoring-qualification.svg "Infographie Mecenia — Qualifier avant de signer. Sources : BOFiP, § 120–180 ; Conseil d’État, 20 mars 2020, n° 423664 ; ministère de la Culture. Le repère de 25 % n’est pas une garantie légale générale.")
+![Infographie Mecenia : vérifier l’objet du versement, les contreparties puis le régime fiscal et les justificatifs avant de signer.](/assets/img/blog/mecenia-mecenat-sponsoring-qualification.svg)
 
-Pour Mecenia, l’enjeu est de permettre un soutien culturel transparent : un don doit rester un don, et une prestation commerciale doit être assumée comme telle.
+_Infographie Mecenia — Qualifier avant de signer. Sources : BOFiP, § 120–180 ; Conseil d’État, 20 mars 2020, n° 423664 ; ministère de la Culture. Le repère de 25 % n’est pas une garantie légale générale._
 
-_Analyse générale du droit français, vérifiée le 7 octobre 2026. Références : article 238 bis du CGI, version affichée en vigueur depuis le 16 février 2025 ; BOFiP du 8 janvier 2025 ; décision du Conseil d’État du 20 mars 2020. Ce texte ne constitue pas un conseil personnalisé et n’affirme pas l’éligibilité fiscale des dons à Mecenia. Infographies originales réalisées avec l’assistance d’une IA._
+Pour Mecenia, l’enjeu est de permettre un soutien culturel transparent ; un don doit rester un don, et une prestation commerciale doit être assumée comme telle.
+
+_Analyse générale du droit français, vérifiée le 7 octobre 2026. Références : article 238 bis du CGI, version affichée en vigueur depuis le 16 février 2025 ; BOFiP du 8 janvier 2025 ; décision du Conseil d’État du 20 mars 2020. Ce texte ne constitue pas un conseil personnalisé et n’affirme pas l’éligibilité fiscale des dons à Mecenia._
