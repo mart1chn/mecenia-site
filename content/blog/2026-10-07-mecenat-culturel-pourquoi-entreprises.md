@@ -8,7 +8,7 @@ kind: "Analyse"
 date: "2026-10-12"
 draft: false
 ---
-_Par Martin Chanteranne, Vice-Président Mecenia._
+_Par Martin Chanteranne, Vice-Président_ de_&#32;Mecenia._
 
 Musées, festivals, restauration du patrimoine, création contemporaine : le soutien des entreprises à la culture prend de multiples formes. Derrière ces engagements se rencontrent une volonté de contribuer à l’intérêt général, des convictions de dirigeants et des objectifs de réputation ou d’ancrage territorial. Les exemples français, suisses et américains montrent cependant qu’un même soutien culturel peut relever de logiques très différentes.
 
