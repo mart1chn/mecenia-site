@@ -5,8 +5,7 @@ image: "/assets/img/blog/mecenat-culturel-entreprises.svg"
 date: "2026-10-07"
 draft: true
 ---
-
-*Par Martin Chanteranne, Vice-Président Mecenia.*
+_Par Martin Chanteranne, Vice-Président Mecenia._
 
 Musées, festivals, restauration du patrimoine, création contemporaine : le soutien des entreprises à la culture prend de multiples formes. Derrière ces engagements se rencontrent une volonté de contribuer à l’intérêt général, des convictions de dirigeants et des objectifs de réputation ou d’ancrage territorial. Les exemples français, suisses et américains montrent cependant qu’un même soutien culturel peut relever de logiques très différentes.
 
@@ -20,7 +19,7 @@ Le premier objectif peut être directement culturel : sauvegarder une œuvre, re
 
 ![La Victoire de Samothrace au musée du Louvre](https://commons.wikimedia.org/wiki/Special:Redirect/file/Winged_Victory_of_Samothrace_-_March_2015_by_kHo.jpg)
 
-*La Victoire de Samothrace au Louvre. Photographie : KHo235 — [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Winged_Victory_of_Samothrace_-_March_2015_by_kHo.jpg), [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Fichier source non modifié ; affichage redimensionné.*
+_La Victoire de Samothrace au Louvre. Photographie : KHo235 —&#32;[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Winged_Victory_of_Samothrace_-_March_2015_by_kHo.jpg),&#32;[CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Fichier source non modifié ; affichage redimensionné._
 
 ### Exprimer une identité
 
@@ -46,7 +45,7 @@ Le parrainage, également appelé sponsoring, répond à une logique différente
 
 ![Infographie Mecenia : mécénat financier, contribution à l’intérêt général par un don pour restaurer une œuvre ; mécénat en nature, apport de biens ou de matériel à un organisme éligible ; mécénat de compétences, mobilisation de savoir-faire au service d’un projet ; parrainage, achat d’une prestation de visibilité ou de promotion, par exemple dans un festival.](/assets/img/blog/mecenia-formes-soutien-culture.svg)
 
-*Infographie Mecenia — Quatre façons de soutenir la culture. Source : [ministère de la Culture](https://www.culture.gouv.fr/thematiques/mecenat/entreprises/le-regime-fiscal-general).*
+_Infographie Mecenia — Quatre façons de soutenir la culture. Source :&#32;[ministère de la Culture](https://www.culture.gouv.fr/thematiques/mecenat/entreprises/le-regime-fiscal-general)._
 
 Les trois premières formes peuvent relever du régime fiscal du mécénat lorsque les conditions sont réunies ; la qualification dépend de la réalité de l’opération, et pas simplement de son intitulé.
 
@@ -82,7 +81,7 @@ Comparer les pays suppose de distinguer les pratiques de financement de leurs ef
 
 ![Infographie Mecenia : France, réduction d’impôt et soutien par fondations d’entreprise, aux artistes, au patrimoine et aux institutions, exemples BNP Paribas et LVMH ; Suisse, déduction du bénéfice et fondations culturelles, médiation et partenariats avec le marché de l’art, exemples UBS, Beyeler et Art Basel ; États-Unis, déduction fédérale sous conditions et financement par entreprises, particuliers, fondations et acteurs publics, exemples Bank of America et NEA.](/assets/img/blog/mecenia-modeles-culture-international.svg)
 
-*Infographie Mecenia — Trois approches du soutien culturel. Synthèse des sources institutionnelles et juridiques citées dans cette section ; elle ne présente pas un classement des pays.*
+_Infographie Mecenia — Trois approches du soutien culturel. Synthèse des sources institutionnelles et juridiques citées dans cette section ; elle ne présente pas un classement des pays._
 
 Les sources et les nuances juridiques de cette comparaison sont détaillées ci-dessous.
 
@@ -96,7 +95,7 @@ UBS participe également aux [Artist Talks de la Fondation Beyeler](https://www.
 
 ![Vue extérieure de la Fondation Beyeler à Riehen, en Suisse](https://commons.wikimedia.org/wiki/Special:Redirect/file/Fondation_Beyeler_2011_B.JPG)
 
-*Fondation Beyeler, Riehen, Suisse. Photographie : Louis-Fabrice Jean — [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fondation_Beyeler_2011_B.JPG), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Image intégrée sans modification du fichier source ; affichage redimensionné. La photographie reste hébergée sur Wikimedia.*
+_Fondation Beyeler, Riehen, Suisse. Photographie : Louis-Fabrice Jean —&#32;[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fondation_Beyeler_2011_B.JPG),&#32;[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Image intégrée sans modification du fichier source ; affichage redimensionné. La photographie reste hébergée sur Wikimedia._
 
 Le partenariat d’UBS avec [Art Basel](https://www.artbasel.com/about/partners) relève d’une relation différente. Art Basel mentionne notamment l’association de marque, l’accès privilégié pour les clients et des expériences événementielles parmi les avantages proposés aux partenaires. Il serait donc inexact de regrouper automatiquement une fondation culturelle et un partenariat avec une foire d’art sous la seule étiquette de philanthropie.
 
@@ -110,7 +109,7 @@ Le système américain ne repose ni sur les seules entreprises, ni sur les seule
 
 ![Façade du Metropolitan Museum of Art à New York](https://commons.wikimedia.org/wiki/Special:Redirect/file/Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg)
 
-*Le Metropolitan Museum of Art à New York : une illustration du paysage muséal américain, sans présumer d’un partenariat particulier avec les entreprises citées. Photographie : Hugo Schneider — [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Fichier source non modifié ; affichage redimensionné.*
+_Le Metropolitan Museum of Art à New York : une illustration du paysage muséal américain, sans présumer d’un partenariat particulier avec les entreprises citées. Photographie : Hugo Schneider —&#32;[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Fichier source non modifié ; affichage redimensionné._
 
 [Bank of America](https://about.bankofamerica.com/en/making-an-impact/arts-and-culture) illustre la place d’une banque dans cet ensemble. Outre son Art Conservation Project, elle développe Museums on Us et Art in our Communities, qui permettent notamment à des institutions culturelles à but non lucratif d’emprunter des expositions constituées à partir de sa collection. Son soutien combine conservation, circulation des œuvres et accès aux institutions.
 
@@ -140,10 +139,10 @@ Cette exigence rejoint le [positionnement de Mecenia](https://www.mecenia.org/no
 
 Soutenir la culture ne consiste pas seulement à financer ce qui existe déjà. C’est choisir de contribuer à ce qui pourra être conservé, créé et partagé demain. L’enjeu est de construire une relation dans laquelle la visibilité du partenaire demeure au service du projet — et non l’inverse.
 
-*Entreprise, institution ou acteur culturel : [découvrez la mission de Mecenia](https://www.mecenia.org/notre-mission/) et [prenez contact](https://www.mecenia.org/contact/) pour participer au dialogue entre culture et économie.*
+_Entreprise, institution ou acteur culturel :&#32;[découvrez la mission de Mecenia](https://www.mecenia.org/notre-mission/)&#32;et&#32;[prenez contact](https://www.mecenia.org/contact/)&#32;pour participer au dialogue entre culture et économie._
 
 ---
 
-*Note éditoriale : les développements fiscaux présentent des règles générales et ne constituent pas un conseil personnalisé. Ils doivent être vérifiés à la date du versement, selon le statut du donateur, du bénéficiaire et la juridiction concernée. Le présent article n’affirme pas que les dons à Mecenia ouvrent droit à un avantage fiscal.*
+_Note éditoriale : les développements fiscaux présentent des règles générales et ne constituent pas un conseil personnalisé. Ils doivent être vérifiés à la date du versement, selon le statut du donateur, du bénéficiaire et la juridiction concernée. Le présent article n’affirme pas que les dons à Mecenia ouvrent droit à un avantage fiscal._
 
-*Visuels : couverture originale et infographies Mecenia réalisées avec l’assistance d’une IA. La couverture ne représente aucun bâtiment réel. Les trois photographies sont hébergées sur Wikimedia ; crédits, sources et licences figurent sous chaque image.*
+_Visuels : couverture originale et infographies Mecenia réalisées avec l’assistance d’une IA. La couverture ne représente aucun bâtiment réel. Les trois photographies sont hébergées sur Wikimedia ; crédits, sources et licences figurent sous chaque image._
