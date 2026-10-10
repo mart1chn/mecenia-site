@@ -1,8 +1,13 @@
 {
   "name": "mecenia-site",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Site de l’association Mecenia",
+  "scripts": {
+    "build": "node build/build.js",
+    "dev": "node build/build.js && npx --yes serve dist"
+  },
+  "engines": { "node": ">=20" },
   "dependencies": {
     "js-yaml": "^4.1.0",
     "markdown-it": "14.1.0"

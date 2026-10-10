@@ -1,0 +1,37 @@
+# Réglages généraux du site (modifiables dans /admin > Réglages du site)
+nom: "Mecenia"
+url: "https://www.mecenia.org"
+slogan: "Rapprocher la culture et les affaires"
+description_defaut: "Mecenia est une association loi 1901 qui fait dialoguer les mondes économique et culturel pour faire de la culture une richesse économique et un pouvoir d’influence pour la France. Rencontres de la Culture et des Affaires (RCA)."
+email: "contact@mecenia.org"
+ville: "Paris IXe"
+reseaux:
+  - nom: "LinkedIn"
+    url: "https://www.linkedin.com/company/mecenia"
+  - nom: "Instagram"
+    url: "https://www.instagram.com/association.mecenia/"
+menu:
+  - { label: "À propos", url: "/a-propos/" }
+  - { label: "Aide au mécénat", url: "/aide-au-mecenat/" }
+  - { label: "Événements", url: "/evenements/" }
+  - { label: "Ressources", url: "/ressources/" }
+  - { label: "Blog", url: "/blog/" }
+  - { label: "Contact", url: "/contact/" }
+bouton_menu: { label: "Adhérer", url: "/adherer/" }
+pied_de_page:
+  texte: "Association loi 1901. Nous faisons dialoguer les mondes économique et culturel."
+  colonnes:
+    - titre: "Découvrir"
+      liens:
+        - { label: "À propos", url: "/a-propos/" }
+        - { label: "Aide au mécénat", url: "/aide-au-mecenat/" }
+        - { label: "Événements", url: "/evenements/" }
+        - { label: "Ressources", url: "/ressources/" }
+        - { label: "Blog", url: "/blog/" }
+    - titre: "S’engager"
+      liens:
+        - { label: "Devenir membre actif", url: "/adherer/?type=membre-actif#formulaire" }
+        - { label: "Devenir partenaire", url: "/adherer/?type=partenaire#formulaire" }
+        - { label: "Suivre nos travaux", url: "/adherer/?type=suivre#formulaire" }
+        - { label: "Nous contacter", url: "/contact/" }
+  mentions: "« Rencontres de la Culture et des Affaires » (RCA) est une dénomination d’événement de Mecenia."

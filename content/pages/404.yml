@@ -1,0 +1,12 @@
+chemin: "/404.html"
+titre_seo: "Page introuvable | Mecenia"
+description: "Cette page n’existe pas ou a été déplacée."
+noindex: true
+blocs:
+  - type: hero
+    variante: page
+    titre: "Page introuvable"
+    sous_titre: "Cette adresse n’existe pas ou a été déplacée. Reprenez le fil depuis l’accueil ou parcourez le site."
+    boutons:
+      - { label: "Retour à l’accueil", url: "/", style: "principal" }
+      - { label: "Lire le blog", url: "/blog/", style: "secondaire" }

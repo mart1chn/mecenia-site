@@ -1,0 +1,63 @@
+chemin: "/ressources/"
+titre_seo: "Ressources — Comprendre le mécénat et la culture | Mecenia"
+description: "Articles, principes éditoriaux et formats de transmission de Mecenia : comprendre avec rigueur, partager avec responsabilité."
+blocs:
+  - type: hero
+    variante: page
+    titre: "Ressources"
+    sous_titre: "Comprendre avec rigueur, partager avec responsabilité."
+    boutons:
+      - { label: "Lire nos articles", url: "/blog/", style: "principal" }
+  - type: texte
+    id: articles
+    fond: blanc
+    eyebrow: "Les contenus accessibles"
+    titre: "Nos articles, un point d’entrée dans les enjeux"
+    texte: |
+      Mecenia fait dialoguer les regards culturels, économiques et juridiques. Les articles publiés sur le blog permettent d’explorer les projets, le patrimoine et les principes du mécénat, avec leurs sources et leurs limites.
+
+      Pour le moment, cette rubrique oriente vers ces articles. Elle ne propose pas de livre blanc, de rapport à télécharger ou de programme de formation ouvert à l’inscription.
+    boutons:
+      - { label: "Consulter le blog de Mecenia", url: "/blog/", style: "lien" }
+  - type: ressources_liste
+    fond: blanc
+    eyebrow: "À télécharger"
+    titre: "Documents publiés"
+  - type: cartes
+    id: formats
+    fond: beige
+    eyebrow: "Les formats de la transmission"
+    titre: "Des supports adaptés aux usages"
+    intro: "Ces formats sont présentés de manière générale. Ils ne constituent pas l’annonce d’une publication, d’un calendrier ou d’un programme disponible."
+    colonnes: 3
+    cartes:
+      - { titre: "Formations et sensibilisation", texte: "Transmettre des repères suppose de les adapter aux publics et à leurs besoins. Un contenu pédagogique doit distinguer les notions générales, les exemples et les situations qui nécessitent un accompagnement particulier." }
+      - { titre: "Notes, rapports et livres blancs", texte: "Une analyse utile explicite son périmètre, ses sources et sa méthode. Les constats doivent être distingués des propositions, et les limites du travail rendues lisibles." }
+      - { titre: "Outils pédagogiques", texte: "Un support pratique ou ludique peut faciliter la compréhension. Il doit rester fidèle au sujet, respecter les droits des créateurs et éviter de transformer une simplification en certitude." }
+  - type: cartes
+    id: principes
+    fond: blanc
+    eyebrow: "Notre ligne éditoriale"
+    titre: "Une information que l’on peut situer et vérifier"
+    colonnes: 2
+    style: "numerote"
+    cartes:
+      - { titre: "Sourcer et dater", texte: "Identifier les références, préciser la période concernée et distinguer une donnée observée d’un objectif, d’un projet ou d’une estimation." }
+      - { titre: "Expliquer les limites", texte: "Ne pas présenter une opinion comme un fait, une comparaison comme une preuve ou un exemple comme une règle universelle. Signaler les incertitudes et les différences de périmètre." }
+      - { titre: "Respecter les auteurs", texte: "Accorder une attention aux droits, aux crédits et aux conditions de réutilisation des textes, des images et des données. Le partage n’efface pas la création qui le rend possible." }
+      - { titre: "Préserver l’indépendance", texte: "Garder une lecture critique, distinguer l’information de la promotion et rendre compréhensible le contexte dans lequel un contenu est produit." }
+  - type: texte
+    id: limites
+    fond: beige
+    eyebrow: "Un cadre clair"
+    titre: "Éclairer, sans se substituer à un conseil personnalisé"
+    texte: |
+      Les contenus de Mecenia ont une vocation informative et pédagogique. Ils ne remplacent pas l’examen d’une situation individuelle par un professionnel compétent et, lorsque cela est requis, habilité.
+
+      La lecture d’un article ou d’un support ne garantit ni l’éligibilité fiscale d’un don, ni l’obtention d’une subvention, ni la réussite d’une recherche de financement.
+  - type: cta
+    fond: sombre
+    titre: "Une question, un sujet ou une correction à proposer ?"
+    texte: "Le dialogue contribue à la qualité des contenus. Écrivez-nous pour partager une remarque ou un besoin de compréhension."
+    boutons:
+      - { label: "Écrire à Mecenia", url: "/contact/", style: "principal" }

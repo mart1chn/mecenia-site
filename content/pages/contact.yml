@@ -1,0 +1,32 @@
+chemin: "/contact/"
+titre_seo: "Contact — Écrire à Mecenia"
+description: "Une question, une idée de partenariat, une proposition d’intervention ? Écrivez à l’association Mecenia, nous répondons rapidement."
+blocs:
+  - type: hero
+    variante: page
+    titre: "Échanger avec nous"
+    sous_titre: "Une question, une idée de partenariat, une proposition d’intervention ? Écrivez-nous, nous répondons rapidement."
+  - type: formulaire
+    fond: blanc
+    formulaire: contact
+    eyebrow: "Coordonnées"
+    titre: "Parlons culture et économie"
+    intro: "Votre message est transmis directement à l’équipe de Mecenia."
+    avec_coordonnees: true
+    note_adhesion: "Vous souhaitez nous rejoindre ? Passez plutôt par le [formulaire d’adhésion](/adherer/)."
+  - type: bandeau_oeuvre
+    fond: beige
+    eyebrow: "Écrire, un art à part entière"
+    titre: "Une idée, une question, un projet ?"
+    texte: "Comme la liseuse de Vermeer, prenez le temps de nous écrire : nous lisons chaque message avec attention et nous répondons personnellement."
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Johannes_Vermeer_-_Woman_in_Blue_Reading_a_Letter_-_WGA24657.jpg/960px-Johannes_Vermeer_-_Woman_in_Blue_Reading_a_Letter_-_WGA24657.jpg"
+    image_alt: "Tableau de Vermeer : une femme en bleu lit une lettre dans une pièce silencieuse"
+    legende: "Johannes Vermeer, *La Liseuse en bleu*, vers 1663. Rijksmuseum, Amsterdam. [Domaine public · Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_Woman_in_Blue_Reading_a_Letter_-_WGA24657.jpg)"
+    inverse: true
+  - type: cta
+    fond: degrade
+    titre: "Envie de nous rejoindre ?"
+    texte: "Membre actif, partenaire ou simple lecteur de nos travaux : trouvez votre place chez Mecenia."
+    boutons:
+      - { label: "Adhérer à Mecenia", url: "/adherer/", style: "principal" }
+      - { label: "Voir les événements", url: "/evenements/", style: "secondaire" }

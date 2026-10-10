@@ -1,0 +1,12 @@
+# Événements annoncés. Ajoutez une entrée seulement quand la date, le lieu ou le format en ligne sont confirmés.
+# Tant que la liste est vide, la page affiche « Une programmation en préparation ».
+items: []
+# Exemple de fiche (à recopier dans l’admin) :
+#  - titre: "Premier webinaire Mecenia"
+#    type: "Webinaire"
+#    date: "2026-12-10"
+#    heure: "18h30"
+#    lieu: "En ligne"
+#    description: "…"
+#    lien_label: "S’inscrire"
+#    lien_url: "https://…"

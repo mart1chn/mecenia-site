@@ -1,0 +1,51 @@
+chemin: "/adherer/"
+titre_seo: "Adhérer — Rejoindre Mecenia | Membre actif, partenaire"
+description: "Devenez membre actif, membre partenaire ou suivez les travaux de Mecenia. Procédure d’admission, questions fréquentes et formulaire d’adhésion."
+blocs:
+  - type: hero
+    variante: page
+    titre: "Rejoindre Mecenia"
+    sous_titre: "Que vous soyez une personne engagée, une entreprise ou une institution culturelle, il existe une place pour vous dans notre réseau."
+  - type: cartes
+    fond: degrade
+    eyebrow: "Trois façons de s’associer"
+    titre: "Choisissez votre manière de participer"
+    colonnes: 3
+    cartes:
+      - { titre: "Devenir membre actif", texte: "Rejoignez le cercle des membres votants, par cooptation du conseil d’administration puis ratification en assemblée générale.", lien_label: "Candidater", lien_url: "/adherer/?type=membre-actif#formulaire" }
+      - { titre: "Devenir partenaire", texte: "Entreprises, organisations professionnelles, musées et institutions : associez votre structure aux travaux de Mecenia en tant que membre partenaire.", lien_label: "Nous contacter", lien_url: "/adherer/?type=partenaire#formulaire" }
+      - { titre: "Suivre nos travaux", texte: "Recevez nos publications, nos invitations aux colloques et webinaires, et les informations sur nos prochains projets.", lien_label: "S’inscrire", lien_url: "/adherer/?type=suivre#formulaire" }
+  - type: etapes
+    fond: blanc
+    eyebrow: "Comment ça marche"
+    titre: "De la candidature à la ratification"
+    etapes:
+      - { titre: "Vous nous écrivez", texte: "Complétez le formulaire : votre identité, votre parcours et vos motivations." }
+      - { titre: "Le bureau instruit", texte: "Il présente votre candidature au conseil d’administration avec un avis motivé." }
+      - { titre: "Le conseil coopte", texte: "Vous devenez « membre pressenti » et participez aux travaux." }
+      - { titre: "L’assemblée ratifie", texte: "À la prochaine assemblée générale, vous devenez membre votant." }
+    note: "Pour un membre partenaire, l’admission résulte d’une simple décision du conseil d’administration et d’une convention de partenariat, sans droit de vote."
+  - type: formulaire
+    id: formulaire
+    fond: blanc
+    formulaire: adhesion
+    titre: "Formulaire d’adhésion"
+    intro: "Votre demande est transmise directement à l’équipe de Mecenia."
+  - type: bandeau_oeuvre
+    fond: blanc
+    eyebrow: "Rejoindre une compagnie"
+    titre: "Chacun y a sa place"
+    texte: "Dans *La Ronde de nuit*, Rembrandt peint une compagnie de citoyens qui s’avance ensemble. Mecenia est une communauté du même esprit : des personnes, des entreprises et des institutions qui agissent de concert pour la culture."
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Nightwatch_by_Rembrandt_-_Rijksmuseum.jpg/960px-The_Nightwatch_by_Rembrandt_-_Rijksmuseum.jpg"
+    image_alt: "Tableau de Rembrandt : une compagnie de gardes civiques s’apprête à marcher"
+    legende: "Rembrandt, *La Ronde de nuit*, 1642. Rijksmuseum, Amsterdam. [Domaine public · Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Nightwatch_by_Rembrandt_-_Rijksmuseum.jpg)"
+  - type: faq
+    fond: beige
+    eyebrow: "Questions fréquentes"
+    titre: "Avant de vous lancer"
+    intro: "Cliquez sur le « + » pour découvrir la réponse."
+    questions:
+      - { question: "Faut-il payer une cotisation ?", reponse: "Non : aucune cotisation n’est exigée à ce jour. Le conseil d’administration pourra en instituer une à l’avenir, pour tout ou partie des catégories de membres." }
+      - { question: "Quelle différence entre membre actif et membre partenaire ?", reponse: "Les membres actifs sont des personnes physiques qui votent en assemblée générale. Les membres partenaires sont des personnes morales (entreprises, organisations professionnelles, musées, institutions) qui ont un statut d’observateur, sans droit de vote, et sont représentées par un mandataire." }
+      - { question: "Comment se passe l’admission d’un membre actif ?", reponse: "Une candidature écrite, l’instruction par le bureau, la cooptation par le conseil d’administration, puis la ratification par la plus prochaine assemblée générale. Entre-temps, le candidat est « membre pressenti » : il participe aux travaux sans droit de vote." }
+      - { question: "Mes données sont-elles protégées ?", reponse: "Oui. Elles servent uniquement à la gestion de la vie associative, à l’organisation des événements et à la communication de Mecenia, sans cession ni location à des tiers, dans le respect du RGPD." }

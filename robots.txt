@@ -1,9 +1,0 @@
-# Les mêmes règles s'appliquent aux robots de recherche et aux robots IA.
-# Les pages publiques et le blog sont accessibles ; l'administration
-# et la page de confirmation de formulaire ne doivent pas être explorées.
-User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /merci/
-
-Sitemap: https://www.mecenia.org/sitemap.xml

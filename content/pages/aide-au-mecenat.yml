@@ -1,0 +1,69 @@
+chemin: "/aide-au-mecenat/"
+titre_seo: "Aide au mécénat — Accompagnement des projets culturels | Mecenia"
+description: "Mecenia accompagne institutions culturelles, artistes et entreprises : dossier de mécénat, prospection ciblée, plan de communication, modèle économique."
+blocs:
+  - type: hero
+    variante: page
+    titre: "Aide au mécénat"
+    sous_titre: "Donner à votre projet culturel les moyens de rencontrer ses soutiens."
+    boutons:
+      - { label: "Présenter mon projet", url: "/contact/?mecenia_service=Accompagnement", style: "principal" }
+  - type: cartes
+    id: accompagnement
+    fond: blanc
+    eyebrow: "Notre accompagnement"
+    titre: "Une démarche adaptée à votre projet"
+    intro: "Mecenia accompagne les institutions culturelles et les artistes dans la préparation de leur recherche de financement, et les entreprises dans la construction de leur engagement culturel."
+    colonnes: 2
+    cartes:
+      - { titre: "Institutions et artistes", texte: "Clarifier le besoin, présenter le projet et préparer une recherche de partenaires cohérente avec vos publics, votre budget et votre calendrier." }
+      - { titre: "Entreprises", texte: "Préciser vos objectifs d’engagement, comprendre les projets culturels et préparer une relation de partenariat adaptée à vos priorités." }
+  - type: cartes
+    id: prestations
+    fond: beige
+    eyebrow: "Nos prestations"
+    titre: "Des outils concrets pour avancer"
+    intro: "Les interventions peuvent être mobilisées séparément ou réunies dans une mission. Leur périmètre et leurs livrables sont définis après échange."
+    colonnes: 3
+    cartes:
+      - { titre: "Accompagnement", texte: "Clarifier les besoins, les objectifs et les contraintes du projet.", pied: "Livrables possibles : note de cadrage et feuille de route adaptée.", lien_label: "Échanger sur cette mission", lien_url: "/contact/?mecenia_service=Accompagnement" }
+      - { titre: "Prospection de mécènes", texte: "Identifier les interlocuteurs, hiérarchiser les pistes et préparer les outils de contact.", pied: "Livrables possibles : cartographie, liste priorisée, argumentaire et plan de prise de contact.", lien_label: "Échanger sur cette mission", lien_url: "/contact/?mecenia_service=Prospection%20de%20m%C3%A9c%C3%A8nes" }
+      - { titre: "Dossier de mécénat", texte: "Présenter le projet, ses publics, ses besoins et ce que le soutien peut rendre possible.", pied: "Livrables possibles : dossier de présentation, budget et supports de discussion.", lien_label: "Échanger sur cette mission", lien_url: "/contact/?mecenia_service=Dossier%20de%20m%C3%A9c%C3%A9nat" }
+      - { titre: "Plan de communication", texte: "Rendre le projet lisible auprès des partenaires et des publics.", pied: "Livrables possibles : messages par cible, choix des supports et calendrier de communication.", lien_label: "Échanger sur cette mission", lien_url: "/contact/?mecenia_service=Plan%20de%20communication" }
+      - { titre: "Modèle économique", texte: "Organiser les ressources et les charges pour éclairer les choix du projet.", pied: "Livrables possibles : budget prévisionnel, scénarios de financement et plan d’action.", lien_label: "Échanger sur cette mission", lien_url: "/contact/?mecenia_service=Mod%C3%A8le%20%C3%A9conomique" }
+      - { titre: "Dossier de subvention", texte: "Identifier les dispositifs pertinents et préparer les éléments administratifs de candidature.", pied: "Livrables possibles : organisation des pièces, dossier et calendrier de dépôt.", lien_label: "Échanger sur cette mission", lien_url: "/contact/?mecenia_service=Dossier%20de%20subvention" }
+  - type: texte
+    id: prospection
+    fond: blanc
+    eyebrow: "Une prospection ciblée"
+    titre: "Privilégier les bons interlocuteurs"
+    texte: |
+      Notre prospection repose d’abord sur l’identification des interlocuteurs, la priorisation et la préparation des outils de contact. Elle privilégie une démarche ciblée plutôt qu’une campagne massive d’appels à froid.
+
+      Lorsque cela est pertinent et possible, des mises en relation et un suivi ponctuel peuvent compléter la mission, notamment en mobilisant les contacts accessibles à Mecenia. Leur contenu est précisé avant engagement.
+
+      Aucune collecte ni décision de financement n’est garantie : chaque partenaire demeure libre de son engagement.
+  - type: etapes
+    id: demarche
+    fond: beige
+    eyebrow: "Comment commencer"
+    titre: "Un échange, puis une mission cadrée"
+    etapes:
+      - { titre: "Présenter votre besoin", texte: "Votre projet, votre objectif, vos contraintes et les moyens disponibles." }
+      - { titre: "Définir l’intervention", texte: "Un périmètre, des livrables, un calendrier et des conditions financières convenus avant lancement." }
+      - { titre: "Avancer et restituer", texte: "Des outils utilisables, un point de restitution et les suites adaptées à votre projet." }
+    note: "Chaque demande est étudiée selon les besoins et les disponibilités. Aucun tarif standard n’est annoncé sur cette page."
+  - type: texte
+    id: cadre
+    fond: blanc
+    titre: "Un périmètre clair"
+    texte: |
+      L’accompagnement porte sur la stratégie, la communication et la préparation opérationnelle des dossiers. L’information générale sur le mécénat ne vaut pas consultation juridique ou fiscale personnalisée, rédaction d’actes juridiques ou validation de l’éligibilité d’un don.
+
+      Les questions qui nécessitent une habilitation sont traitées par des professionnels autorisés. Aucun avantage fiscal, subvention ou financement n’est promis.
+  - type: cta
+    fond: sombre
+    titre: "Parlons de votre projet culturel"
+    texte: "Un besoin précis ou une démarche à construire : décrivez-nous votre situation."
+    boutons:
+      - { label: "Contacter Mecenia", url: "/contact/?mecenia_service=Accompagnement", style: "principal" }

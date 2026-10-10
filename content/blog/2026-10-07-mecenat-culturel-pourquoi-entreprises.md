@@ -136,7 +136,7 @@ Cette exigence rejoint le [positionnement de Mecenia](https://www.mecenia.org/no
 
 Soutenir la culture ne consiste pas seulement à financer ce qui existe déjà. C’est choisir de contribuer à ce qui pourra être conservé, créé et partagé demain. L’enjeu est de construire une relation dans laquelle la visibilité du partenaire demeure au service du projet — et non l’inverse.
 
-Entreprise, institution ou acteur culturel : [découvrez la mission de Mecenia](/notre-mission/) et [prenez contact](/contact/) pour participer au dialogue entre culture et économie.
+Entreprise, institution ou acteur culturel : [découvrez la mission de Mecenia](/a-propos/#mission) et [prenez contact](/contact/) pour participer au dialogue entre culture et économie.
 
 ### Informations éditoriales
 

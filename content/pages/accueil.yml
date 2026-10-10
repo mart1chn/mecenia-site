@@ -1,0 +1,147 @@
+chemin: "/"
+titre_seo: "Mecenia — Rapprocher la culture et les affaires | Association, Paris"
+description: "Mecenia est une association loi 1901 qui fait dialoguer les mondes économique et culturel pour faire de la culture une richesse économique et un pouvoir d’influence pour la France. Rencontres de la Culture et des Affaires (RCA)."
+blocs:
+  - type: hero
+    variante: accueil
+    eyebrow: "Association loi 1901"
+    titre: "Faire de la culture une richesse économique et un pouvoir d’influence pour la France"
+    sous_titre: "Mecenia fait dialoguer les mondes économique et culturel pour faire émerger une vision de la culture comme opportunité, et non comme une charge."
+    boutons:
+      - { label: "Nous rejoindre", url: "/adherer/", style: "principal" }
+      - { label: "Découvrir notre histoire", url: "/a-propos/#histoire", style: "secondaire" }
+  - type: chiffres
+    fond: blanc
+    eyebrow: "Le constat"
+    titre: "La culture pèse plus qu’on ne le dit, et compte moins qu’elle ne le devrait"
+    intro: "En France, la culture demeure trop souvent perçue comme une charge budgétaire plutôt que comme un facteur de compétitivité économique, de rayonnement international et de cohésion sociale."
+  - type: citation
+    fond: sombre
+    texte: "La culture, c’est ce qui répond à l’homme quand il se demande ce qu’il fait sur la terre."
+    auteur: "André Malraux"
+    source: "Maison de la culture d’Amiens, 1966"
+    suite: "Ciment de la paix sociale et de l’unité d’un peuple, la culture mérite de revenir au centre de l’attention des pouvoirs publics et des acteurs économiques. C’est la raison d’être de Mecenia."
+    bouton: { label: "Lire notre histoire", url: "/a-propos/#histoire" }
+  - type: triptyque
+    fond: blanc
+    eyebrow: "Un patrimoine universel"
+    titre: "La culture, un seul et même horizon"
+    texte: "Un prince de Sumer, bâtisseur de temples, sculpté en prière il y a plus de 4 000 ans ; une flotte de conquête brodée sur du lin au XIe siècle ; un roi qui inspecte le chantier de la tour de Babel, peint par Bruegel en 1563 : une sculpture, une tapisserie et une peinture, séparées par des siècles, racontent pourtant la même histoire, celle des commanditaires et des artisans qui bâtissent ensemble. Les formes d’art se répondent et se nourrissent les unes les autres : c’est cet ensemble, dans toute sa diversité, que Mecenia veut financer, valoriser et protéger."
+    images:
+      - src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gudea_statue_I_(AO_3293_and_AO_4108)_-_Mus%C3%A9e_du_Louvre_(31064822070).jpg/960px-Gudea_statue_I_(AO_3293_and_AO_4108)_-_Mus%C3%A9e_du_Louvre_(31064822070).jpg"
+        alt: "Statue assise de Gudea, prince de Lagash, les mains jointes en prière"
+        legende: "*Petit Gudea assis*, gabbro, vers 2120-2110 av. J.-C. Musée du Louvre, Paris. Photo : Fred Romero. [CC BY 2.0 · Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gudea_statue_I_(AO_3293_and_AO_4108)_-_Mus%C3%A9e_du_Louvre_(31064822070).jpg)"
+      - src: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flotte_normande.jpg/960px-Flotte_normande.jpg"
+        alt: "Flotte normande de la Tapisserie de Bayeux"
+        legende: "*Tapisserie de Bayeux*, la flotte normande, broderie de laine sur lin, XIe siècle. [Domaine public · Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flotte_normande.jpg)"
+      - src: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project_-_edited.jpg/960px-Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project_-_edited.jpg"
+        alt: "Tableau de Pieter Bruegel l’Ancien : le roi Nemrod visite le chantier de la tour de Babel"
+        legende: "Pieter Bruegel l’Ancien, *La Tour de Babel*, 1563. Kunsthistorisches Museum, Vienne. [Domaine public · Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project_-_edited.jpg)"
+  - type: blog_recents
+    fond: beige
+    eyebrow: "Le blog"
+    titre: "Les derniers articles"
+    intro: "Analyses, comptes rendus et réflexions sur la culture comme richesse économique et pouvoir d’influence."
+    nombre: 3
+    lien_label: "Tous les articles"
+  - type: cartes
+    fond: blanc
+    eyebrow: "Notre mission"
+    titre: "Implanter les mondes culturels dans la sphère économique"
+    intro: "Auprès de grands acteurs traditionnellement éloignés de cet univers : entreprises, organisations professionnelles, institutions publiques."
+    colonnes: 3
+    cartes:
+      - titre: "Favoriser le dialogue"
+        texte: "Créer les conditions de la rencontre entre acteurs économiques (entreprises, fondations, philanthropes) et acteurs de la culture (institutions, musées, société civile)."
+      - titre: "Faire émerger une vision"
+        texte: "Diffuser une vision de la culture comme opportunité économique, facteur de compétitivité et de puissance pour la France."
+      - titre: "Porter des propositions"
+        texte: "Formuler des propositions pragmatiques, notamment dans le champ des affaires publiques, sur le financement et la valorisation de la culture."
+    lien_label: "Découvrir notre mission en détail"
+    lien_url: "/a-propos/#mission"
+  - type: texte
+    id: rca
+    fond: beige
+    eyebrow: "Notre finalité"
+    titre: "Les Rencontres de la Culture et des Affaires"
+    texte: |
+      Au-delà de nos premiers formats (webinaires, colloques, publications), Mecenia porte une ambition de long terme : donner naissance à un rendez-vous annuel de référence, les **Rencontres de la Culture et des Affaires (RCA)**.
+
+      Il ne s’agit pas encore d’un événement daté ni localisé, mais d’une finalité que nous construisons pas à pas, à mesure que notre réseau et nos partenariats se structurent.
+    image: "/assets/img/logo-rca.png"
+    image_alt: "Logo des Rencontres de la Culture et des Affaires (RCA)"
+    image_cote: gauche
+    image_style: logo
+    boutons:
+      - { label: "Tout savoir sur les RCA", url: "/evenements/#rca", style: "lien" }
+  - type: cartes
+    fond: sombre
+    eyebrow: "Nos valeurs"
+    titre: "Les principes qui guident notre action"
+    intro: "Six engagements, issus de nos statuts et de notre règlement intérieur, pour un dialogue sans confusion des rôles."
+    colonnes: 3
+    style: "numerote"
+    cartes:
+      - { titre: "Passerelle & dialogue", texte: "Une composition mixte qui organise la rencontre sans confusion des rôles." }
+      - { titre: "Exigence intellectuelle", texte: "Un conseil scientifique, des propositions pragmatiques, le refus du misérabilisme budgétaire." }
+      - { titre: "Intégrité & indépendance", texte: "Tolérance zéro sur les conflits d’intérêts, gestion strictement désintéressée." }
+      - { titre: "Enracinement patrimonial", texte: "Une identité classique, un ancrage à Paris, une filiation avec les grands cercles de mécénat." }
+      - { titre: "Pragmatisme économique", texte: "Recentrer le débat sur la compétitivité et le soft power." }
+      - { titre: "Continuité & ambition longue", texte: "Une trajectoire pensée dès l’origine : association, entreprise, puis fondation." }
+    lien_label: "Explorer chaque valeur"
+    lien_url: "/a-propos/#valeurs"
+  - type: faq
+    fond: blanc
+    eyebrow: "Nos premiers projets"
+    titre: "Ce que nous lançons dès à présent"
+    intro: "Des formats concrets et accessibles pour amorcer le dialogue entre culture et économie. Cliquez sur le « + » pour afficher le détail."
+    questions:
+      - etiquette: "Blog"
+        question: "Le blog de Mecenia"
+        resume: "Analyses, comptes rendus et réflexions sur la culture comme richesse économique."
+        reponse: "Notre blog publie des analyses, des comptes rendus d’événements et des réflexions sur la culture comme richesse économique et pouvoir d’influence. Les articles se classent par thématique (cinéma, peinture, sculpture…) et par type (actualité, événement, exposition…). [Lire le blog](/blog/)"
+      - etiquette: "À venir"
+        question: "La lettre mensuelle de Mecenia"
+        resume: "Un rendez-vous pour découvrir nos actualités et notre sélection culturelle."
+        reponse: "À l’étude : une newsletter mensuelle réunissant les nouveautés de Mecenia, les articles publiés dans le mois, une sélection d’expositions à découvrir et nos prochains événements. Son lancement et son calendrier seront annoncés ultérieurement. L’inscription sera facultative."
+      - etiquette: "Webinaire pilote"
+        question: "Premier webinaire Mecenia"
+        resume: "Tester notre format d’échange entre acteurs économiques et culturels."
+        reponse: "Objectif : réunir au moins 30 participants dans les trois premiers mois, pour éprouver le format avant le grand événement et rassembler une première communauté autour de nos travaux."
+      - etiquette: "Colloques thématiques"
+        question: "Cycle de colloques"
+        resume: "Financement, valorisation et protection de la création et du patrimoine."
+        reponse: "Les statuts prévoient des colloques thématiques, à raison d’un par trimestre à terme, préparés avec le conseil scientifique."
+      - etiquette: "Publication"
+        question: "Première note de position"
+        resume: "Une publication courte sur le financement de la culture en France."
+        reponse: "Une note de 2 à 4 pages, destinée à poser les bases de notre plaidoyer et à être diffusée à l’occasion de la première RCA."
+    lien_label: "Voir tous nos projets"
+    lien_url: "/evenements/"
+  - type: fondateurs
+    fond: beige
+    eyebrow: "L’équipe fondatrice"
+    titre: "Le mot des fondateurs"
+    lien_label: "Rencontrer l’équipe et voir l’organigramme"
+    lien_url: "/a-propos/#equipe"
+  - type: faq
+    fond: blanc
+    eyebrow: "Questions fréquentes"
+    titre: "Mecenia en quelques réponses"
+    intro: "Cliquez sur le « + » pour découvrir la réponse."
+    questions:
+      - question: "Qu’est-ce que Mecenia ?"
+        reponse: "Mecenia est une association loi 1901 basée à Paris qui fait dialoguer les mondes économique et culturel. Elle veut faire émerger une vision de la culture comme richesse nationale, facteur de compétitivité et de rayonnement pour la France, notamment par des propositions pragmatiques dans le champ des affaires publiques."
+      - question: "Qui a fondé Mecenia ?"
+        reponse: "Mecenia a été fondée par Pauline Bion, élève à l’École du Louvre (histoire de l’art) et Présidente, et Martin Chanteranne, formé en droit à Paris Panthéon-Assas et à Genève, aujourd’hui au CEIPI en propriété intellectuelle, Vice-Président et Trésorier. Tous deux sont engagés à la Confédération Nationale des Junior-Entreprises (CNJE), au pôle Développement pour 2026-2027."
+      - question: "Que signifie RCA ?"
+        reponse: "RCA signifie Rencontres de la Culture et des Affaires. C’est l’événement annuel de référence que Mecenia ambitionne d’organiser pour réunir décideurs économiques et acteurs culturels autour de propositions concrètes. Il n’est pas encore daté ni localisé."
+      - question: "Comment rejoindre Mecenia ?"
+        reponse: "Trois possibilités : devenir membre actif (personne physique, par cooptation du conseil d’administration puis ratification en assemblée générale), devenir membre partenaire (entreprise, organisation professionnelle, musée ou institution) ou simplement suivre nos travaux. Aucune cotisation n’est exigée à ce jour."
+  - type: cta
+    fond: sombre
+    titre: "Envie de construire ce projet avec nous ?"
+    texte: "Mecenia se construit dès aujourd’hui, avec ses premiers membres et partenaires. Rejoignez-nous ou écrivez-nous pour en discuter, sans engagement."
+    boutons:
+      - { label: "Adhérer à Mecenia", url: "/adherer/", style: "principal" }
+      - { label: "Nous contacter", url: "/contact/", style: "secondaire" }

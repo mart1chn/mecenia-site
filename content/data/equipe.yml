@@ -1,0 +1,28 @@
+# Équipe et organigramme. Chaque personne appartient à un groupe affiché sur la page À propos.
+membres:
+  - nom: "Pauline Bion"
+    fonction: "Présidente"
+    parcours: "Histoire de l’art"
+    groupe: "Bureau"
+    photo: "/assets/img/pauline-bion.jpg"
+    alt: "Pauline Bion, Présidente de Mecenia"
+    presentation: "Son parcours en histoire de l’art, en médiation culturelle et en événementiel nourrit le regard de Mecenia sur les œuvres, les institutions et les publics. Elle porte la rencontre avec les acteurs culturels et la transmission des projets."
+    mot: "Une œuvre n’existe pleinement que lorsqu’elle rencontre un public, et cette rencontre est toujours le fruit d’un travail : celui des médiateurs, des conservateurs, des restaurateurs, des artisans d’art. Ces métiers transmettent une mémoire et des savoir-faire qui demandent du temps et des moyens. Avec Mecenia, nous souhaitons que ceux qui financent voient clairement ce qu’ils rendent possible, et que ceux qui créent ou transmettent puissent parler aux entreprises sans rien céder de leur exigence."
+  - nom: "Martin Chanteranne"
+    fonction: "Vice-Président et Trésorier"
+    parcours: "Droit de la propriété intellectuelle"
+    groupe: "Bureau"
+    photo: "/assets/img/martin-chanteranne.jpg"
+    alt: "Martin Chanteranne, Vice-Président et Trésorier de Mecenia"
+    presentation: "Son parcours en droit, en propriété intellectuelle et en accompagnement organisationnel contribue à la structuration de Mecenia. Il apporte une attention aux cadres d’intervention, aux modèles économiques et à la cohérence des engagements."
+    mot: "Derrière chaque œuvre, il y a un auteur, des droits et des contrats. En somme, tout ce qui permet à la création de se financer, de circuler et de durer. Le droit de la propriété intellectuelle m’a appris qu’une création n’a de valeur durable que si ses règles sont claires pour tous. De cette manière, à Mecenia, nous veillons à une gestion désintéressée, transparente, et une séparation nette des rôles entre ceux qui décident et ceux qui financent."
+# Organes de l’association (affichés dans l’organigramme). Ne renseigner que ce qui est acté par les statuts.
+organes:
+  - nom: "Assemblée générale"
+    description: "Réunit les membres actifs votants. Elle ratifie les admissions cooptées par le conseil d’administration."
+  - nom: "Conseil d’administration"
+    description: "Cible de 12 sièges, dont 10 à pourvoir. Il coopte les membres actifs et décide de l’admission des membres partenaires."
+  - nom: "Bureau"
+    description: "Instruit les candidatures et les présente au conseil d’administration avec un avis motivé."
+  - nom: "Conseil scientifique"
+    description: "Prévu par les statuts : il prépare les colloques thématiques et nourrit les propositions de l’association."
