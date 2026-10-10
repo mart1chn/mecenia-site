@@ -3,17 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - '.github/workflows/validation-site.yml'
-      - 'scripts/**'
-      - 'assets/**'
-      - 'content/blog/**'
-      - 'content/expositions/**'
-      - 'netlify.toml'
-      - 'package.json'
-      - 'package-lock.json'
-      - '**/*.html'
-      - '_headers'
+  pull_request:
 permissions:
   contents: read
 concurrency:
@@ -38,7 +28,7 @@ jobs:
             npm install --ignore-scripts --no-audit --no-fund
           fi
       - name: Verifier la syntaxe JavaScript
-        run: find scripts assets netlify -type f -name '*.js' -print0 | xargs -0 -r -n1 node --check
+        run: find build src netlify -type f -name '*.js' -print0 | xargs -0 -r -n1 node --check
       - name: Executer le build integral configure dans Netlify
         run: |
           node <<'NODE'
@@ -126,8 +116,7 @@ jobs:
                 await page.route('**/*',r=>new URL(r.request().url()).hostname==='127.0.0.1'?r.continue():r.abort());
                 await page.goto('http://127.0.0.1:4173/',{waitUntil:'load'});
                 assert(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'Debordement horizontal '+width);
-                const burger=page.locator('#rfBurger').count().then(n=>n?page.locator('#rfBurger'):page.locator('.burger'));
-                const button=await burger;
+                const button=page.locator('.menu-toggle');
                 if(width<=980&&await button.count()){
                   await button.click();assert.equal(await button.getAttribute('aria-expanded'),'true');
                   await page.keyboard.press('Escape');assert.equal(await button.getAttribute('aria-expanded'),'false');

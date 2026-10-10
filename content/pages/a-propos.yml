@@ -1,0 +1,93 @@
+chemin: "/a-propos/"
+titre_seo: "À propos — L’association Mecenia | Culture et économie"
+description: "L’histoire, la mission, les projets, les valeurs et l’équipe de Mecenia, association qui fait dialoguer la culture et l’économie."
+blocs:
+  - type: hero
+    variante: page
+    titre: "L’association Mecenia"
+    sous_titre: "Faire se rencontrer la culture et l’économie, puis transformer le dialogue en actions."
+  - type: texte
+    id: histoire
+    fond: blanc
+    eyebrow: "Notre histoire"
+    titre: "Deux regards, une conviction commune"
+    texte: |
+      Un projet culturel ne se résume pas à son financement. Il porte une histoire, des savoir-faire et une ambition de transmission. Pour rencontrer des soutiens, il doit aussi pouvoir expliquer ses besoins, ses publics et ce qu’il rend possible.
+
+      Mecenia est née de la rencontre de deux regards complémentaires : celui de la culture et de la médiation, porté par Pauline Bion, et celui du droit et de la structuration des projets, porté par Martin Chanteranne. Ensemble, ils ont souhaité créer un espace où les acteurs culturels et économiques puissent se comprendre et construire des collaborations.
+
+      L’association fait de cette rencontre son point de départ : relier les projets, les compétences et les moyens, sans confondre les rôles de ceux qui créent, de ceux qui accompagnent et de ceux qui financent.
+    image: "/assets/img/logo-mecenia.jpg"
+    image_alt: "Mecenia, association à l’interface de la culture et de l’économie"
+    image_cote: droite
+    image_style: logo
+  - type: cartes
+    id: mission
+    fond: beige
+    eyebrow: "Notre mission"
+    titre: "Trois activités, une même interface"
+    intro: "Rapprocher les institutions culturelles, les artistes, les acteurs publics et les entreprises pour faire avancer les projets et encourager le mécénat."
+    colonnes: 3
+    cartes:
+      - titre: "Organiser la rencontre"
+        texte: "Les Rencontres de la Culture et des Affaires, les colloques et les webinaires mettent en dialogue les mondes culturel, public et privé. Leur finalité : partager les pratiques, faire émerger des relations et ouvrir la voie à des collaborations."
+        lien_label: "Voir les événements"
+        lien_url: "/evenements/"
+      - titre: "Accompagner le mécénat"
+        texte: "Mecenia aide les institutions et les artistes à préparer leur recherche de financement, et les entreprises à construire leur engagement culturel. L’accompagnement porte sur la compréhension du projet, sa présentation et la préparation de la démarche de mise en relation."
+        lien_label: "Découvrir l’accompagnement"
+        lien_url: "/aide-au-mecenat/"
+      - titre: "Transmettre et rendre accessible"
+        texte: "Publications, formations et outils pédagogiques donnent aux acteurs économiques des clés pour comprendre la culture, et aux acteurs culturels des repères pour dialoguer avec l’économie. Le grand public a également sa place dans cette démarche."
+        lien_label: "Consulter les ressources"
+        lien_url: "/ressources/"
+  - type: texte
+    id: projets
+    fond: blanc
+    eyebrow: "Des idées aux projets"
+    titre: "Donner une forme concrète au dialogue"
+    texte: |
+      L’association porte un rendez-vous annuel : les Rencontres de la Culture et des Affaires (RCA). Colloques et webinaires prolongent ce dialogue autour de sujets ciblés, des besoins de financement aux enjeux de valorisation et de transmission.
+
+      Cette action se traduit aussi par des livrables : livre blanc, rapports, plans d’action, formations et contenus de communication. Les articles du blog et les publications destinées à LinkedIn et Instagram rendent les analyses accessibles ; les formats ludiques ouvrent d’autres façons de découvrir l’art et le mécénat.
+
+      Chaque projet se construit avec un objectif et un périmètre adaptés. Les programmes d’événements et les publications sont annoncés lorsqu’ils sont confirmés, sans calendrier de développement artificiellement détaillé.
+
+      L’aide au mécénat reste un accompagnement opérationnel. L’information générale ne vaut pas consultation juridique ou fiscale personnalisée ; les questions qui nécessitent une habilitation doivent être traitées par des professionnels autorisés.
+    image: "/assets/img/logo-rca.png"
+    image_alt: "Rencontres de la Culture et des Affaires"
+    image_cote: gauche
+    image_style: logo
+  - type: cartes
+    id: valeurs
+    fond: beige
+    eyebrow: "Notre manière de travailler"
+    titre: "Une rencontre sans confusion des rôles"
+    colonnes: 2
+    style: "numerote"
+    cartes:
+      - { titre: "Indépendance et respect", texte: "Préserver la liberté artistique et respecter la place de chaque partenaire : le soutien d’un projet ne doit pas effacer son sens ni instrumentaliser ceux qui le portent." }
+      - { titre: "Rigueur et transparence", texte: "Sourcer les analyses, distinguer les faits des propositions et préciser les engagements. La confiance se construit dans la clarté des objectifs, des moyens et des limites." }
+      - { titre: "Accessibilité et dialogue", texte: "Rendre les enjeux compréhensibles sans les simplifier à l’excès. Institutions, entreprises, artistes et citoyens doivent pouvoir prendre part à la conversation." }
+      - { titre: "Utilité et continuité", texte: "Privilégier les outils utilisables et les relations qui peuvent durer. L’association concentre ses efforts sur des actions proportionnées à ses moyens et aux besoins des projets." }
+  - type: fondateurs
+    id: equipe
+    fond: blanc
+    eyebrow: "Les fondateurs"
+    titre: "Deux parcours complémentaires"
+    mode: presentations
+  - type: organigramme
+    fond: beige
+    eyebrow: "L’organisation"
+    titre: "Qui fait quoi à Mecenia"
+  - type: partenaires
+    fond: blanc
+    eyebrow: "Ils nous soutiennent"
+    titre: "Nos partenaires"
+  - type: cta
+    fond: sombre
+    titre: "Construisons la rencontre autour de votre projet"
+    texte: "Institution, artiste, entreprise ou personne engagée : échangeons sur ce que nous pouvons faire ensemble."
+    boutons:
+      - { label: "Échanger avec Mecenia", url: "/contact/", style: "principal" }
+      - { label: "Rejoindre l’association", url: "/adherer/", style: "secondaire" }

@@ -64,4 +64,4 @@ Nous soumettons donc « Maecenas » comme une invitation à relier l’histoire 
 
 La souscription se poursuit jusqu’au 19 janvier 2027 sur [le site officiel Tous mécènes !](https://tousmecenes.louvre.fr/fr/). Vous pouvez également y proposer un nom jusqu’au 23 novembre 2026. Soutenir ce chantier, c’est contribuer à la conservation du lieu et à la redécouverte de ses œuvres.
 
-> Découvrir Mecenia : retrouvez [notre mission](/notre-mission/), [nos valeurs](/nos-valeurs/) et [notre premier article](/blog/mecenia-inspiration-source-projection/). Pour suivre nos travaux ou rejoindre l’association, consultez la page [Adhérer](/adherer/) ou écrivez-nous à [contact@mecenia.org](mailto:contact@mecenia.org).
+> Découvrir Mecenia : retrouvez [notre mission](/a-propos/#mission), [nos valeurs](/a-propos/#valeurs) et [notre premier article](/blog/mecenia-inspiration-source-projection/). Pour suivre nos travaux ou rejoindre l’association, consultez la page [Adhérer](/adherer/) ou écrivez-nous à [contact@mecenia.org](mailto:contact@mecenia.org).

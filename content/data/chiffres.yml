@@ -1,0 +1,7 @@
+# Chiffres clés affichés sur l’accueil (bloc « Chiffres clés »)
+items:
+  - { valeur: "54,1 Md€", libelle: "de valeur ajoutée des branches culturelles en 2024" }
+  - { valeur: "2,1 %", libelle: "poids direct de la culture dans l’économie française (2024)" }
+  - { valeur: "5 %", libelle: "notre ambition : la culture à 5 % du PIB d’ici 2040" }
+  - { valeur: "12", libelle: "sièges au conseil d’administration cible, dont 10 à pourvoir" }
+source: "Sources : DEPS, ministère de la Culture, « Le poids économique direct de la culture en 2024 » (CC-2026-3) ; note de stratégie Mecenia pour l’ambition 2040."

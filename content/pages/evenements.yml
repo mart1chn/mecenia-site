@@ -1,0 +1,71 @@
+chemin: "/evenements/"
+titre_seo: "Événements — RCA, colloques et webinaires | Mecenia"
+description: "Les événements de Mecenia : Rencontres de la Culture et des Affaires, colloques et webinaires. Programmation en préparation et propositions de contribution."
+blocs:
+  - type: hero
+    variante: page
+    titre: "Événements"
+    sous_titre: "Faire se rencontrer les idées, les projets et leurs futurs partenaires."
+    boutons:
+      - { label: "Découvrir les formats", url: "#formats", style: "principal" }
+  - type: texte
+    id: rencontres
+    fond: blanc
+    eyebrow: "La rencontre au service des projets"
+    titre: "Partager les pratiques, ouvrir le dialogue"
+    texte: |
+      Les événements de Mecenia réunissent les institutions culturelles, les artistes, les acteurs publics et les entreprises pour comprendre les besoins, partager les expériences et encourager les collaborations.
+
+      Chaque format poursuit une même finalité : permettre aux mondes culturel et économique de mieux se connaître, puis de travailler sur des sujets et des projets concrets. La rencontre crée des occasions de dialogue ; elle ne garantit pas un partenariat ou un financement.
+  - type: cartes
+    id: formats
+    fond: beige
+    eyebrow: "Trois formats complémentaires"
+    titre: "RCA, colloques et webinaires"
+    colonnes: 3
+    cartes:
+      - { titre: "Rencontres de la Culture et des Affaires", texte: "Le rendez-vous annuel porté par Mecenia pour rapprocher institutions, acteurs publics et entreprises autour des projets culturels et du mécénat.", lien_label: "Découvrir les RCA", lien_url: "#rca" }
+      - { titre: "Colloques", texte: "Des échanges approfondis sur un enjeu culturel, économique ou de financement, associant des points de vue complémentaires et des retours d’expérience.", lien_label: "Demander des informations", lien_url: "/contact/?mecenia_evenement=colloque" }
+      - { titre: "Webinaires", texte: "Des rencontres en ligne, ciblées et accessibles, pour partager des repères, découvrir des pratiques et ouvrir la discussion autour d’un sujet.", lien_label: "Demander des informations", lien_url: "/contact/?mecenia_evenement=webinaire" }
+  - type: texte
+    id: rca
+    fond: blanc
+    eyebrow: "Notre rendez-vous annuel"
+    titre: "Les RCA : rapprocher les regards et les projets"
+    texte: |
+      Les Rencontres de la Culture et des Affaires ont vocation à réunir ceux qui portent les projets culturels et ceux qui souhaitent les soutenir. Échanges thématiques, expériences partagées et rencontres entre acteurs nourrissent cette ambition.
+
+      La programmation se construit progressivement. Le lieu, la date, les intervenants et les modalités de participation seront annoncés lorsqu’ils seront confirmés.
+    image: "/assets/img/logo-rca.png"
+    image_alt: "Rencontres de la Culture et des Affaires"
+    image_cote: gauche
+    image_style: logo
+    boutons:
+      - { label: "Être informé des prochaines annonces", url: "/contact/?mecenia_evenement=rca", style: "lien" }
+  - type: evenements_liste
+    id: programmation
+    fond: beige
+    eyebrow: "Programmation"
+    titre_vide: "Une programmation en préparation"
+    intro_vide: "Aucun événement daté ni inscription ouverte n’est annoncé sur cette page pour le moment."
+    texte_vide: |
+      Chaque annonce précisera le sujet, la date, le lieu ou le format en ligne, ainsi que les modalités de participation. Les informations confirmées seront publiées ici.
+
+      En attendant, vous pouvez nous faire part de votre intérêt ou proposer une contribution. Une demande d’information ne vaut ni réservation ni inscription confirmée.
+    titre: "Les prochains rendez-vous"
+  - type: cartes
+    id: contribuer
+    fond: blanc
+    eyebrow: "Contribuer à la rencontre"
+    titre: "Trois façons de vous associer"
+    colonnes: 3
+    cartes:
+      - { titre: "Proposer une intervention", texte: "Une expérience, un sujet ou un projet à partager avec les acteurs culturels et économiques ? Présentez-nous votre proposition.", lien_label: "Proposer une intervention", lien_url: "/contact/?mecenia_evenement=intervention" }
+      - { titre: "Accueillir une rencontre", texte: "Institution, entreprise ou lieu culturel : échangeons sur l’accueil d’un colloque ou d’un temps de dialogue adapté au sujet et aux publics.", lien_label: "Proposer un accueil", lien_url: "/contact/?mecenia_evenement=accueil" }
+      - { titre: "Envisager un partenariat", texte: "Associer votre structure à un événement, apporter des compétences ou des moyens : discutons du cadre et des engagements possibles.", lien_label: "Échanger sur un partenariat", lien_url: "/contact/?mecenia_evenement=partenariat" }
+  - type: cta
+    fond: sombre
+    titre: "Une idée de rencontre à construire ensemble ?"
+    texte: "Écrivez-nous pour partager un sujet, proposer votre participation ou demander des informations."
+    boutons:
+      - { label: "Contacter Mecenia", url: "/contact/?mecenia_evenement=intervention", style: "principal" }

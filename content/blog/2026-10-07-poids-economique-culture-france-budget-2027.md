@@ -89,6 +89,6 @@ Source de la reproduction : [Wikimedia Commons](https://commons.wikimedia.org/wi
 
 Le poids économique de la culture interdit de la réduire à une dépense périphérique. Il ne dispense pas d’évaluer ses politiques publiques. Entre ces deux constats, la position de Mecenia est simple : demander des arbitrages explicites, documentés et attentifs à la durée. La question n’est pas seulement « combien la culture coûte-t-elle ? », mais « quelles capacités de création, de conservation et de transmission voulons-nous préserver ? ».
 
-Pour participer à cette réflexion, [découvrez la mission de Mecenia](/notre-mission/) et [prenez contact](/contact/).
+Pour participer à cette réflexion, [découvrez la mission de Mecenia](/a-propos/#mission) et [prenez contact](/contact/).
 
 _Informations vérifiées le 7 octobre 2026. Données économiques : 2024 ; données d’emploi : 2023. Les chiffres budgétaires cités proviennent des articles de presse identifiés et concernent le PLF 2027, non définitivement adopté. Le dossier budgétaire officiel 2027 n’a pas pu être consulté lors de cette rédaction ; les taux divergents ne sont pas artificiellement réconciliés. Infographies originales Mecenia réalisées avec l’assistance d’une IA. Les illustrations ne constituent pas des preuves des effets économiques ou budgétaires décrits._

@@ -1,0 +1,2678 @@
+backend:
+  name: github
+  repo: mart1chn/mecenia-site
+  branch: main
+
+app_title: Mecenia · Espace d’administration
+logo:
+  src: /assets/img/mecenia-icon.png
+  show_in_header: true
+
+site_url: https://www.mecenia.org
+display_url: https://www.mecenia.org
+
+media_folder: static/assets/img/blog
+public_folder: /assets/img/blog
+
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      max_file_size: 26214400
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2000
+          height: 2000
+        svg:
+          optimize: true
+
+output:
+  omit_empty_optional_fields: true
+  yaml:
+    quote: double
+
+collections:
+  - name: blog
+    label: Articles
+    label_singular: Article
+    description: "Rédigez, mettez en page et publiez les articles du blog. Un article en brouillon reste invisible sur le site."
+    icon: article
+    folder: content/blog
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} ({{date}})"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Titre de l’article", name: "title", widget: "string", hint: "Le grand titre affiché en haut de l’article." }
+      - { label: "Texte principal", name: "body", widget: "markdown", required: false, hint: "Écrivez ici comme dans un traitement de texte. Pour placer une image à côté du texte, une galerie ou une citation, utilisez la « Mise en page avancée » plus bas." }
+      - label: "Mise en page avancée (facultatif)"
+        name: "blocks"
+        widget: "list"
+        required: false
+        collapsed: true
+        label_singular: "bloc"
+        typeKey: "type"
+        hint: "Ajoutez des blocs à la suite du texte principal, comme dans un magazine. Glissez-déposez les blocs pour les réordonner."
+        types:
+          - label: "Paragraphe"
+            name: "texte"
+            widget: "object"
+            summary: "Paragraphe : {{fields.texte}}"
+            fields:
+              - { label: "Texte", name: "texte", widget: "markdown" }
+          - label: "Image à côté du texte"
+            name: "texte_image"
+            widget: "object"
+            summary: "Image à côté du texte : {{fields.legende}}"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Texte", name: "texte", widget: "markdown" }
+              - { label: "Côté de l’image", name: "cote", widget: "select", default: "droite", options: [{ label: "À droite du texte", value: "droite" }, { label: "À gauche du texte", value: "gauche" }] }
+              - { label: "Taille de l’image", name: "largeur", widget: "select", default: "moyenne", options: [{ label: "Petite", value: "etroite" }, { label: "Moyenne", value: "moyenne" }, { label: "Grande", value: "large" }] }
+              - { label: "Forme de l’image", name: "cadrage", widget: "select", default: "portrait", options: [{ label: "Portrait (vertical)", value: "portrait" }, { label: "Telle quelle", value: "original" }] }
+              - { label: "Légende", name: "legende", widget: "string", required: false, hint: "Petite phrase sous l’image (facultatif)." }
+              - { label: "Texte alternatif", name: "alt", widget: "string", required: false, hint: "Décrit l’image pour les personnes malvoyantes et Google (facultatif)." }
+          - label: "Image seule"
+            name: "image"
+            widget: "object"
+            summary: "Image seule : {{fields.legende}}"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Forme", name: "format", widget: "select", default: "original", options: [{ label: "Telle quelle", value: "original" }, { label: "Paysage", value: "paysage" }, { label: "Panoramique (très large)", value: "panoramique" }] }
+              - { label: "Légende", name: "legende", widget: "string", required: false }
+              - { label: "Texte alternatif", name: "alt", widget: "string", required: false, hint: "Décrit l’image pour les personnes malvoyantes et Google (facultatif)." }
+          - label: "Galerie (2 ou 3 images)"
+            name: "galerie"
+            widget: "object"
+            summary: "Galerie de photos"
+            fields:
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                min: 2
+                max: 3
+                label_singular: "image"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Légende", name: "legende", widget: "string", required: false }
+                  - { label: "Texte alternatif", name: "alt", widget: "string", required: false }
+              - { label: "Forme des images", name: "cadrage", widget: "select", default: "portrait", options: [{ label: "Portrait (vertical)", value: "portrait" }, { label: "Paysage", value: "paysage" }, { label: "Carré", value: "carre" }, { label: "Telles quelles", value: "original" }] }
+          - label: "Citation"
+            name: "citation"
+            widget: "object"
+            summary: "Citation : {{fields.texte}}"
+            fields:
+              - { label: "Citation", name: "texte", widget: "text" }
+              - { label: "Auteur", name: "auteur", widget: "string", required: false }
+          - label: "Encadré"
+            name: "encadre"
+            widget: "object"
+            summary: "Encadré : {{fields.titre}}"
+            fields:
+              - { label: "Titre", name: "titre", widget: "string", required: false }
+              - { label: "Texte", name: "texte", widget: "markdown" }
+      - { label: "Extrait", name: "description", widget: "text", hint: "2 à 3 lignes qui donnent envie de lire. Affiché sur la liste des articles, sur l’accueil et dans Google." }
+      - { label: "Image mise en avant", name: "image", widget: "image", required: false, hint: "L’image de couverture, de préférence en format paysage. Elle est automatiquement allégée." }
+      - { label: "Thématiques", name: "themes", widget: "relation", collection: "reglages", file: "categories", multiple: true, required: false, search_fields: ["themes.*.name"], display_fields: ["themes.*.name"], value_field: "themes.*.name", hint: "Cinéma, peinture, sculpture… Plusieurs choix possibles. La liste se modifie dans « Catégories du blog »." }
+      - { label: "Type d’article", name: "kind", widget: "relation", collection: "reglages", file: "categories", required: false, search_fields: ["types.*.name"], display_fields: ["types.*.name"], value_field: "types.*.name", hint: "Actualité, événement, exposition, formation… Un seul choix. La liste se modifie dans « Catégories du blog »." }
+      - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Brouillon", name: "draft", widget: "boolean", default: true, hint: "Coché : l’article est enregistré mais reste invisible sur le site. Décochez pour le publier." }
+
+  - name: expositions
+    label: Expositions
+    label_singular: Exposition
+    description: "Composez les expositions numériques : étapes, œuvres, cartels et sources. Une exposition en brouillon reste invisible ; la plus récente exposition publiée s’affiche sur /exposition/."
+    icon: museum
+    folder: content/expositions
+    create: true
+    extension: yml
+    format: yaml
+    slug: "{{year}}-{{month}}-{{slug}}"
+    media_folder: /assets/img/expositions
+    public_folder: /assets/img/expositions
+    summary: "{{title}} ({{period}})"
+    sortable_fields: ["period", "title"]
+    fields:
+      - { label: "Titre de l’exposition", name: "title", widget: "string" }
+      - { label: "Période", name: "period", widget: "string", hint: "Format AAAA-MM, par exemple 2026-10. La période la plus récente, parmi les expositions publiées, s’affiche sur le site." }
+      - { label: "Brouillon", name: "draft", widget: "boolean", default: true, hint: "Coché : l’exposition reste invisible. Décochez pour la publier." }
+      - { label: "Description pour Google", name: "seo_description", widget: "text" }
+      - { label: "Sous-titre de la page", name: "hero_subtitle", widget: "text" }
+      - { label: "Étiquette de l’en-tête", name: "eyebrow", widget: "string", default: "L’exposition Mecenia · Octobre 2026" }
+      - { label: "Titre de l’introduction", name: "intro_title", widget: "string" }
+      - { label: "Paragraphes d’introduction", name: "intro_paragraphs", widget: "list", field: { label: "Paragraphe", name: "text", widget: "text" } }
+      - { label: "Lien vers le projet institutionnel", name: "project_url", widget: "string", hint: "Adresse en https://" }
+      - { label: "Texte du lien institutionnel", name: "project_link_label", widget: "string", default: "Découvrir le projet officiel" }
+      - { label: "Note de statut éditorial", name: "note", widget: "text", hint: "Précise que l’exposition est indépendante de l’institution." }
+      - { label: "Article lié (adresse du site)", name: "article_url", widget: "string", required: false, hint: "Par exemple /blog/cour-du-sphinx-louvre-tous-mecenes/" }
+      - label: "Étapes"
+        name: "acts"
+        widget: "list"
+        label_singular: "étape"
+        summary: "Étape {{fields.n}} : {{fields.title}}"
+        fields:
+          - { label: "Numéro", name: "n", widget: "number", value_type: "int", min: 1 }
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Texte de l’étape", name: "text", widget: "text" }
+      - label: "Œuvres"
+        name: "works"
+        widget: "list"
+        label_singular: "œuvre"
+        summary: "{{fields.title}}"
+        fields:
+          - { label: "Identifiant", name: "id", widget: "string", hint: "Court, sans espace ni accent (exemple : tibre). Il ne doit pas changer une fois publié." }
+          - { label: "Étape", name: "act", widget: "number", value_type: "int", min: 1, hint: "Numéro de l’étape où se trouve l’œuvre." }
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Datation", name: "date", widget: "string" }
+          - { label: "Technique / inventaire", name: "medium", widget: "string" }
+          - { label: "Origine", name: "origin", widget: "string" }
+          - { label: "Statut affiché", name: "status", widget: "string", hint: "Exemple : Ensemble annoncé par le Louvre" }
+          - { label: "Contrepoint choisi par Mecenia", name: "contrepoint", widget: "boolean", default: false }
+          - { label: "Image téléversée", name: "image", widget: "image", required: false, hint: "Facultatif. Sans image, la reproduction est récupérée depuis Wikimedia Commons grâce au nom de fichier ci-dessous." }
+          - { label: "Fichier Wikimedia Commons", name: "commons_file", widget: "string", required: false, hint: "Nom exact du fichier, sans « File: »." }
+          - { label: "Texte alternatif", name: "alt", widget: "string" }
+          - { label: "Crédit photographique", name: "credit", widget: "string", required: false, hint: "Laissez vide pour reprendre l’auteur depuis Wikimedia Commons." }
+          - { label: "Nom de la licence", name: "license_name", widget: "string", required: false }
+          - { label: "Adresse de la licence", name: "license_url", widget: "string", required: false }
+          - { label: "Page source de l’image", name: "image_source_url", widget: "string", required: false }
+          - { label: "Source institutionnelle", name: "source", widget: "string", hint: "Adresse en https://" }
+          - { label: "Regarder l’œuvre (notice)", name: "notice", widget: "text" }
+          - { label: "Complément de notice", name: "complement", widget: "text", required: false }
+          - { label: "Le regard de Mecenia", name: "reading", widget: "text" }
+          - { label: "Transition vers l’œuvre suivante", name: "transition", widget: "text" }
+      - { label: "Titre « Pour approfondir »", name: "method_title", widget: "string", default: "Conserver, interpréter, transmettre" }
+      - { label: "Texte de méthode", name: "method_text", widget: "text" }
+      - { label: "Texte sur les reproductions", name: "images_text", widget: "text" }
+      - { label: "Mention de mise à jour", name: "update_note", widget: "text" }
+      - { label: "Titre de clôture", name: "cta_title", widget: "string" }
+      - { label: "Texte de clôture", name: "cta_text", widget: "text" }
+
+  - name: messages
+    label: Messages reçus
+    label_singular: Message
+    description: "Les messages envoyés depuis les formulaires de contact et d’adhésion."
+    icon: mail
+    folder: content/messages
+    create: false
+    delete: true
+    extension: md
+    format: frontmatter
+    summary: "{{status}} · {{title}} · {{date}}"
+    sortable_fields: ["date", "status", "title"]
+    view_filters:
+      - { label: "Nouveaux", field: "status", pattern: "nouveau" }
+      - { label: "Lus", field: "status", pattern: "lu" }
+      - { label: "Traités", field: "status", pattern: "traité" }
+    fields:
+      - { label: "Statut", name: "status", widget: "select", options: ["nouveau", "lu", "traité"], default: "nouveau" }
+      - { label: "Objet", name: "title", widget: "string" }
+      - { label: "Formulaire", name: "form", widget: "string", required: false }
+      - { label: "Reçu le", name: "date", widget: "string" }
+      - { label: "Nom", name: "name", widget: "string", required: false }
+      - { label: "E-mail", name: "email", widget: "string", required: false }
+      - { label: "Téléphone", name: "phone", widget: "string", required: false }
+      - { label: "Organisation", name: "organisation", widget: "string", required: false }
+      - { label: "Fonction", name: "role", widget: "string", required: false }
+      - { label: "Type ou sujet", name: "type", widget: "string", required: false }
+      - { label: "Message", name: "body", widget: "text", required: false }
+      - { label: "Newsletter", name: "newsletter", widget: "string", required: false }
+      - { label: "Consentement newsletter (date)", name: "newsletter_consent_at", widget: "string", required: false }
+      - { label: "Consentement newsletter (version)", name: "newsletter_consent_version", widget: "string", required: false }
+
+  - name: reglages
+    label: Catégories du blog
+    description: "Les thématiques et les types d’articles proposés lors de la rédaction, et utilisés comme filtres sur le blog."
+    icon: tune
+    files:
+      - name: categories
+        label: Thématiques et types d’articles
+        file: content/settings/categories.yml
+        format: yaml
+        fields:
+          - label: "Thématiques"
+            name: "themes"
+            widget: "list"
+            label_singular: "thématique"
+            hint: "Cinéma, peinture, sculpture, littérature, mode… Ajoutez, renommez ou supprimez. Renommer une thématique ne modifie pas les articles déjà enregistrés."
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+          - label: "Types d’article"
+            name: "types"
+            widget: "list"
+            label_singular: "type"
+            hint: "Actualité, événement, exposition, formation… Renommer un type ne modifie pas les articles déjà enregistrés."
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+
+  - name: site
+    label: Réglages du site
+    description: "Menu, pied de page, coordonnées et réseaux sociaux."
+    icon: settings
+    files:
+      - name: site
+        label: Réglages généraux
+        file: content/site.yml
+        format: yaml
+        fields:
+          - { label: "Nom", name: "nom", widget: "string" }
+          - { label: "Adresse du site", name: "url", widget: "string" }
+          - { label: "Slogan", name: "slogan", widget: "string" }
+          - { label: "Description par défaut (Google)", name: "description_defaut", widget: "text" }
+          - { label: "E-mail de contact", name: "email", widget: "string" }
+          - { label: "Ville", name: "ville", widget: "string" }
+          - label: "Réseaux sociaux"
+            name: "reseaux"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Adresse", name: "url", widget: "string" }
+          - label: "Menu principal"
+            name: "menu"
+            widget: "list"
+            fields:
+              - { label: "Libellé", name: "label", widget: "string" }
+              - { label: "Adresse", name: "url", widget: "string" }
+          - label: "Bouton du menu"
+            name: "bouton_menu"
+            widget: "object"
+            fields:
+              - { label: "Libellé", name: "label", widget: "string" }
+              - { label: "Adresse", name: "url", widget: "string" }
+          - label: "Pied de page"
+            name: "pied_de_page"
+            widget: "object"
+            fields:
+              - { label: "Texte", name: "texte", widget: "text" }
+              - { label: "Mention", name: "mentions", widget: "text" }
+              - label: "Colonnes"
+                name: "colonnes"
+                widget: "list"
+                fields:
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - label: "Liens"
+                    name: "liens"
+                    widget: "list"
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+
+  - name: donnees
+    label: Chiffres, équipe, événements
+    description: "Les listes qui alimentent plusieurs pages : chiffres clés, équipe, événements, ressources, partenaires."
+    icon: database
+    files:
+      - name: chiffres
+        label: Chiffres clés (accueil)
+        file: content/data/chiffres.yml
+        format: yaml
+        fields:
+          - label: "Chiffres"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.valeur}} · {{fields.libelle}}"
+            fields:
+              - { label: "Valeur", name: "valeur", widget: "string", hint: "Exemple : 54,1 Md€" }
+              - { label: "Légende", name: "libelle", widget: "string" }
+          - { label: "Sources", name: "source", widget: "text", required: false }
+      - name: evenements
+        label: Événements
+        file: content/data/evenements.yml
+        format: yaml
+        fields:
+          - label: "Événements"
+            name: "items"
+            widget: "list"
+            required: false
+            summary: "{{fields.date}} · {{fields.titre}}"
+            hint: "N’ajoutez un événement que lorsque la date et le lieu (ou le format en ligne) sont confirmés."
+            fields:
+              - { label: "Titre", name: "titre", widget: "string" }
+              - { label: "Type", name: "type", widget: "string", default: "Webinaire" }
+              - { label: "Date", name: "date", widget: "string", hint: "Format AAAA-MM-JJ, par exemple 2026-12-10" }
+              - { label: "Heure", name: "heure", widget: "string", required: false }
+              - { label: "Lieu", name: "lieu", widget: "string", required: false }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+              - { label: "Adresse du lien", name: "lien_url", widget: "string", required: false }
+      - name: ressources
+        label: Ressources à télécharger
+        file: content/data/ressources.yml
+        format: yaml
+        fields:
+          - label: "Documents"
+            name: "items"
+            widget: "list"
+            required: false
+            summary: "{{fields.titre}}"
+            fields:
+              - { label: "Titre", name: "titre", widget: "string" }
+              - { label: "Type", name: "type", widget: "string", default: "Note" }
+              - { label: "Date", name: "date", widget: "string", required: false }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Fichier", name: "fichier", widget: "file" }
+      - name: partenaires
+        label: Partenaires et mécènes
+        file: content/data/partenaires.yml
+        format: yaml
+        fields:
+          - label: "Partenaires"
+            name: "items"
+            widget: "list"
+            required: false
+            summary: "{{fields.nom}}"
+            fields:
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Logo", name: "logo", widget: "image", required: false }
+              - { label: "Site", name: "url", widget: "string", required: false }
+              - { label: "Description", name: "description", widget: "text", required: false }
+      - name: equipe
+        label: Équipe et organigramme
+        file: content/data/equipe.yml
+        format: yaml
+        fields:
+          - label: "Personnes"
+            name: "membres"
+            widget: "list"
+            summary: "{{fields.nom}} · {{fields.fonction}}"
+            fields:
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Fonction", name: "fonction", widget: "string" }
+              - { label: "Parcours", name: "parcours", widget: "string", required: false }
+              - { label: "Groupe", name: "groupe", widget: "string", default: "Bureau" }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+              - { label: "Texte alternatif de la photo", name: "alt", widget: "string", required: false }
+              - { label: "Présentation", name: "presentation", widget: "text", required: false }
+              - { label: "Mot personnel", name: "mot", widget: "text", required: false }
+          - label: "Organes de l’association"
+            name: "organes"
+            widget: "list"
+            summary: "{{fields.nom}}"
+            fields:
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+  - name: pages
+    label: Pages du site
+    description: "Modifiez les textes des pages. Chaque page est une suite de blocs : réordonnez-les par glisser-déposer. Les mentions légales se modifient dans « Mentions légales »."
+    icon: description
+    files:
+      - name: accueil
+        label: "Accueil"
+        file: content/pages/accueil.yml
+        format: yaml
+        fields:
+          - { label: "Chemin de la page", name: "chemin", widget: "string", hint: "Ne pas modifier : c’est l’adresse de la page." }
+          - { label: "Titre pour Google", name: "titre_seo", widget: "string" }
+          - { label: "Description pour Google", name: "description", widget: "text" }
+          - { label: "Masquer de Google", name: "noindex", widget: "boolean", required: false }
+          - label: "Blocs de la page"
+            name: "blocs"
+            widget: "list"
+            typeKey: "type"
+            hint: "Chaque page est une suite de blocs. Glissez-déposez pour réordonner, ou ajoutez un bloc."
+            types:
+              - label: "En-tête"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Variante", name: "variante", widget: "select", options: ["page", "accueil"], default: "page" }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Sous-titre", name: "sous_titre", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte (avec image facultative)"
+                name: "texte"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+                  - { label: "Côté de l’image", name: "image_cote", widget: "select", required: false, options: ["droite", "gauche"] }
+                  - { label: "Style de l’image", name: "image_style", widget: "select", required: false, options: ["arche", "logo"] }
+                  - { label: "Légende de l’image", name: "image_legende", widget: "string", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte long (mentions légales)"
+                name: "texte_long"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+              - label: "Cartes"
+                name: "cartes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Colonnes", name: "colonnes", widget: "select", required: false, options: [2, 3, 4], default: 3 }
+                  - { label: "Style", name: "style", widget: "select", required: false, options: ["simple", "numerote"] }
+                  - label: "Cartes"
+                    name: "cartes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                      - { label: "Pied de carte", name: "pied", widget: "string", required: false }
+                      - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+                      - { label: "Adresse du lien", name: "lien_url", widget: "string", required: false }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Étapes"
+                name: "etapes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - label: "Étapes"
+                    name: "etapes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                  - { label: "Note", name: "note", widget: "text", required: false }
+              - label: "Questions / accordéon"
+                name: "faq"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - label: "Questions"
+                    name: "questions"
+                    widget: "list"
+                    fields:
+                      - { label: "Étiquette", name: "etiquette", widget: "string", required: false }
+                      - { label: "Question", name: "question", widget: "string" }
+                      - { label: "Résumé", name: "resume", widget: "string", required: false }
+                      - { label: "Réponse", name: "reponse", widget: "markdown" }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Chiffres clés (liste : Chiffres, équipe, événements)"
+                name: "chiffres"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+              - label: "Grande citation"
+                name: "citation"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Citation", name: "texte", widget: "text" }
+                  - { label: "Auteur", name: "auteur", widget: "string", required: false }
+                  - { label: "Source", name: "source", widget: "string", required: false }
+                  - { label: "Texte qui suit", name: "suite", widget: "text", required: false }
+                  - label: "Bouton"
+                    name: "bouton"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+              - label: "Trois œuvres"
+                name: "triptyque"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    fields:
+                      - { label: "Image (adresse ou fichier)", name: "src", widget: "string" }
+                      - { label: "Texte alternatif", name: "alt", widget: "string" }
+                      - { label: "Légende", name: "legende", widget: "text", required: false }
+              - label: "Bandeau d’œuvre"
+                name: "bandeau_oeuvre"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif", name: "image_alt", widget: "string", required: false }
+                  - { label: "Légende", name: "legende", widget: "text", required: false }
+                  - { label: "Image à gauche", name: "inverse", widget: "boolean", required: false }
+              - label: "Derniers articles"
+                name: "blog_recents"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Nombre d’articles", name: "nombre", widget: "number", required: false, value_type: "int", min: 1, max: 6, default: 3 }
+                  - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+              - label: "Fondateurs"
+                name: "fondateurs"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Mode", name: "mode", widget: "select", required: false, options: ["mot", "presentations"] }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Organigramme (données : Équipe)"
+                name: "organigramme"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Partenaires (données : Partenaires)"
+                name: "partenaires"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Liste d’événements (données : Événements)"
+                name: "evenements_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Titre si aucun événement", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Introduction si aucun événement", name: "intro_vide", widget: "text", required: false }
+                  - { label: "Texte si aucun événement", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Liste de ressources (données : Ressources)"
+                name: "ressources_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Titre si vide", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Texte si vide", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Appel à l’action"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Texte", name: "texte", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Formulaire"
+                name: "formulaire"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Formulaire", name: "formulaire", widget: "select", options: ["adhesion", "contact"] }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Afficher les coordonnées", name: "avec_coordonnees", widget: "boolean", required: false }
+                  - { label: "Note sous les coordonnées", name: "note_adhesion", widget: "text", required: false }
+      - name: a_propos
+        label: "À propos"
+        file: content/pages/a-propos.yml
+        format: yaml
+        fields:
+          - { label: "Chemin de la page", name: "chemin", widget: "string", hint: "Ne pas modifier : c’est l’adresse de la page." }
+          - { label: "Titre pour Google", name: "titre_seo", widget: "string" }
+          - { label: "Description pour Google", name: "description", widget: "text" }
+          - { label: "Masquer de Google", name: "noindex", widget: "boolean", required: false }
+          - label: "Blocs de la page"
+            name: "blocs"
+            widget: "list"
+            typeKey: "type"
+            hint: "Chaque page est une suite de blocs. Glissez-déposez pour réordonner, ou ajoutez un bloc."
+            types:
+              - label: "En-tête"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Variante", name: "variante", widget: "select", options: ["page", "accueil"], default: "page" }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Sous-titre", name: "sous_titre", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte (avec image facultative)"
+                name: "texte"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+                  - { label: "Côté de l’image", name: "image_cote", widget: "select", required: false, options: ["droite", "gauche"] }
+                  - { label: "Style de l’image", name: "image_style", widget: "select", required: false, options: ["arche", "logo"] }
+                  - { label: "Légende de l’image", name: "image_legende", widget: "string", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte long (mentions légales)"
+                name: "texte_long"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+              - label: "Cartes"
+                name: "cartes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Colonnes", name: "colonnes", widget: "select", required: false, options: [2, 3, 4], default: 3 }
+                  - { label: "Style", name: "style", widget: "select", required: false, options: ["simple", "numerote"] }
+                  - label: "Cartes"
+                    name: "cartes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                      - { label: "Pied de carte", name: "pied", widget: "string", required: false }
+                      - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+                      - { label: "Adresse du lien", name: "lien_url", widget: "string", required: false }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Étapes"
+                name: "etapes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - label: "Étapes"
+                    name: "etapes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                  - { label: "Note", name: "note", widget: "text", required: false }
+              - label: "Questions / accordéon"
+                name: "faq"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - label: "Questions"
+                    name: "questions"
+                    widget: "list"
+                    fields:
+                      - { label: "Étiquette", name: "etiquette", widget: "string", required: false }
+                      - { label: "Question", name: "question", widget: "string" }
+                      - { label: "Résumé", name: "resume", widget: "string", required: false }
+                      - { label: "Réponse", name: "reponse", widget: "markdown" }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Chiffres clés (liste : Chiffres, équipe, événements)"
+                name: "chiffres"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+              - label: "Grande citation"
+                name: "citation"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Citation", name: "texte", widget: "text" }
+                  - { label: "Auteur", name: "auteur", widget: "string", required: false }
+                  - { label: "Source", name: "source", widget: "string", required: false }
+                  - { label: "Texte qui suit", name: "suite", widget: "text", required: false }
+                  - label: "Bouton"
+                    name: "bouton"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+              - label: "Trois œuvres"
+                name: "triptyque"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    fields:
+                      - { label: "Image (adresse ou fichier)", name: "src", widget: "string" }
+                      - { label: "Texte alternatif", name: "alt", widget: "string" }
+                      - { label: "Légende", name: "legende", widget: "text", required: false }
+              - label: "Bandeau d’œuvre"
+                name: "bandeau_oeuvre"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif", name: "image_alt", widget: "string", required: false }
+                  - { label: "Légende", name: "legende", widget: "text", required: false }
+                  - { label: "Image à gauche", name: "inverse", widget: "boolean", required: false }
+              - label: "Derniers articles"
+                name: "blog_recents"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Nombre d’articles", name: "nombre", widget: "number", required: false, value_type: "int", min: 1, max: 6, default: 3 }
+                  - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+              - label: "Fondateurs"
+                name: "fondateurs"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Mode", name: "mode", widget: "select", required: false, options: ["mot", "presentations"] }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Organigramme (données : Équipe)"
+                name: "organigramme"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Partenaires (données : Partenaires)"
+                name: "partenaires"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Liste d’événements (données : Événements)"
+                name: "evenements_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Titre si aucun événement", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Introduction si aucun événement", name: "intro_vide", widget: "text", required: false }
+                  - { label: "Texte si aucun événement", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Liste de ressources (données : Ressources)"
+                name: "ressources_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Titre si vide", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Texte si vide", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Appel à l’action"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Texte", name: "texte", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Formulaire"
+                name: "formulaire"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Formulaire", name: "formulaire", widget: "select", options: ["adhesion", "contact"] }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Afficher les coordonnées", name: "avec_coordonnees", widget: "boolean", required: false }
+                  - { label: "Note sous les coordonnées", name: "note_adhesion", widget: "text", required: false }
+      - name: aide_au_mecenat
+        label: "Aide au mécénat"
+        file: content/pages/aide-au-mecenat.yml
+        format: yaml
+        fields:
+          - { label: "Chemin de la page", name: "chemin", widget: "string", hint: "Ne pas modifier : c’est l’adresse de la page." }
+          - { label: "Titre pour Google", name: "titre_seo", widget: "string" }
+          - { label: "Description pour Google", name: "description", widget: "text" }
+          - { label: "Masquer de Google", name: "noindex", widget: "boolean", required: false }
+          - label: "Blocs de la page"
+            name: "blocs"
+            widget: "list"
+            typeKey: "type"
+            hint: "Chaque page est une suite de blocs. Glissez-déposez pour réordonner, ou ajoutez un bloc."
+            types:
+              - label: "En-tête"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Variante", name: "variante", widget: "select", options: ["page", "accueil"], default: "page" }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Sous-titre", name: "sous_titre", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte (avec image facultative)"
+                name: "texte"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+                  - { label: "Côté de l’image", name: "image_cote", widget: "select", required: false, options: ["droite", "gauche"] }
+                  - { label: "Style de l’image", name: "image_style", widget: "select", required: false, options: ["arche", "logo"] }
+                  - { label: "Légende de l’image", name: "image_legende", widget: "string", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte long (mentions légales)"
+                name: "texte_long"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+              - label: "Cartes"
+                name: "cartes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Colonnes", name: "colonnes", widget: "select", required: false, options: [2, 3, 4], default: 3 }
+                  - { label: "Style", name: "style", widget: "select", required: false, options: ["simple", "numerote"] }
+                  - label: "Cartes"
+                    name: "cartes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                      - { label: "Pied de carte", name: "pied", widget: "string", required: false }
+                      - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+                      - { label: "Adresse du lien", name: "lien_url", widget: "string", required: false }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Étapes"
+                name: "etapes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - label: "Étapes"
+                    name: "etapes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                  - { label: "Note", name: "note", widget: "text", required: false }
+              - label: "Questions / accordéon"
+                name: "faq"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - label: "Questions"
+                    name: "questions"
+                    widget: "list"
+                    fields:
+                      - { label: "Étiquette", name: "etiquette", widget: "string", required: false }
+                      - { label: "Question", name: "question", widget: "string" }
+                      - { label: "Résumé", name: "resume", widget: "string", required: false }
+                      - { label: "Réponse", name: "reponse", widget: "markdown" }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Chiffres clés (liste : Chiffres, équipe, événements)"
+                name: "chiffres"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+              - label: "Grande citation"
+                name: "citation"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Citation", name: "texte", widget: "text" }
+                  - { label: "Auteur", name: "auteur", widget: "string", required: false }
+                  - { label: "Source", name: "source", widget: "string", required: false }
+                  - { label: "Texte qui suit", name: "suite", widget: "text", required: false }
+                  - label: "Bouton"
+                    name: "bouton"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+              - label: "Trois œuvres"
+                name: "triptyque"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    fields:
+                      - { label: "Image (adresse ou fichier)", name: "src", widget: "string" }
+                      - { label: "Texte alternatif", name: "alt", widget: "string" }
+                      - { label: "Légende", name: "legende", widget: "text", required: false }
+              - label: "Bandeau d’œuvre"
+                name: "bandeau_oeuvre"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif", name: "image_alt", widget: "string", required: false }
+                  - { label: "Légende", name: "legende", widget: "text", required: false }
+                  - { label: "Image à gauche", name: "inverse", widget: "boolean", required: false }
+              - label: "Derniers articles"
+                name: "blog_recents"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Nombre d’articles", name: "nombre", widget: "number", required: false, value_type: "int", min: 1, max: 6, default: 3 }
+                  - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+              - label: "Fondateurs"
+                name: "fondateurs"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Mode", name: "mode", widget: "select", required: false, options: ["mot", "presentations"] }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Organigramme (données : Équipe)"
+                name: "organigramme"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Partenaires (données : Partenaires)"
+                name: "partenaires"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Liste d’événements (données : Événements)"
+                name: "evenements_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Titre si aucun événement", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Introduction si aucun événement", name: "intro_vide", widget: "text", required: false }
+                  - { label: "Texte si aucun événement", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Liste de ressources (données : Ressources)"
+                name: "ressources_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Titre si vide", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Texte si vide", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Appel à l’action"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Texte", name: "texte", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Formulaire"
+                name: "formulaire"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Formulaire", name: "formulaire", widget: "select", options: ["adhesion", "contact"] }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Afficher les coordonnées", name: "avec_coordonnees", widget: "boolean", required: false }
+                  - { label: "Note sous les coordonnées", name: "note_adhesion", widget: "text", required: false }
+      - name: evenements
+        label: "Événements"
+        file: content/pages/evenements.yml
+        format: yaml
+        fields:
+          - { label: "Chemin de la page", name: "chemin", widget: "string", hint: "Ne pas modifier : c’est l’adresse de la page." }
+          - { label: "Titre pour Google", name: "titre_seo", widget: "string" }
+          - { label: "Description pour Google", name: "description", widget: "text" }
+          - { label: "Masquer de Google", name: "noindex", widget: "boolean", required: false }
+          - label: "Blocs de la page"
+            name: "blocs"
+            widget: "list"
+            typeKey: "type"
+            hint: "Chaque page est une suite de blocs. Glissez-déposez pour réordonner, ou ajoutez un bloc."
+            types:
+              - label: "En-tête"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Variante", name: "variante", widget: "select", options: ["page", "accueil"], default: "page" }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Sous-titre", name: "sous_titre", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte (avec image facultative)"
+                name: "texte"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+                  - { label: "Côté de l’image", name: "image_cote", widget: "select", required: false, options: ["droite", "gauche"] }
+                  - { label: "Style de l’image", name: "image_style", widget: "select", required: false, options: ["arche", "logo"] }
+                  - { label: "Légende de l’image", name: "image_legende", widget: "string", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte long (mentions légales)"
+                name: "texte_long"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+              - label: "Cartes"
+                name: "cartes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Colonnes", name: "colonnes", widget: "select", required: false, options: [2, 3, 4], default: 3 }
+                  - { label: "Style", name: "style", widget: "select", required: false, options: ["simple", "numerote"] }
+                  - label: "Cartes"
+                    name: "cartes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                      - { label: "Pied de carte", name: "pied", widget: "string", required: false }
+                      - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+                      - { label: "Adresse du lien", name: "lien_url", widget: "string", required: false }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Étapes"
+                name: "etapes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - label: "Étapes"
+                    name: "etapes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                  - { label: "Note", name: "note", widget: "text", required: false }
+              - label: "Questions / accordéon"
+                name: "faq"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - label: "Questions"
+                    name: "questions"
+                    widget: "list"
+                    fields:
+                      - { label: "Étiquette", name: "etiquette", widget: "string", required: false }
+                      - { label: "Question", name: "question", widget: "string" }
+                      - { label: "Résumé", name: "resume", widget: "string", required: false }
+                      - { label: "Réponse", name: "reponse", widget: "markdown" }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Chiffres clés (liste : Chiffres, équipe, événements)"
+                name: "chiffres"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+              - label: "Grande citation"
+                name: "citation"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Citation", name: "texte", widget: "text" }
+                  - { label: "Auteur", name: "auteur", widget: "string", required: false }
+                  - { label: "Source", name: "source", widget: "string", required: false }
+                  - { label: "Texte qui suit", name: "suite", widget: "text", required: false }
+                  - label: "Bouton"
+                    name: "bouton"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+              - label: "Trois œuvres"
+                name: "triptyque"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    fields:
+                      - { label: "Image (adresse ou fichier)", name: "src", widget: "string" }
+                      - { label: "Texte alternatif", name: "alt", widget: "string" }
+                      - { label: "Légende", name: "legende", widget: "text", required: false }
+              - label: "Bandeau d’œuvre"
+                name: "bandeau_oeuvre"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif", name: "image_alt", widget: "string", required: false }
+                  - { label: "Légende", name: "legende", widget: "text", required: false }
+                  - { label: "Image à gauche", name: "inverse", widget: "boolean", required: false }
+              - label: "Derniers articles"
+                name: "blog_recents"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Nombre d’articles", name: "nombre", widget: "number", required: false, value_type: "int", min: 1, max: 6, default: 3 }
+                  - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+              - label: "Fondateurs"
+                name: "fondateurs"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Mode", name: "mode", widget: "select", required: false, options: ["mot", "presentations"] }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Organigramme (données : Équipe)"
+                name: "organigramme"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Partenaires (données : Partenaires)"
+                name: "partenaires"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Liste d’événements (données : Événements)"
+                name: "evenements_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Titre si aucun événement", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Introduction si aucun événement", name: "intro_vide", widget: "text", required: false }
+                  - { label: "Texte si aucun événement", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Liste de ressources (données : Ressources)"
+                name: "ressources_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Titre si vide", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Texte si vide", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Appel à l’action"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Texte", name: "texte", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Formulaire"
+                name: "formulaire"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Formulaire", name: "formulaire", widget: "select", options: ["adhesion", "contact"] }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Afficher les coordonnées", name: "avec_coordonnees", widget: "boolean", required: false }
+                  - { label: "Note sous les coordonnées", name: "note_adhesion", widget: "text", required: false }
+      - name: ressources
+        label: "Ressources"
+        file: content/pages/ressources.yml
+        format: yaml
+        fields:
+          - { label: "Chemin de la page", name: "chemin", widget: "string", hint: "Ne pas modifier : c’est l’adresse de la page." }
+          - { label: "Titre pour Google", name: "titre_seo", widget: "string" }
+          - { label: "Description pour Google", name: "description", widget: "text" }
+          - { label: "Masquer de Google", name: "noindex", widget: "boolean", required: false }
+          - label: "Blocs de la page"
+            name: "blocs"
+            widget: "list"
+            typeKey: "type"
+            hint: "Chaque page est une suite de blocs. Glissez-déposez pour réordonner, ou ajoutez un bloc."
+            types:
+              - label: "En-tête"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Variante", name: "variante", widget: "select", options: ["page", "accueil"], default: "page" }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Sous-titre", name: "sous_titre", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte (avec image facultative)"
+                name: "texte"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+                  - { label: "Côté de l’image", name: "image_cote", widget: "select", required: false, options: ["droite", "gauche"] }
+                  - { label: "Style de l’image", name: "image_style", widget: "select", required: false, options: ["arche", "logo"] }
+                  - { label: "Légende de l’image", name: "image_legende", widget: "string", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte long (mentions légales)"
+                name: "texte_long"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+              - label: "Cartes"
+                name: "cartes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Colonnes", name: "colonnes", widget: "select", required: false, options: [2, 3, 4], default: 3 }
+                  - { label: "Style", name: "style", widget: "select", required: false, options: ["simple", "numerote"] }
+                  - label: "Cartes"
+                    name: "cartes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                      - { label: "Pied de carte", name: "pied", widget: "string", required: false }
+                      - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+                      - { label: "Adresse du lien", name: "lien_url", widget: "string", required: false }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Étapes"
+                name: "etapes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - label: "Étapes"
+                    name: "etapes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                  - { label: "Note", name: "note", widget: "text", required: false }
+              - label: "Questions / accordéon"
+                name: "faq"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - label: "Questions"
+                    name: "questions"
+                    widget: "list"
+                    fields:
+                      - { label: "Étiquette", name: "etiquette", widget: "string", required: false }
+                      - { label: "Question", name: "question", widget: "string" }
+                      - { label: "Résumé", name: "resume", widget: "string", required: false }
+                      - { label: "Réponse", name: "reponse", widget: "markdown" }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Chiffres clés (liste : Chiffres, équipe, événements)"
+                name: "chiffres"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+              - label: "Grande citation"
+                name: "citation"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Citation", name: "texte", widget: "text" }
+                  - { label: "Auteur", name: "auteur", widget: "string", required: false }
+                  - { label: "Source", name: "source", widget: "string", required: false }
+                  - { label: "Texte qui suit", name: "suite", widget: "text", required: false }
+                  - label: "Bouton"
+                    name: "bouton"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+              - label: "Trois œuvres"
+                name: "triptyque"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    fields:
+                      - { label: "Image (adresse ou fichier)", name: "src", widget: "string" }
+                      - { label: "Texte alternatif", name: "alt", widget: "string" }
+                      - { label: "Légende", name: "legende", widget: "text", required: false }
+              - label: "Bandeau d’œuvre"
+                name: "bandeau_oeuvre"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif", name: "image_alt", widget: "string", required: false }
+                  - { label: "Légende", name: "legende", widget: "text", required: false }
+                  - { label: "Image à gauche", name: "inverse", widget: "boolean", required: false }
+              - label: "Derniers articles"
+                name: "blog_recents"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Nombre d’articles", name: "nombre", widget: "number", required: false, value_type: "int", min: 1, max: 6, default: 3 }
+                  - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+              - label: "Fondateurs"
+                name: "fondateurs"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Mode", name: "mode", widget: "select", required: false, options: ["mot", "presentations"] }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Organigramme (données : Équipe)"
+                name: "organigramme"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Partenaires (données : Partenaires)"
+                name: "partenaires"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Liste d’événements (données : Événements)"
+                name: "evenements_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Titre si aucun événement", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Introduction si aucun événement", name: "intro_vide", widget: "text", required: false }
+                  - { label: "Texte si aucun événement", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Liste de ressources (données : Ressources)"
+                name: "ressources_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Titre si vide", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Texte si vide", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Appel à l’action"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Texte", name: "texte", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Formulaire"
+                name: "formulaire"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Formulaire", name: "formulaire", widget: "select", options: ["adhesion", "contact"] }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Afficher les coordonnées", name: "avec_coordonnees", widget: "boolean", required: false }
+                  - { label: "Note sous les coordonnées", name: "note_adhesion", widget: "text", required: false }
+      - name: adherer
+        label: "Adhérer"
+        file: content/pages/adherer.yml
+        format: yaml
+        fields:
+          - { label: "Chemin de la page", name: "chemin", widget: "string", hint: "Ne pas modifier : c’est l’adresse de la page." }
+          - { label: "Titre pour Google", name: "titre_seo", widget: "string" }
+          - { label: "Description pour Google", name: "description", widget: "text" }
+          - { label: "Masquer de Google", name: "noindex", widget: "boolean", required: false }
+          - label: "Blocs de la page"
+            name: "blocs"
+            widget: "list"
+            typeKey: "type"
+            hint: "Chaque page est une suite de blocs. Glissez-déposez pour réordonner, ou ajoutez un bloc."
+            types:
+              - label: "En-tête"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Variante", name: "variante", widget: "select", options: ["page", "accueil"], default: "page" }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Sous-titre", name: "sous_titre", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte (avec image facultative)"
+                name: "texte"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+                  - { label: "Côté de l’image", name: "image_cote", widget: "select", required: false, options: ["droite", "gauche"] }
+                  - { label: "Style de l’image", name: "image_style", widget: "select", required: false, options: ["arche", "logo"] }
+                  - { label: "Légende de l’image", name: "image_legende", widget: "string", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte long (mentions légales)"
+                name: "texte_long"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+              - label: "Cartes"
+                name: "cartes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Colonnes", name: "colonnes", widget: "select", required: false, options: [2, 3, 4], default: 3 }
+                  - { label: "Style", name: "style", widget: "select", required: false, options: ["simple", "numerote"] }
+                  - label: "Cartes"
+                    name: "cartes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                      - { label: "Pied de carte", name: "pied", widget: "string", required: false }
+                      - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+                      - { label: "Adresse du lien", name: "lien_url", widget: "string", required: false }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Étapes"
+                name: "etapes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - label: "Étapes"
+                    name: "etapes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                  - { label: "Note", name: "note", widget: "text", required: false }
+              - label: "Questions / accordéon"
+                name: "faq"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - label: "Questions"
+                    name: "questions"
+                    widget: "list"
+                    fields:
+                      - { label: "Étiquette", name: "etiquette", widget: "string", required: false }
+                      - { label: "Question", name: "question", widget: "string" }
+                      - { label: "Résumé", name: "resume", widget: "string", required: false }
+                      - { label: "Réponse", name: "reponse", widget: "markdown" }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Chiffres clés (liste : Chiffres, équipe, événements)"
+                name: "chiffres"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+              - label: "Grande citation"
+                name: "citation"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Citation", name: "texte", widget: "text" }
+                  - { label: "Auteur", name: "auteur", widget: "string", required: false }
+                  - { label: "Source", name: "source", widget: "string", required: false }
+                  - { label: "Texte qui suit", name: "suite", widget: "text", required: false }
+                  - label: "Bouton"
+                    name: "bouton"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+              - label: "Trois œuvres"
+                name: "triptyque"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    fields:
+                      - { label: "Image (adresse ou fichier)", name: "src", widget: "string" }
+                      - { label: "Texte alternatif", name: "alt", widget: "string" }
+                      - { label: "Légende", name: "legende", widget: "text", required: false }
+              - label: "Bandeau d’œuvre"
+                name: "bandeau_oeuvre"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif", name: "image_alt", widget: "string", required: false }
+                  - { label: "Légende", name: "legende", widget: "text", required: false }
+                  - { label: "Image à gauche", name: "inverse", widget: "boolean", required: false }
+              - label: "Derniers articles"
+                name: "blog_recents"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Nombre d’articles", name: "nombre", widget: "number", required: false, value_type: "int", min: 1, max: 6, default: 3 }
+                  - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+              - label: "Fondateurs"
+                name: "fondateurs"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Mode", name: "mode", widget: "select", required: false, options: ["mot", "presentations"] }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Organigramme (données : Équipe)"
+                name: "organigramme"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Partenaires (données : Partenaires)"
+                name: "partenaires"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Liste d’événements (données : Événements)"
+                name: "evenements_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Titre si aucun événement", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Introduction si aucun événement", name: "intro_vide", widget: "text", required: false }
+                  - { label: "Texte si aucun événement", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Liste de ressources (données : Ressources)"
+                name: "ressources_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Titre si vide", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Texte si vide", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Appel à l’action"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Texte", name: "texte", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Formulaire"
+                name: "formulaire"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Formulaire", name: "formulaire", widget: "select", options: ["adhesion", "contact"] }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Afficher les coordonnées", name: "avec_coordonnees", widget: "boolean", required: false }
+                  - { label: "Note sous les coordonnées", name: "note_adhesion", widget: "text", required: false }
+      - name: contact
+        label: "Contact"
+        file: content/pages/contact.yml
+        format: yaml
+        fields:
+          - { label: "Chemin de la page", name: "chemin", widget: "string", hint: "Ne pas modifier : c’est l’adresse de la page." }
+          - { label: "Titre pour Google", name: "titre_seo", widget: "string" }
+          - { label: "Description pour Google", name: "description", widget: "text" }
+          - { label: "Masquer de Google", name: "noindex", widget: "boolean", required: false }
+          - label: "Blocs de la page"
+            name: "blocs"
+            widget: "list"
+            typeKey: "type"
+            hint: "Chaque page est une suite de blocs. Glissez-déposez pour réordonner, ou ajoutez un bloc."
+            types:
+              - label: "En-tête"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Variante", name: "variante", widget: "select", options: ["page", "accueil"], default: "page" }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Sous-titre", name: "sous_titre", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte (avec image facultative)"
+                name: "texte"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+                  - { label: "Côté de l’image", name: "image_cote", widget: "select", required: false, options: ["droite", "gauche"] }
+                  - { label: "Style de l’image", name: "image_style", widget: "select", required: false, options: ["arche", "logo"] }
+                  - { label: "Légende de l’image", name: "image_legende", widget: "string", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte long (mentions légales)"
+                name: "texte_long"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+              - label: "Cartes"
+                name: "cartes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Colonnes", name: "colonnes", widget: "select", required: false, options: [2, 3, 4], default: 3 }
+                  - { label: "Style", name: "style", widget: "select", required: false, options: ["simple", "numerote"] }
+                  - label: "Cartes"
+                    name: "cartes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                      - { label: "Pied de carte", name: "pied", widget: "string", required: false }
+                      - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+                      - { label: "Adresse du lien", name: "lien_url", widget: "string", required: false }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Étapes"
+                name: "etapes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - label: "Étapes"
+                    name: "etapes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                  - { label: "Note", name: "note", widget: "text", required: false }
+              - label: "Questions / accordéon"
+                name: "faq"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - label: "Questions"
+                    name: "questions"
+                    widget: "list"
+                    fields:
+                      - { label: "Étiquette", name: "etiquette", widget: "string", required: false }
+                      - { label: "Question", name: "question", widget: "string" }
+                      - { label: "Résumé", name: "resume", widget: "string", required: false }
+                      - { label: "Réponse", name: "reponse", widget: "markdown" }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Chiffres clés (liste : Chiffres, équipe, événements)"
+                name: "chiffres"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+              - label: "Grande citation"
+                name: "citation"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Citation", name: "texte", widget: "text" }
+                  - { label: "Auteur", name: "auteur", widget: "string", required: false }
+                  - { label: "Source", name: "source", widget: "string", required: false }
+                  - { label: "Texte qui suit", name: "suite", widget: "text", required: false }
+                  - label: "Bouton"
+                    name: "bouton"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+              - label: "Trois œuvres"
+                name: "triptyque"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    fields:
+                      - { label: "Image (adresse ou fichier)", name: "src", widget: "string" }
+                      - { label: "Texte alternatif", name: "alt", widget: "string" }
+                      - { label: "Légende", name: "legende", widget: "text", required: false }
+              - label: "Bandeau d’œuvre"
+                name: "bandeau_oeuvre"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif", name: "image_alt", widget: "string", required: false }
+                  - { label: "Légende", name: "legende", widget: "text", required: false }
+                  - { label: "Image à gauche", name: "inverse", widget: "boolean", required: false }
+              - label: "Derniers articles"
+                name: "blog_recents"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Nombre d’articles", name: "nombre", widget: "number", required: false, value_type: "int", min: 1, max: 6, default: 3 }
+                  - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+              - label: "Fondateurs"
+                name: "fondateurs"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Mode", name: "mode", widget: "select", required: false, options: ["mot", "presentations"] }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Organigramme (données : Équipe)"
+                name: "organigramme"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Partenaires (données : Partenaires)"
+                name: "partenaires"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Liste d’événements (données : Événements)"
+                name: "evenements_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Titre si aucun événement", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Introduction si aucun événement", name: "intro_vide", widget: "text", required: false }
+                  - { label: "Texte si aucun événement", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Liste de ressources (données : Ressources)"
+                name: "ressources_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Titre si vide", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Texte si vide", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Appel à l’action"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Texte", name: "texte", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Formulaire"
+                name: "formulaire"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Formulaire", name: "formulaire", widget: "select", options: ["adhesion", "contact"] }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Afficher les coordonnées", name: "avec_coordonnees", widget: "boolean", required: false }
+                  - { label: "Note sous les coordonnées", name: "note_adhesion", widget: "text", required: false }
+      - name: merci
+        label: "Merci (après envoi)"
+        file: content/pages/merci.yml
+        format: yaml
+        fields:
+          - { label: "Chemin de la page", name: "chemin", widget: "string", hint: "Ne pas modifier : c’est l’adresse de la page." }
+          - { label: "Titre pour Google", name: "titre_seo", widget: "string" }
+          - { label: "Description pour Google", name: "description", widget: "text" }
+          - { label: "Masquer de Google", name: "noindex", widget: "boolean", required: false }
+          - label: "Blocs de la page"
+            name: "blocs"
+            widget: "list"
+            typeKey: "type"
+            hint: "Chaque page est une suite de blocs. Glissez-déposez pour réordonner, ou ajoutez un bloc."
+            types:
+              - label: "En-tête"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Variante", name: "variante", widget: "select", options: ["page", "accueil"], default: "page" }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Sous-titre", name: "sous_titre", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte (avec image facultative)"
+                name: "texte"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+                  - { label: "Côté de l’image", name: "image_cote", widget: "select", required: false, options: ["droite", "gauche"] }
+                  - { label: "Style de l’image", name: "image_style", widget: "select", required: false, options: ["arche", "logo"] }
+                  - { label: "Légende de l’image", name: "image_legende", widget: "string", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte long (mentions légales)"
+                name: "texte_long"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+              - label: "Cartes"
+                name: "cartes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Colonnes", name: "colonnes", widget: "select", required: false, options: [2, 3, 4], default: 3 }
+                  - { label: "Style", name: "style", widget: "select", required: false, options: ["simple", "numerote"] }
+                  - label: "Cartes"
+                    name: "cartes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                      - { label: "Pied de carte", name: "pied", widget: "string", required: false }
+                      - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+                      - { label: "Adresse du lien", name: "lien_url", widget: "string", required: false }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Étapes"
+                name: "etapes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - label: "Étapes"
+                    name: "etapes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                  - { label: "Note", name: "note", widget: "text", required: false }
+              - label: "Questions / accordéon"
+                name: "faq"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - label: "Questions"
+                    name: "questions"
+                    widget: "list"
+                    fields:
+                      - { label: "Étiquette", name: "etiquette", widget: "string", required: false }
+                      - { label: "Question", name: "question", widget: "string" }
+                      - { label: "Résumé", name: "resume", widget: "string", required: false }
+                      - { label: "Réponse", name: "reponse", widget: "markdown" }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Chiffres clés (liste : Chiffres, équipe, événements)"
+                name: "chiffres"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+              - label: "Grande citation"
+                name: "citation"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Citation", name: "texte", widget: "text" }
+                  - { label: "Auteur", name: "auteur", widget: "string", required: false }
+                  - { label: "Source", name: "source", widget: "string", required: false }
+                  - { label: "Texte qui suit", name: "suite", widget: "text", required: false }
+                  - label: "Bouton"
+                    name: "bouton"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+              - label: "Trois œuvres"
+                name: "triptyque"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    fields:
+                      - { label: "Image (adresse ou fichier)", name: "src", widget: "string" }
+                      - { label: "Texte alternatif", name: "alt", widget: "string" }
+                      - { label: "Légende", name: "legende", widget: "text", required: false }
+              - label: "Bandeau d’œuvre"
+                name: "bandeau_oeuvre"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif", name: "image_alt", widget: "string", required: false }
+                  - { label: "Légende", name: "legende", widget: "text", required: false }
+                  - { label: "Image à gauche", name: "inverse", widget: "boolean", required: false }
+              - label: "Derniers articles"
+                name: "blog_recents"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Nombre d’articles", name: "nombre", widget: "number", required: false, value_type: "int", min: 1, max: 6, default: 3 }
+                  - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+              - label: "Fondateurs"
+                name: "fondateurs"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Mode", name: "mode", widget: "select", required: false, options: ["mot", "presentations"] }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Organigramme (données : Équipe)"
+                name: "organigramme"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Partenaires (données : Partenaires)"
+                name: "partenaires"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Liste d’événements (données : Événements)"
+                name: "evenements_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Titre si aucun événement", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Introduction si aucun événement", name: "intro_vide", widget: "text", required: false }
+                  - { label: "Texte si aucun événement", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Liste de ressources (données : Ressources)"
+                name: "ressources_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Titre si vide", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Texte si vide", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Appel à l’action"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Texte", name: "texte", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Formulaire"
+                name: "formulaire"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Formulaire", name: "formulaire", widget: "select", options: ["adhesion", "contact"] }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Afficher les coordonnées", name: "avec_coordonnees", widget: "boolean", required: false }
+                  - { label: "Note sous les coordonnées", name: "note_adhesion", widget: "text", required: false }
+      - name: erreur_404
+        label: "Page introuvable"
+        file: content/pages/404.yml
+        format: yaml
+        fields:
+          - { label: "Chemin de la page", name: "chemin", widget: "string", hint: "Ne pas modifier : c’est l’adresse de la page." }
+          - { label: "Titre pour Google", name: "titre_seo", widget: "string" }
+          - { label: "Description pour Google", name: "description", widget: "text" }
+          - { label: "Masquer de Google", name: "noindex", widget: "boolean", required: false }
+          - label: "Blocs de la page"
+            name: "blocs"
+            widget: "list"
+            typeKey: "type"
+            hint: "Chaque page est une suite de blocs. Glissez-déposez pour réordonner, ou ajoutez un bloc."
+            types:
+              - label: "En-tête"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Variante", name: "variante", widget: "select", options: ["page", "accueil"], default: "page" }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Sous-titre", name: "sous_titre", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte (avec image facultative)"
+                name: "texte"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+                  - { label: "Côté de l’image", name: "image_cote", widget: "select", required: false, options: ["droite", "gauche"] }
+                  - { label: "Style de l’image", name: "image_style", widget: "select", required: false, options: ["arche", "logo"] }
+                  - { label: "Légende de l’image", name: "image_legende", widget: "string", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Texte long (mentions légales)"
+                name: "texte_long"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown" }
+              - label: "Cartes"
+                name: "cartes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Colonnes", name: "colonnes", widget: "select", required: false, options: [2, 3, 4], default: 3 }
+                  - { label: "Style", name: "style", widget: "select", required: false, options: ["simple", "numerote"] }
+                  - label: "Cartes"
+                    name: "cartes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                      - { label: "Pied de carte", name: "pied", widget: "string", required: false }
+                      - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+                      - { label: "Adresse du lien", name: "lien_url", widget: "string", required: false }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Étapes"
+                name: "etapes"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - label: "Étapes"
+                    name: "etapes"
+                    widget: "list"
+                    fields:
+                      - { label: "Titre", name: "titre", widget: "string" }
+                      - { label: "Texte", name: "texte", widget: "text" }
+                  - { label: "Note", name: "note", widget: "text", required: false }
+              - label: "Questions / accordéon"
+                name: "faq"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - label: "Questions"
+                    name: "questions"
+                    widget: "list"
+                    fields:
+                      - { label: "Étiquette", name: "etiquette", widget: "string", required: false }
+                      - { label: "Question", name: "question", widget: "string" }
+                      - { label: "Résumé", name: "resume", widget: "string", required: false }
+                      - { label: "Réponse", name: "reponse", widget: "markdown" }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Chiffres clés (liste : Chiffres, équipe, événements)"
+                name: "chiffres"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+              - label: "Grande citation"
+                name: "citation"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Citation", name: "texte", widget: "text" }
+                  - { label: "Auteur", name: "auteur", widget: "string", required: false }
+                  - { label: "Source", name: "source", widget: "string", required: false }
+                  - { label: "Texte qui suit", name: "suite", widget: "text", required: false }
+                  - label: "Bouton"
+                    name: "bouton"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+              - label: "Trois œuvres"
+                name: "triptyque"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - label: "Images"
+                    name: "images"
+                    widget: "list"
+                    fields:
+                      - { label: "Image (adresse ou fichier)", name: "src", widget: "string" }
+                      - { label: "Texte alternatif", name: "alt", widget: "string" }
+                      - { label: "Légende", name: "legende", widget: "text", required: false }
+              - label: "Bandeau d’œuvre"
+                name: "bandeau_oeuvre"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Texte", name: "texte", widget: "markdown", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Texte alternatif", name: "image_alt", widget: "string", required: false }
+                  - { label: "Légende", name: "legende", widget: "text", required: false }
+                  - { label: "Image à gauche", name: "inverse", widget: "boolean", required: false }
+              - label: "Derniers articles"
+                name: "blog_recents"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Nombre d’articles", name: "nombre", widget: "number", required: false, value_type: "int", min: 1, max: 6, default: 3 }
+                  - { label: "Texte du lien", name: "lien_label", widget: "string", required: false }
+              - label: "Fondateurs"
+                name: "fondateurs"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Mode", name: "mode", widget: "select", required: false, options: ["mot", "presentations"] }
+                  - { label: "Texte du lien du bas", name: "lien_label", widget: "string", required: false }
+                  - { label: "Adresse du lien du bas", name: "lien_url", widget: "string", required: false }
+              - label: "Organigramme (données : Équipe)"
+                name: "organigramme"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Partenaires (données : Partenaires)"
+                name: "partenaires"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+              - label: "Liste d’événements (données : Événements)"
+                name: "evenements_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Titre si aucun événement", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Introduction si aucun événement", name: "intro_vide", widget: "text", required: false }
+                  - { label: "Texte si aucun événement", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Liste de ressources (données : Ressources)"
+                name: "ressources_liste"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Titre si vide", name: "titre_vide", widget: "string", required: false }
+                  - { label: "Texte si vide", name: "texte_vide", widget: "markdown", required: false }
+              - label: "Appel à l’action"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Titre", name: "titre", widget: "string" }
+                  - { label: "Texte", name: "texte", widget: "text", required: false }
+                  - label: "Boutons"
+                    name: "boutons"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Libellé", name: "label", widget: "string" }
+                      - { label: "Adresse", name: "url", widget: "string" }
+                      - { label: "Style", name: "style", widget: "select", options: ["principal", "secondaire", "lien"], default: "principal" }
+              - label: "Formulaire"
+                name: "formulaire"
+                widget: "object"
+                fields:
+                  - { label: "Ancre (id)", name: "id", widget: "string", required: false, hint: "Identifiant pour les liens internes, sans espace ni accent." }
+                  - { label: "Fond", name: "fond", widget: "select", options: ["blanc", "beige", "sombre", "degrade"], default: "blanc", required: false }
+                  - { label: "Étiquette", name: "eyebrow", widget: "string", required: false }
+                  - { label: "Titre", name: "titre", widget: "string", required: false }
+                  - { label: "Formulaire", name: "formulaire", widget: "select", options: ["adhesion", "contact"] }
+                  - { label: "Introduction", name: "intro", widget: "text", required: false }
+                  - { label: "Afficher les coordonnées", name: "avec_coordonnees", widget: "boolean", required: false }
+                  - { label: "Note sous les coordonnées", name: "note_adhesion", widget: "text", required: false }
+
+  - name: mentions
+    label: Mentions légales
+    description: "Mentions légales et politique de confidentialité."
+    icon: gavel
+    files:
+      - name: mentions_legales
+        label: Mentions légales et confidentialité
+        file: content/pages/mentions-legales.md
+        format: frontmatter
+        fields:
+          - { label: "Chemin", name: "chemin", widget: "string" }
+          - { label: "Titre pour Google", name: "titre_seo", widget: "string" }
+          - { label: "Description pour Google", name: "description", widget: "text" }
+          - { label: "Titre de la page", name: "titre", widget: "string" }
+          - { label: "Sous-titre", name: "sous_titre", widget: "text", required: false }
+          - { label: "Texte", name: "body", widget: "markdown" }

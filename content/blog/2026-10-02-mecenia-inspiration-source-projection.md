@@ -55,7 +55,7 @@ Mecenia n'est ni un lobby économique ni un syndicat culturel. C'est un lieu de 
 - **L'intégrité** : gestion bénévole et désintéressée, déclaration d'intérêts annuelle des administrateurs, séparation stricte entre présidence et trésorerie.
 - **Le temps long** : Mecenia est pensée comme une association aujourd'hui, avec à terme une société dédiée aux activités facturables, puis l'étude d'une fondation.
 
-Vous pouvez retrouver l'ensemble de nos six valeurs sur la page [Nos valeurs](/nos-valeurs/).
+Vous pouvez retrouver l'ensemble de nos six valeurs sur la page [Nos valeurs](/a-propos/#valeurs).
 
 ## Ce que nous construisons
 
@@ -67,7 +67,7 @@ D'ici là, nous lançons des formats accessibles :
 - un cycle de colloques thématiques ;
 - une première note de position de 2 à 4 pages sur le financement de la culture en France.
 
-Le détail figure sur la page [Nos projets](/nos-projets/).
+Le détail figure sur la page [Nos projets](/a-propos/#projets).
 
 ## Pourquoi « Mecenia » ?
 

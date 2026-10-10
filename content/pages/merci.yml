@@ -1,0 +1,12 @@
+chemin: "/merci/"
+titre_seo: "Merci — Message envoyé | Mecenia"
+description: "Votre message a bien été envoyé à Mecenia."
+noindex: true
+blocs:
+  - type: hero
+    variante: page
+    titre: "Merci !"
+    sous_titre: "Votre message a bien été envoyé à Mecenia. Nous vous répondons très vite."
+    boutons:
+      - { label: "Retour à l’accueil", url: "/", style: "principal" }
+      - { label: "Découvrir l’association", url: "/a-propos/", style: "secondaire" }
